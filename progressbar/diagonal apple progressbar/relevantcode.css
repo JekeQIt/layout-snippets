@@ -1,0 +1,49 @@
+@-webkit-keyframes gradient_bkgd {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 50px;
+  }
+}
+@-moz-keyframes gradient_bkgd {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 50px;
+  }
+}
+@keyframes gradient_bkgd {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 50px;
+  }
+}
+/* ppprogressbar */
+.progressbar {
+  background: #fff;
+  border: 5px solid #000;
+}
+.progressbar .progress,
+.progressbar .progress.updated {
+  background-color: black;
+
+  background-image: linear-gradient(
+    130deg,
+    blue 19px,
+    orange 20px,
+    orange 38px,
+    blue 39px
+  );
+
+  background-size: 50px;
+}
+
+.progressbar .progress.updated {
+  -webkit-animation: gradient_bkgd 1s linear infinite !important;
+  -moz-animation: gradient_bkgd 1s linear infinite !important;
+  animation: gradient_bkgd 1s linear infinite !important;
+}

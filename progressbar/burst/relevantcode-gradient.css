@@ -1,0 +1,57 @@
+@-webkit-keyframes gradient_bkgd {
+  0% {
+    background-position: 50% 50%, 0;
+  }
+  100% {
+    background-position: -100% 50%, 0;
+  }
+}
+@-moz-keyframes gradient_bkgd {
+  0% {
+    background-position: 50% 50%, 0;
+  }
+  100% {
+    background-position: -100% 50%, 0;
+  }
+}
+@keyframes gradient_bkgd {
+  0% {
+    background-position: 50% 50%, 0;
+  }
+  100% {
+    background-position: -100% 50%, 0;
+  }
+}
+/* progressbar ppp  */
+.progressbar {
+  background: #4d4d4d;
+  border: 5px solid #000;
+  border-radius: 15px;
+}
+.progressbar .progress,
+.progressbar .progress.updated {
+  background-color: #3f87ff;
+  background-image: none;
+  border-radius: 15px;
+  background-size: 200% 100%;
+  background-image: linear-gradient(90deg, #3f87ff 0%, #764bff 50%, #764bff 100%);
+}
+
+.progressbar .progress.updated {
+  background-image: linear-gradient(
+      90deg,
+      rgba(63, 133, 255, 0) 0%,
+      #41bcff 20%,
+      rgba(63, 133, 255, 0) 23%
+    ),
+    linear-gradient(90deg, #3f87ff 0%, #764bff 50%, #764bff 100%);
+  background-size: 200% 100%, cover;
+  -webkit-animation: gradient_bkgd 2s ease-out 3 forwards;
+  -moz-animation: gradient_bkgd 2s ease-out 3 forwards;
+  animation: gradient_bkgd 2s ease-out 3 forwards;
+}
+.progressbar .progress .runner,
+.progressbar .progress .runner.paused {
+  background-repeat: no-repeat;
+  display: none;
+}

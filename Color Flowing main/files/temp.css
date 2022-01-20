@@ -1,0 +1,85 @@
+﻿/* temp css - beginning */
+/* Do not upload!!! */
+
+/* Only for testing - show or hide the sections which are otherwise set on the custom layout page */
+
+/* hide iframes - beginning */
+
+#toppanel {
+    /*display: none;*/
+}
+
+#leftpanel {
+    display: none;
+}
+
+#middlepanel {
+    display: none;
+}
+
+#rightpanel {
+    display: none;
+}
+
+#sidebar {
+    display: none;
+}
+
+#bottompanel {
+    display: none;
+}
+
+#language-selector {
+    display: none;
+}
+
+/* hide iframes - end */
+
+.logo {
+    display: none;
+}
+
+    .logo img {
+        /*content: url(default_images/queue-it_logo.png);*/
+        display: none;
+    }
+
+.reminder-form{
+    /*display: none;*/
+}
+#MainPart_lbQueueNumberText,
+#MainPart_lbQueueNumber,
+#MainPart_lbUsersInLineAheadOfYouText,
+#MainPart_lbUsersInLineAheadOfYou,
+#MainPart_lbExpectedServiceTimeText,
+#MainPart_lbExpectedServiceTime,
+#MainPart_lbExpectedServiceTimeTimeZonePostfix,
+#MainPart_lbWhichIsInText,
+#MainPart_lbWhichIsIn
+  {
+  /*display: none;*/
+}
+
+#MainPart_lbUsersInLineAheadOfYouLineBreak,
+#MainPart_lbExpectedServiceTimeLineBreak,
+#MainPart_lbQueueNumberLineBreak{
+  /*display: none;*/
+}
+
+#MainPart_pProgressbarBox_Holder_Larger br{
+  /*display: none;*/
+}
+
+/* message */
+.time-box{
+  /* display: none; */
+}
+#MainPart_divTimeBox_Holder_Frame p:nth-child(2){
+  display: none;
+}
+
+/* email */
+#MainPart_frmReminder2{
+  /* display: none; */
+}
+/* temp css - end */

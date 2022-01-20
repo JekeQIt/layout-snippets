@@ -1,0 +1,448 @@
+﻿/*@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');*/
+
+body {
+  background-color: #fff;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+
+  /*
+    font-family: 'Open Sans', sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
+    background-image: url(./background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+
+    */
+}
+
+/* panels */
+
+#toppanel {
+  height: 100px;
+  width: 100%;
+}
+
+#toppanel_iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* hide default background images - beginning */
+#main .t,
+#main .b {
+  display: none;
+}
+
+#main .c,
+.warning-box,
+.processbar-box,
+.processbar-box .holder {
+  background-image: none;
+  color: inherit;
+}
+
+#content {
+  color: inherit;
+  font-weight: 400;
+}
+
+/* hide empty containers - beginning */
+
+.after .warning-box,
+.after .processbar-box,
+.error .processbar-box,
+.exit .processbar-box {
+  display: none;
+}
+
+/* hide empty containers - end */
+
+#wrapper {
+}
+/* mainbox */
+#main {
+  width: auto;
+  margin: 0 auto;
+  padding: 15px 0;
+  max-width: 514px;
+}
+#main .c {
+  width: auto;
+  padding: 0 15px;
+}
+#main-top {
+  padding: 0 15px;
+}
+
+#language-selector {
+  /*dropdown*/
+  padding-top: 4px;
+}
+/*you can close this page without losing your place in line*/
+#main-top-message {
+  text-align: center;
+  padding-top: 3px;
+}
+
+.item {
+  padding-top: 3px;
+}
+
+.logo {
+}
+#header {
+  padding: 5px 0px 10px 0px;
+  font-weight: 400;
+  color: inherit;
+  border: none;
+}
+
+#header h2 {
+  font-weight: 400;
+  margin: 15px 0;
+  line-height: normal;
+  text-align: center;
+}
+
+a {
+  color: inherit;
+}
+#hlThisIsQueueIt:hover {
+}
+#detailExpander:hover {
+}
+.warning-box {
+  min-height: 0;
+  border: none;
+  padding: 20px 0;
+  font-weight: 400;
+}
+@-webkit-keyframes gradient_bkgd {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 15px;
+  }
+}
+@-moz-keyframes gradient_bkgd {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 15px;
+  }
+}
+@keyframes gradient_bkgd {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 15px;
+  }
+}
+/* ppprogress */
+.progressbar {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  height: 200px;
+  background-image: url(./ShoeStroke.png);
+  background-repeat: no-repeat;
+  background-size: auto 200px;
+  background-position: 10px;
+}
+.progressbar .progress,
+.progressbar .progress.updated {
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url(./ShoeImg2.png);
+  background-repeat: no-repeat;
+  background-size: auto 200px;
+  background-position: 10px;
+}
+
+.progressbar .progress.updated {
+  /* -webkit-animation: gradient_bkgd 1s linear infinite!important;
+        -moz-animation: gradient_bkgd 1s linear infinite!important;
+        animation: gradient_bkgd 1s linear infinite!important; */
+}
+.progressbar .progress .runner {
+  background-image: none;
+}
+
+.progressbar .progress .runner.paused {
+  background-image: none;
+}
+
+#MainPart_lbManualUpdateWarning {
+  margin: 15px 0;
+}
+
+.alert {
+  padding: 8px 15px;
+}
+
+.alert-error {
+  border-color: #ff6600;
+  color: #fe3e3c;
+  color: #b94a48;
+}
+
+.alert-success {
+  border-color: #468847;
+}
+
+.processbar-box {
+  line-height: normal;
+  font-weight: 400;
+  padding: 0 0 0px 0;
+  margin: 0;
+}
+
+.processbar-box p {
+  margin: 0;
+}
+
+.processbar-box .holder {
+  min-height: 0;
+  padding: 10px 0 10px 0;
+  border: none;
+}
+
+.processbar-box .holder .larger {
+  min-height: 0;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+#MainPart_lbQueueNumber,
+#MainPart_lbUsersInLineAheadOfYou,
+#MainPart_lbExpectedServiceTime,
+#MainPart_lbWhichIsIn,
+#MainPart_lbExpectedServiceTimeTimeZonePostfix {
+  font-weight: 700;
+}
+#MainPart_FormEmailInput {
+}
+/*mmmessage*/
+.time-box {
+  margin: 0 0 0px 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: inherit;
+  text-align: center;
+}
+
+.time-box .frame {
+  min-height: 0;
+  padding: 10px 15px 15px;
+}
+
+.time-box h2 {
+  font-weight: 400;
+  color: inherit;
+  font-size: 10px;
+}
+.time-box p {
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+#MainPart_ulProgressbarBox_Holder_Processbar {
+  /*Blinking icon*/
+}
+.processbar {
+  width: 24px;
+}
+.processbar li {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  /* border: 1px solid #000; */
+  box-shadow: 0px 0px 3px #000;
+  margin: 3px;
+}
+.processbar span {
+  background-image: linear-gradient(to bottom, #fff 21px, green 21px);
+}
+
+#MainPart_divProgressbarBox_Holder_LastUpdateTime {
+  /*status last updated*/
+  font-size: 12px;
+}
+
+#MainPart_frmReminder2 {
+  /* email,button,label */
+}
+
+/*iiinput*/
+.reminder-form {
+  margin: 0;
+  min-height: 0;
+}
+
+.reminder-form form {
+  font-size: 0;
+}
+
+.reminder-form h2 {
+  font-weight: 400;
+  color: inherit;
+  margin: 8px 0;
+}
+
+.reminder-form .item-input {
+  padding: 3px 15px 0px;
+  font-size: 15px;
+  background: #fff;
+  border: 1px solid #adaeb0;
+  color: #4d4d4d;
+  font-family: inherit;
+  font-weight: 400;
+  box-sizing: border-box;
+  line-height: normal;
+  width: 294px;
+  min-width: 250px;
+  vertical-align: top;
+  margin: 0 5px 5px 0;
+  height: 37px;
+}
+
+.reminder-form .item-input:focus {
+  outline: none;
+  font-weight: 400;
+}
+.reminder-form .row {
+  margin: 0;
+}
+
+/*button*/
+.btn {
+  background-color: #3daf2c;
+  color: #fff;
+  width: 184px;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+  white-space: nowrap;
+  padding: 8px 15px 10px 15px;
+  font-size: 15px;
+  font-family: inherit;
+  line-height: normal;
+  border-radius: 0;
+  box-sizing: border-box;
+  /*font-weight: bold;*/
+  height: 37px;
+}
+.btn .r {
+  display: none;
+}
+body.error .btn,
+body.exit .btn {
+  width: auto;
+}
+.btn:hover {
+  background: none;
+  background-color: #3daf2c;
+  box-shadow: none;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  top: 0;
+}
+.btn.btn-disabled {
+  padding: 8px 15px 10px 15px;
+}
+
+/*leave the line */
+.block {
+  padding: 5px 0 0 0;
+}
+
+.block a {
+  color: inherit;
+}
+.block p {
+  margin: 0;
+}
+#footer {
+  width: auto;
+  color: inherit;
+  padding: 10px 0;
+  font-weight: 400;
+}
+
+#footer-direct-link {
+  padding: 0;
+}
+
+#footer a {
+  color: inherit;
+}
+
+#footer .by {
+  padding: 0;
+  background-size: 110px 12px;
+}
+/* elements that main .c padding affects */
+#header,
+.warning-box,
+#MainPart_lbManualUpdateWarning,
+#MainPart_divProgressbarBox,
+#MainPart_divBlock,
+#MainPart_divTimeBox,
+#MainPart_frmReminder2,
+#MainPart_divExitLine,
+#footer {
+}
+/* change font weight for elements */
+#content,
+#header,
+#header h2,
+.warning-box,
+.processbar-box,
+.time-box h2,
+.reminder-form h2,
+.reminder-form .item-input,
+.reminder-form .item-input:focus,
+#footer {
+}
+#MainPart_divExitLine {
+  display: none;
+}
+@media screen and (max-width: 540px) {
+  .reminder-form .item-input {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: none;
+  }
+  #main-top-message {
+    display: none;
+  }
+  #footer {
+    margin: 20px;
+  }
+
+  #footer .by {
+    display: block;
+    margin: 5px auto 0;
+    float: none;
+  }
+  #footer-direct-link {
+    text-align: center;
+    float: none;
+  }
+  #language-selector {
+    text-align: center;
+    padding: 0 0 15px 0;
+  }
+}

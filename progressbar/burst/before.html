@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!-- <meta id="queue-it_log" data-userid="560ba136-9b7d-4fb2-ad6c-113be4725613" data-proxyurl="https://logging.queue-it.net/logging/event"> -->
+    <title>Queue-it</title>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="files/default_images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="files/default_images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" href="files/default_images/queue-it_appletouch.png">
+    <link rel="icon" type="image/png" href="files/default_images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="files/default_images/favicon-16x16.png" sizes="16x16">
+    <link rel="shortcut icon" href="files/default_images/queue-it.ico">
+    <meta name="application-name" content=" ">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="files/default_images/mstile-144x144.png">
+    <link rel="stylesheet" href="files/default_style.css" type="text/css">
+    <!--[if lte IE 7]><link rel='stylesheet' href='files/ie.css' type='text/css' /><![endif]-->
+    <link rel="stylesheet" href="files/temp.css" type="text/css">
+    <link rel="stylesheet" href="files/style.css" type="text/css">
+    <link rel="stylesheet" href="files/previewstate.css" type="text/css">
+    <script>
+        (function () {
+            if (!window.console)
+                window.console = {};
+
+            if (!window.console.log)
+                window.console.log = function () {};
+
+            if (!window.console.debug)
+                window.console.debug = function () {};
+        })();
+    </script>
+    <script>
+        function getScriptBasePath() {
+            return '/Script/combined/';
+        }
+    </script>
+    <script type="text/javascript" src="files/common.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="' + getScriptBasePath() + 'common.js' + '"><\/script>')
+    </script>
+    <script type="text/javascript" src="files/queueit.js"></script>
+    <script>
+        window.QueueIt || document.write('<script src="' + getScriptBasePath() + 'queueit.js' + '"><\/script>');
+
+        if (window.soundManager)
+            window.soundManager.debugMode = false;
+    </script>
+    <script type="text/javascript" id="queueit-perftiming-script" data-queueit-c="frontenddevelopers"
+        src="files/statistics-1.0.317.min.js" data-queueit-host="" data-queueit-tag-eventid="testevent"
+        data-queueit-tag-queueid="00000000-0000-0000-0000-000000000001" data-queueit-tag-queueit="queue"
+        data-queueit-disableajax="true">
+    </script>
+
+    <script type="text/javascript">
+        window.queueViewModel = new QueueIt.Queue.InQueueView({
+            customerId: 'frontenddevelopers',
+            eventId: 'testevent',
+            requireKey: false,
+            requireKeyToBeUnique: false,
+            isQueueitEnqueueTokenRequired: false,
+            queueId: '00000000-0000-0000-0000-000000000001',
+            targetUrl: decodeURIComponent(''),
+            customUrlParams: '',
+            culture: 'en-US',
+            layout: 'LayoutName',
+            layoutVersion: '1',
+            messageFeed: window.messageFeed,
+            emailAddress: '',
+            sdkVersion: '',
+            isBeforeOrIdle: true,
+            isIdle: false,
+            inqueueInfo: {
+                "isBeforeOrIdle": true,
+                "pageId": "before",
+                "pageClass": "before prequeue",
+                "QueueState": 1,
+                "ticket": {
+                    "queuePaused": false,
+                    "lastUpdatedUTC": "\/Date(1568981947177)\/",
+                    "queueNumber": "8445",
+                    "whichIsIn": "4 minutes",
+                    "expectedServiceTime": "12:24 PM",
+                    "usersInLineAheadOfYou": "1758",
+                    "lastUpdated": "12:19:07 PM",
+                    "progress": 0.75,
+                    "timeZonePostfix": "",
+                    "expectedServiceTimeUTC": "\/Date(1568982247177)\/",
+                    "customUrlParams": null,
+                    "sdkVersion": null,
+                    "windowStartTimeUTC": null,
+                    "windowStartTime": "",
+                    "secondsToStart": 480,
+                    "usersInQueue": 0,
+                    "eventStartTimeFormatted": "12:00 AM (6/5/19)",
+                    "eventStartTimeUTC": "\/Date(1559692800000)\/"
+                },
+                "message": {
+                    "header": "Message last updated:",
+                    "text": "This is a test message.",
+                    "timestamp": null,
+                    "id": null,
+                    "timestampFormatted": "12:19 PM",
+                    "timeZonePostfix": "",
+                    "timestampUTC": null
+                },
+                "texts": {
+                    "countdownFinishedText": "You will now be redirected to the line.",
+                    "header": "[Event Name]",
+                    "body": "[Event Name] has not yet begun. When My Layout Test Event begins, you will be assigned a random place in line (alongside everyone else who also arrives before My Layout Test Event begins).",
+                    "disclaimerText": null,
+                    "styleSheets": "<link rel='stylesheet' href='//assets.queue-it.net/static/QueueFront/css/combined/default_style.css' type='text/css' /><!--[if lte IE 7]><link rel='stylesheet' href='files/ie.js' type='text/css' /><![endif]--><link rel='stylesheet' href='files/temp.css' type='text/css' /><link rel='stylesheet' href='files/style.css' type='text/css' />",
+                    "javascripts": ["files/script.js"],
+                    "logoSrc": "files/default_images/queue-it_logo.png",
+                    "toppanelIFrameSrc": "",
+                    "sidepanelIFrameSrc": "",
+                    "leftpanelIFrameSrc": "",
+                    "rightpanelIFrameSrc": "",
+                    "middlepanelIFrameSrc": "",
+                    "bottompanelIFrameSrc": "",
+                    "faviconUrl": "//queueit-company.s3.amazonaws.com/static/QueueFront/static/Content/Images/queue-it.ico",
+                    "languages": [{
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "العربية (قطر)",
+                        "Value": "ar-QA"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Azərbaycan­ılı (Azərbaycanca)",
+                        "Value": "az-Latn-AZ"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Català (Català)",
+                        "Value": "ca-ES"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "中文 ( 香港特別行政區)",
+                        "Value": "zh-HK"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "中文(中华人民共和国)",
+                        "Value": "zh-CN"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "中文(台灣)",
+                        "Value": "zh-TW"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Čeština (Česká Republika)",
+                        "Value": "cs-CZ"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Dansk (Danmark)",
+                        "Value": "da-DK"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Nederlands (Nederland)",
+                        "Value": "nl-NL"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "English (United Kingdom)",
+                        "Value": "en-GB"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": true,
+                        "Text": "English (United States)",
+                        "Value": "en-US"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "føroyskt (Føroyar)",
+                        "Value": "fo-FO"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "suomi (Suomi)",
+                        "Value": "fi-FI"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Français (Canada)",
+                        "Value": "fr-CA"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Français (France)",
+                        "Value": "fr-FR"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "ქართული (საქართველო)",
+                        "Value": "ka-GE"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Deutsch (Deutschland)",
+                        "Value": "de-DE"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "ελληνικά (Ελλάδα)",
+                        "Value": "el-GR"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "עברית (ישראל)",
+                        "Value": "he-IL"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "íslenska (Ísland)",
+                        "Value": "is-IS"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Indonesian (Indonesia)",
+                        "Value": "id-ID"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "italiano (Italia)",
+                        "Value": "it-IT"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "日本語 (日本)",
+                        "Value": "ja-JP"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "한국어 (대한민국)",
+                        "Value": "ko-KR"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Norsk, bokmål (Norge)",
+                        "Value": "nb-NO"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "polski (Polska)",
+                        "Value": "pl-PL"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Português (Brasil)",
+                        "Value": "pt-BR"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Português (Portugal)",
+                        "Value": "pt-PT"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "română (România)",
+                        "Value": "ro-RO"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "русский (Россия)",
+                        "Value": "ru-RU"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Slovečina (Slovensko)",
+                        "Value": "sk-SK"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Español (Chile)",
+                        "Value": "es-CL"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Español (España)",
+                        "Value": "es-ES"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Svenska (Sverige)",
+                        "Value": "sv-SE"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "ไทย (ประเทศไทย)",
+                        "Value": "th-TH"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Türkçe (Türkiye)",
+                        "Value": "tr-TR"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Українська (українська)",
+                        "Value": "uk-UA"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Tiếng Việt (Việt Nam)",
+                        "Value": "vi-VN"
+                    }, {
+                        "Disabled": false,
+                        "Group": null,
+                        "Selected": false,
+                        "Text": "Cymraeg (y Deyrnas Unedig)",
+                        "Value": "cy-GB"
+                    }],
+                    "whatIsThisUrl": "https://queue-it.com/what-is-this/?preview=true&customerId=frontenddevelopers&hostUrl=localhost",
+                    "queueItLogoPointsToUrl": "https://queue-it.com/what-is-this/?customerId=frontenddevelopers&eventId=localhost&queueId=00000000-0000-0000-0000-000000000001&language=en-US&hostUrl=localhost",
+                    "welcomeSoundUrls": null,
+                    "AppleTouchIconUrl": "/img/queue-it_appletouch.png",
+                    "DocumentTitle": "Queue-it",
+                    "tags": []
+                },
+                "layout": {
+                    "languageSelectorVisible": true,
+                    "logoVisible": true,
+                    "dynamicMessageVisible": true,
+                    "reminderEmailVisible": true,
+                    "expectedServiceTimeVisible": true,
+                    "queueNumberVisible": true,
+                    "usersInLineAheadOfYouVisible": true,
+                    "whichIsInVisible": true,
+                    "sidePanelVisible": true,
+                    "topPanelVisible": true,
+                    "leftPanelVisible": true,
+                    "rightPanelVisible": true,
+                    "middlePanelVisible": true,
+                    "bottomPanelVisible": true,
+                    "usersInQueueVisible": false,
+                    "queueIsPausedVisible": false,
+                    "reminderVisible": true,
+                    "servicedSoonVisible": false,
+                    "firstInLineVisible": false,
+                    "layoutVersion": 0,
+                    "queueNumberLoadingVisible": false,
+                    "progressVisible": true,
+                    "isRedirectPromptDialogEnabled": false,
+                    "isQueueitFooterHidden": false
+                },
+                "forecastStatus": "InLine",
+                "layoutName": "LayoutName",
+                "layoutVersion": 1,
+                "updateInterval": 30000
+            },
+            captchaVerifyEndpoint: 'https://eu-west-1-verifycaptcha-api.queue-it.net/captchaverify',
+            captchaPublicKey: '6Lc9sScUAAAAALTk003eM2ytnYGGKQaQa7usPKwo',
+            showCaptcha: false,
+            captchaInvisiblePublicKey: '6LePTyoUAAAAADPttQg1At44EFCygqxZYzgleaKp',
+            captchaType: 0,
+            isPreview: true
+        });
+
+        window.queueViewModel.init();
+        window.PreviewQueueStateVM = new QueueIt.Queue.PreviewQueueStateVM(window.queueViewModel, window.queueViewModel
+            .options.inqueueInfo);
+
+        $(document).ready(function () {
+            ko.applyBindings(window.queueViewModel);
+            window.queueViewModel.onReady();
+            // clean binding of PreviewQueueStatesDiv and bind it to PreviewQueueState
+            ko.cleanNode($("#PreviewQueueStatesDiv")[0]);
+            ko.applyBindings(PreviewQueueStateVM, $("#PreviewQueueStatesDiv")[0]);
+        });
+    </script>
+    <script type="text/javascript" src="files/test.js"></script>
+    <script type="text/javascript" src="files/script.js"></script>
+    <script type="text/javascript" src="files/iframeResizer.min.js"></script>
+    <style>
+        .before .queueElement,
+        .queue .beforeElement {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="files/jqueryui.js"></script>
+    <script type="text/javascript" src="files/iframeResizer.min.js"></script>
+    <style>
+        #PreviewQueueStatesDiv {
+            width: 300px;
+            max-width: 90%;
+            position: fixed;
+            border-radius: 2px;
+            background-color: white;
+            top: 0;
+            right: 0;
+            border-color: rgba(0, 0, 0, .2);
+            -webkit-box-shadow: 1px 1px 7px 1px rgba(128, 128, 128, .2);
+            box-shadow: 1px 1px 7px 1px rgba(128, 128, 128, .2);
+            background-color: #fff;
+            z-index: 99999;
+            line-height: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #000;
+            font-weight: normal;
+            font-size: 11px;
+            font-style: normal;
+            text-align: left;
+            letter-spacing: normal;
+            font-stretch: normal;
+            text-shadow: none;
+            text-transform: none;
+            text-rendering: unset;
+            font-variant: normal;
+            -webkit-text-stroke: none;
+        }
+
+        #PreviewQueueStatesDiv.min {
+            width: 34px;
+            height: 34px;
+            overflow: hidden;
+        }
+
+        #PreviewStatesHeader {
+            padding: 0;
+            background-color: #20AC00;
+            color: white;
+            font-weight: bold;
+            border-radius: 2px 2px 0 0;
+            font-size: 12px;
+            position: relative;
+            cursor: move;
+            height: 34px;
+        }
+
+        #PreviewStatesHeader span {
+            display: inline-block;
+            margin: 7px 15px;
+        }
+
+        .min #PreviewStatesHeader span {
+            display: none;
+        }
+
+        .btn-resize {
+            width: 20px;
+            height: 20px;
+            background-color: #e2f3e0;
+            position: absolute;
+            right: 7px;
+            top: 7px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        #PreviewQueueStatesDiv p {
+            font-size: 13px;
+            line-height: 20px;
+            margin-top: 0;
+        }
+
+        #PreviewStatesContent {
+            padding: 15px;
+        }
+
+        .cblabel {
+            display: block;
+            position: relative;
+        }
+
+        .cblabel .qmark {
+            display: inline;
+            margin-left: 3px;
+            background-color: #8a8b8f;
+            color: #fff;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 8px;
+            font-weight: 900;
+            padding: 0 3px;
+            vertical-align: text-bottom;
+            line-height: 17px;
+        }
+
+        .cblabel input {
+            margin: 3px 5px 3px 0;
+            padding: 0;
+        }
+
+        .qmark .tooltip {
+            visibility: hidden;
+            width: auto;
+            max-width: 200px;
+            background-color: #8a8b8f;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 27px;
+            left: 0;
+            font-size: 11px;
+            font-weight: 400;
+            margin-left: 35px;
+            opacity: 0;
+            transition: opacity 1s;
+            line-height: 14px;
+        }
+
+        .qmark:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .qmark::after {
+            content: "";
+            position: absolute;
+            margin-left: -8px;
+            bottom: 17px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #8a8b8f transparent transparent transparent;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .qmark:hover::after {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #reminderStatusMesage {
+            margin-top: 12px;
+            border: 1px solid #8a8b8f;
+            padding: 9px;
+            overflow: visible;
+        }
+
+        #reminderStatusLabel {
+            background-color: #fff;
+            max-width: 100px;
+            margin-top: -20px;
+            margin-bottom: 2px;
+            padding: 0 13px;
+        }
+
+        #reminderStatusLabel .qmark .tooltip {
+            width: 165px;
+        }
+
+        #reminderStatusMesage input {
+            vertical-align: top;
+        }
+
+        #reminderStatusMesage button {
+            margin: 3px 5px 0 0;
+            padding: 3px 5px;
+            border: 1px solid #8a8b8f;
+            background-color: #ededed;
+            box-shadow: none;
+            outline: none;
+        }
+
+        #reminderStatusMesage button:disabled {
+            background-color: #e1e1e1;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $("#PreviewQueueStatesDiv").draggable({
+                containment: 'window',
+                scroll: false
+            });
+        });
+    </script>
+</head>
+
+<body data-pageid="before" data-culture="en-US" class="before prequeue">
+    <div id="noscript" style="display: none;">
+        <div id="BodyTop_nojavascriptenabled" class="nojavascript alert alert-error">
+            JavaScript is not enabled in your browser. Please enable JavaScript for automated updates. If you do not
+            want to enable JavaScript, you must manually refresh this page to view your place in line. You can also
+            click <a href="#">here</a> to automatically reload this page.
+        </div>
+    </div>
+    <script type="text/javascript">
+        document.getElementById("noscript").style.display = 'none';
+    </script>
+    <div id="PreviewQueueStatesDiv" class="min">
+        <div id="PreviewStatesHeader">
+            <span>Other Information</span>
+            <img class="btn-resize" title="Resize" data-bind="click: PreviewQueueStateVM.minimizeWindow"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjA2RkNFMDgxODBDOTExRTc4OTNEOURDMUREQjEyNjZEIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjA2RkNFMDgyODBDOTExRTc4OTNEOURDMUREQjEyNjZEIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDZGQ0UwN0Y4MEM5MTFFNzg5M0Q5REMxRERCMTI2NkQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDZGQ0UwODA4MEM5MTFFNzg5M0Q5REMxRERCMTI2NkQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6mvds5AAAExElEQVR42uybeYhNURzH70OMmZBkmbGUbQgxFNkN2UMmjDVJDCah+GdoskeRJUmWmrJkCdmFyL5rkqWhLNmT7NvYnu+v95t6TXPvO+ee333v1nvf+tTM3PPuPff7zj339/udM4FgMGjFs8pZca6EAQkDEgbEtyrYHWi4L2B67rpgIjgHzrs8R0uQDQrAU5POPBkW1DPAUAPAODAGHDAwYCqYDlqAXWCfnx8BOtckUAiO8c2ThoJcF+fL5psnDQd7wQMwC1T26xywBmSU8ff1YJHGeWaC3WX8PR2sBuX9aMA/cNjheD44DTo6tGkD9rORdqJrfPV8EnSp4gjHe4Er4Dqb8QwEecLMBN0UrvEpKm8Bl0pRbNeBcaM6fo4DMqLw6m7vVwOoY02iYEA1kOVHAzZFMYBb5zcDVkRp+IdHmdv9YsACMCcGYfxYsDaWBtQHR8H8GOYyM8Alzhk8ew1WBW3BQ/69NRgBJkhGZAbqDO6CHWAPuMlBGU3IReCdqQFLw2JyP2ssY3FwFeCocYiJAclgmnBHT4JT4A54BP7yt0XDuGekDiuqJJcfDNLAK7cGSA7zPZwQ3SsrXWdTKAdoBPI4s5QQjd65bibBTE49JTQejLS5+dJ6DCZzGv1L4NpTwx4NLQOoA02FJqltLj53kCdcUxOq85epbQClr13Ac4OLj+Lsz62oANLb4PMfQX+nOMXJgC/gMk9ORS4uftymqKGrCy5H0FvQCpxwSqFVAqEvnOh81uzARME3xxR+W6jqN8cuL6Uiwa8c/KiKih1vBA34AXZqtM91evW5DYVPhkWDKhOYtI4qtnsPtniVC6g+00UeGFCo2O6Al8nQY43ZW1r0PP9UaHc/VgWRcP3z4JxBRvTaugakKbZL98AAKoaqLIg09dKAQYrtmnlggGrFKcsrA6gM1Umx7UAPDOirMVKyvTCgQHOkVBO8+QAnVKqiAm2KpAFUeuqj2ekNggZQmpyk0Z7Mv6ligooBlNC4KT6OBv0Ebr41fwG6as7xSDunmoaTAV3BSs0QtLSOGL4RaoGzBp+vB26BVW4MoG9wtuG3RxWn2xoTWLhowr3L+byJip0iUycDFluhjQ6mSuKUdCOorfj8ruRUvKbA9TdaDqtWAbudorxHaKBGEqIiqu7QVpczPEm95sgtldPXHjzyqgheszGF8HZ7hCIZYHFamepRyFzM4W2SR+enYkp3+sFkk9QCsBxc47pADZ5ZJd7zlQRv9iCPVtp88ccKVYOuqkxSKkHF1lKZWDKHnPMtmcKpiahGMY0fq3CpVKCVA6HSaeh3K7QUla4ZIUprF+cdZ9yeQCIdptrf5hjc/GGeMI0kVQ/IsULLXNESlbslltBECyI5UTRAasVK1AB6Dp9F4ea/8aTsOwMsDm681g1LrTSmHKtLSnXx5CmPmCd8M7TbpKdi4vRCssPSBlSMcLyQA6tDNsep5jCPQ2I7pUh2WHq3+NAISUk7h5sn0R6BTLDEoU0WB2K+nAOo42Wtxy20Quv0qsq3KYJ84LDclyOAsrploAEHRyXR2Wke9rqizZAlq8IXrdBODypw5HEk6ss5oMSIAn7eR7EBbkX/G0CLrHs5yRFXIPGfo3GuhAEJAxIGxLf+CzAA4bfsKUuyXLcAAAAASUVORK5CYII=">
+        </div>
+        <div id="PreviewStatesContent">
+            <p class="explain">
+                Components of the <span class="beforeElement">before</span><span class="queueElement">queue</span> page
+                that will be visible when:
+            </p>
+            <label class="cblabel">
+                <input type="checkbox" data-bind="checked: PreviewQueueStateVM.connectionLost"> The user's internet
+                connection is lost
+                <span class="qmark">
+                    ?
+                    <span class="tooltip">A warning message is displayed instead of the queue information when the user
+                        loses internet connection</span>
+                </span>
+            </label>
+            <label class="cblabel queueElement">
+                <input type="checkbox" data-bind="checked: PreviewQueueStateVM.javascriptDisabled"> JavaScript is
+                disabled in the user's browser
+                <span class="qmark">
+                    ?
+                    <span class="tooltip">A warning message is displayed on top of the page if JavaScript is not enabled
+                        in the user's browser</span>
+                </span>
+            </label>
+            <label class="cblabel queueElement">
+                <input type="checkbox" data-bind="checked: PreviewQueueStateVM.queuePaused"> The queue is paused
+                <span class="qmark">
+                    ?
+                    <span class="tooltip">While the queue is paused, this information is displayed instead of estimated
+                        wait time and/or expected arrival time on the website</span>
+                </span>
+            </label>
+            <label class="cblabel queueElement">
+                <input type="checkbox" data-bind="checked: PreviewQueueStateVM.firstInLine"> The user is first in line
+                <span class="qmark">
+                    ?
+                    <span class="tooltip">When the user is first in line, the displayed message changes from "Number of
+                        users in queue ahead of you: [number]" to "It is your turn"</span>
+                </span>
+            </label>
+            <label class="cblabel queueElement">
+                <input type="checkbox"
+                    data-bind="checked: PreviewQueueStateVM.serviceSoon, enable:PreviewQueueStateVM.firstInLine"
+                    disabled=""> The user is being redirected to the website
+                <span class="qmark">
+                    ?
+                    <span class="tooltip">Just before being redirected to the website, redirection information is
+                        displayed instead of estimated wait time and/or expected arrival time on the website</span>
+                </span>
+            </label>
+            <label class="cblabel queueElement">
+                <input type="checkbox" data-bind="checked: PreviewQueueStateVM.redirectModal"> It's the user's turn and
+                the queue browser tab is inactive
+                <span class="qmark">
+                    ?
+                    <span class="tooltip">In this situation, a pop-up message is displayed informing the user when their
+                        turn started and asking them to confirm that they want to proceed to the website</span>
+                </span>
+            </label>
+            <label class="cblabel" data-bind="visible:PreviewQueueStateVM.dynamicMessageVisibleByLayout">
+                <input type="checkbox" data-bind="checked: PreviewQueueStateVM.hideDynamicMessage"> No dynamic message
+                has been posted
+                <span class="qmark">
+                    ?
+                    <span class="tooltip">If there is no dynamic message saved on the event console, then the dynamic
+                        message section is hidden from the <span class="beforeElement">before</span><span
+                            class="queueElement">queue</span> page for all users</span>
+                </span>
+            </label>
+            <div id="reminderStatusMesage" class="queueElement"
+                data-bind="visible: PreviewQueueStateVM.reminderFormVisibleByLayout">
+                <label id="reminderStatusLabel" class="cblabel">
+                    The user enters:
+                    <span class="qmark">
+                        ?
+                        <span class="tooltip">After the user enters an email address and clicks on "Notify me by
+                            e-mail", a status message is displayed for 60 seconds</span>
+                    </span>
+                </label>
+                <label class="cblabel"><input type="radio" name="reminderMessage" value="success"
+                        data-bind="checked: PreviewQueueStateVM.reminderEmailStatus"> A valid email address </label>
+                <label class="cblabel"><input type="radio" name="reminderMessage" value="error"
+                        data-bind="checked: PreviewQueueStateVM.reminderEmailStatus"> An empty or invalid email
+                    address</label>
+                <button
+                    data-bind="click: PreviewQueueStateVM.hideReminderStatusMessage, enable: PreviewQueueStateVM.reminderEmailStatus"
+                    disabled="">Hide now</button>
+            </div>
+        </div>
+    </div>
+    <div id="toppanel" data-bind="visible: layout.topPanelVisible">
+        <iframe id="toppanel_iframe" src="files/top.html" allowtransparency="true" frameborder="0"
+            scrolling="no"></iframe>
+    </div>
+    <div id="wrapper">
+        <div id="leftpanel" data-bind="visible: layout.leftPanelVisible">
+            <iframe id="leftpanel_iframe" src="files/left.html" allowtransparency="true" frameborder="0"
+                scrolling="no"></iframe>
+        </div>
+        <div id="main">
+            <div id="main-top">
+                <div id="language-selector" title="select display language" style=""
+                    data-bind="visible: texts.languages().length &gt; 1 &amp;&amp; layout.languageSelectorVisible">
+                    <select id="SharedTexts_Languages_SelectedValue"
+                        data-bind="options: texts.languages, optionsText:'text', optionsValue:'value', value:texts.selectedLanguage ">
+                        <option value="ar-QA">العربية (قطر)</option>
+                        <option value="az-Latn-AZ">Azərbaycan­ılı (Azərbaycanca)</option>
+                        <option value="ca-ES">Català (Català)</option>
+                        <option value="zh-HK">中文 ( 香港特別行政區)</option>
+                        <option value="zh-CN">中文(中华人民共和国)</option>
+                        <option value="zh-TW">中文(台灣)</option>
+                        <option value="cs-CZ">Čeština (Česká Republika)</option>
+                        <option value="da-DK">Dansk (Danmark)</option>
+                        <option value="nl-NL">Nederlands (Nederland)</option>
+                        <option value="en-GB">English (United Kingdom)</option>
+                        <option value="en-US">English (United States)</option>
+                        <option value="fo-FO">føroyskt (Føroyar)</option>
+                        <option value="fi-FI">suomi (Suomi)</option>
+                        <option value="fr-CA">Français (Canada)</option>
+                        <option value="fr-FR">Français (France)</option>
+                        <option value="ka-GE">ქართული (საქართველო)</option>
+                        <option value="de-DE">Deutsch (Deutschland)</option>
+                        <option value="el-GR">ελληνικά (Ελλάδα)</option>
+                        <option value="he-IL">עברית (ישראל)</option>
+                        <option value="is-IS">íslenska (Ísland)</option>
+                        <option value="id-ID">Indonesian (Indonesia)</option>
+                        <option value="it-IT">italiano (Italia)</option>
+                        <option value="ja-JP">日本語 (日本)</option>
+                        <option value="ko-KR">한국어 (대한민국)</option>
+                        <option value="nb-NO">Norsk, bokmål (Norge)</option>
+                        <option value="pl-PL">polski (Polska)</option>
+                        <option value="pt-BR">Português (Brasil)</option>
+                        <option value="pt-PT">Português (Portugal)</option>
+                        <option value="ro-RO">română (România)</option>
+                        <option value="ru-RU">русский (Россия)</option>
+                        <option value="sk-SK">Slovečina (Slovensko)</option>
+                        <option value="es-CL">Español (Chile)</option>
+                        <option value="es-ES">Español (España)</option>
+                        <option value="sv-SE">Svenska (Sverige)</option>
+                        <option value="th-TH">ไทย (ประเทศไทย)</option>
+                        <option value="tr-TR">Türkçe (Türkiye)</option>
+                        <option value="uk-UA">Українська (українська)</option>
+                        <option value="vi-VN">Tiếng Việt (Việt Nam)</option>
+                        <option value="cy-GB">Cymraeg (y Deyrnas Unedig)</option>
+                    </select>
+                </div>
+                <div id="main-top-message">
+                    <p class="item">
+                        <span id="lbCookieInfo"
+                            title="You will not lose your place in line if you close this page, but you must return when your turn comes up.">You
+                            can close this page without losing your place in line.</span>
+                    </p>
+                </div>
+            </div>
+            <div id="main_t" class="t"></div>
+            <div id="main_c" class="c">
+                <div id="content">
+                    <div id="header">
+                        <h1 class="logo" data-bind="visible: layout.logoVisible">
+                            <img src="files/default_images/queue-it_logo.png" id="imgCustomerLogo" alt="logo"
+                                longdesc="company logo for Queue-it" data-bind="attr: { src: texts.logoSrc }">
+                        </h1>
+                        <h2>
+                            <span id="lbHeaderH2" data-bind="html: texts.header">[Event Name]</span>
+                        </h2>
+                        <div id="headerparagraph">
+                            <span id="lbHeaderP" data-bind="html: texts.body">[Event Name] has not yet begun.
+                                When My Layout Test Event begins, you will be assigned a random place in line (alongside
+                                everyone else who also arrives before My Layout Test Event begins).</span>
+                        </div>
+                        <div id="whatisthis">
+                            <a id="hlThisIsQueueIt"
+                                href="https://queue-it.com/what-is-this/?preview=true&amp;customerId=frontenddevelopers&amp;hostUrl=localhost"
+                                target="_blank" data-bind="attr: { href: texts.whatIsThisUrl }">What is this?</a>
+                        </div>
+                    </div>
+                    <div id="divConfirmRedirectModal" class="modal queueElement"
+                        data-bind="visible: showConfirmRedirectDialog()" style="display: none">
+                        <div class="modal-background"></div>
+                        <div id="divConfirmRedirectModal_Content" class="modal-content">
+                            <div class="modal-body">
+                                <h2 id="h2ConfirmRedirect">Your turn started at</h2>
+                                <h3 data-bind="{visible:ticket.windowStartTime()}" style="display: none;">
+                                    <span data-bind="{text:ticket.windowStartTime()}"></span>
+                                    <span data-bind="{text:ticket.timeZonePostfix()}"></span>
+                                </h3>
+                                <p id="pConfirmRedirect">Please confirm that you want to proceed to the site as soon as
+                                    possible</p>
+                                <button id="buttonConfirmRedirect" type="button" class="btn"
+                                    data-bind="click: setActiveClient"><span class="l">Yes, please</span><span
+                                        class="r">&nbsp;</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="warning-box">
+
+                        <p class="beforeElement">
+                            <span id="MainPart_lbEventStartsAtText">The event will begin at:</span>
+                            <span id="MainPart_lbEventStartTime" data-bind="text: ticket.eventStartTimeFormatted">12:00
+                                AM (6/5/19)</span>
+                            <span id="MainPart_lbEventStartTimeTimeZonePostfix"
+                                data-bind="text: ticket.timeZonePostfix"></span>
+                        </p>
+                        <div id="MainPart_divProgressbar" class="progressbar queueElement"
+                            data-bind="visible: layout.progressVisible">
+                            <div id="MainPart_divProgressbar_Progress" class="progress" style="width: 75%;">
+                                <div id="MainPart_divProgressbar_Progress_Runner" class="runner"
+                                    data-bind="css: { paused: layout.queueIsPausedVisible }"></div>
+                            </div>
+                            <div id="MainPart_divProgressbar_Clear" class="clear"></div>
+                        </div>
+                    </div>
+                    <div id="MainPart_lbManualUpdateWarning" style="display: none" class="alert alert-error"
+                        data-bind="visible: !isRunning()">You have lost your connection to the line. Please check your
+                        internet connection.</div>
+                    <div id="MainPart_divProgressbarBox" data-bind="visible: isRunning()" class="processbar-box">
+                        <div id="MainPart_divProgressbarBox_Holder" class="holder">
+                            <!-- before/idle -->
+                            <div id="defaultCountdown" class="beforeElement"></div>
+                            <p class="larger beforeElement">
+                            </p>
+                            <div id="MainPart_divUsersInQueueCount" style="display: none;"
+                                data-bind="visible: layout.usersInQueueVisible">
+                                <span id="MainPart_lbUsersInQueueCountText">Total number of users in line:</span>
+                                <span id="MainPart_lbUsersInQueueCount" data-bind="text: ticket.usersInQueue">0</span>
+                            </div>
+                            <p></p>
+                            <!-- queue -->
+                            <p id="MainPart_pProgressbarBox_Holder_Larger" class="larger queueElement">
+                                <span data-bind="visible: layout.queueNumberVisible">
+                                    <span id="MainPart_lbQueueNumberText">Your number in line:</span>
+                                    <span id="MainPart_lbQueueNumber" data-bind="text: ticket.queueNumber">8445</span>
+                                    <br id="MainPart_lbQueueNumberLineBreak">
+                                </span>
+                                <span id="MainPart_lbUsersInLineAheadOfYouText"
+                                    data-bind="visible: layout.usersInLineAheadOfYouVisible">Number of users in line
+                                    ahead of you:</span>
+                                <span id="MainPart_lbUsersInLineAheadOfYou"
+                                    data-bind="visible: layout.usersInLineAheadOfYouVisible, text: ticket.usersInLineAheadOfYou">1758</span>
+                                <span id="first-in-line" style="display: none;"
+                                    data-bind="visible: layout.firstInLineVisible">It is your turn</span>
+                                <br id="MainPart_lbUsersInLineAheadOfYouLineBreak"
+                                    data-bind="visible: layout.usersInLineAheadOfYouVisible() || layout.firstInLineVisible()">
+                                <span id="MainPart_lbExpectedServiceTimeText"
+                                    data-bind="visible: layout.expectedServiceTimeVisible">Expected arrival time on the
+                                    website:</span>
+                                <span id="MainPart_lbExpectedServiceTime"
+                                    data-bind="visible: layout.expectedServiceTimeVisible, text: ticket.expectedServiceTime">12:24
+                                    PM</span>
+                                <span id="MainPart_lbExpectedServiceTimeTimeZonePostfix"
+                                    data-bind="visible: layout.expectedServiceTimeVisible, text: ticket.timeZonePostfix"></span>
+                                <span id="queue-paused" style="display: none;"
+                                    data-bind="visible: layout.queueIsPausedVisible">The line is paused.</span>
+                                <br id="MainPart_lbExpectedServiceTimeLineBreak"
+                                    data-bind="visible: layout.expectedServiceTimeVisible() || layout.queueIsPausedVisible()">
+                                <span id="serviced-soon" style="display: none;"
+                                    data-bind="visible: layout.servicedSoonVisible()">
+                                    <span data-bind="visible: !layout.servicedSoonDelayVisible()">Thank you for waiting.
+                                        You are now being redirected to the website.</span>
+                                    <span data-bind="visible: layout.servicedSoonDelayVisible()"
+                                        style="display: none;">You're almost there. You will be redirected to the
+                                        website as soon as possible.</span>
+                                </span>
+                                <span id="MainPart_lbWhichIsInText" data-bind="visible: layout.whichIsInVisible">Your
+                                    estimated wait time is:</span>
+                                <span id="MainPart_lbWhichIsIn"
+                                    data-bind="visible: layout.whichIsInVisible, text: ticket.whichIsIn">4
+                                    minutes</span>
+                            </p>
+                            <ul id="MainPart_ulProgressbarBox_Holder_Processbar" class="processbar">
+                                <li id="defaultViewPb1" class=""><span>&nbsp;</span></li>
+                            </ul>
+                            <div id="MainPart_divProgressbarBox_Holder_LastUpdateTime" data-bind="visible: isRunning">
+                                <span id="MainPart_lbLastUpdateTime"
+                                    title="Everything is fine, as long the 'Status last updated' time is updated regularly.">Status
+                                    last updated:</span>
+                                <span id="MainPart_lbLastUpdateTimeText" data-bind="text: ticket.lastUpdated">12:19:07
+                                    PM</span>
+                                <span id="MainPart_lbLastUpdateTimeTextTimeZonePostfix"
+                                    data-bind="text: ticket.timeZonePostfix"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="MainPart_divBlock" class="block beforeElement">
+                        <p></p>
+                    </div>
+                    <div id="MainPart_divTimeBox" class="time-box" style=""
+                        data-bind="visible: layout.dynamicMessageVisible() &amp;&amp; message()">
+                        <div id="MainPart_divTimeBox_Holder" class="holder" data-bind="if: message">
+                            <div id="MainPart_divTimeBox_Holder_Frame" class="frame">
+                                <h2>
+                                    <span id="MainPart_h2MessageOnQueueTicket"
+                                        data-bind="text: message().header">Message last updated:</span>
+                                    <span id="MainPart_h2MessageOnQueueTicketTimeText"
+                                        data-bind="text: message().timestampFormatted">12:19 PM</span>
+                                    <span id="MainPart_h2MessageOnQueueTicketTimeTextTimeZonePostfix"
+                                        data-bind="text: message().timeZonePostfix"></span>
+                                </h2>
+                                <p id="MainPart_pMessageOnQueueTicket" data-bind="creoleText: message().text">
+                                    <p>This is a test message.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="MainPart_frmReminder2" name="Notify me" class="reminder-form queueElement"
+                        data-bind="visible: layout.reminderVisible">
+                        <h2><span id="MainPart_lbNotyfyMeText">Please notify me when it is my turn:</span></h2>
+                        <div id="MainPart_divEmailInput" class="row" data-bind="visible: layout.reminderEmailVisible">
+                            <form id="MainPart_FormEmailInput" name="Email notification form">
+                                <input name="ctl00$MainPart$inpEmailAddress" type="text" id="MainPart_inpEmailAddress"
+                                    title="Enter email address" class="item-input" placeholder="Enter email address"
+                                    data-bind="value: emailAddress">
+                                <button type="submit" class="btn" id="aUpdateEmail"
+                                    data-bind="click: updateNotify"><span class="l">Notify me by e-mail</span><span
+                                        class="r">&nbsp;</span></button>
+                            </form>
+                            <div id="divEmailStatusFrame">
+                                <div id="divEmailStatus"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="MainPart_divExitLine" class="block queueElement">
+                        <p><a href="exit.html" id="MainPart_aExitLine">Leave the line</a> <span
+                                id="MainPart_lbExitLineLoseYourPlaceText">(You will lose your place)</span></p>
+                    </div>
+                </div>
+                <div id="middlepanel" data-bind="visible: layout.middlePanelVisible">
+                    <iframe id="middlepanel_iframe" src="files/middle.html" allowtransparency="true" frameborder="0"
+                        scrolling="no"></iframe>
+                </div>
+                <div id="footer">
+                    <div id="footer-disclaimer" data-bind="html: texts.disclaimerText"></div>
+
+
+                    <div id="footer-direct-link" style="" data-bind="visible: hasQueueId"><span
+                            id="hlLinkToQueueTicket2Text">Queue ID:</span> <a id="hlLinkToQueueTicket2"
+                            data-bind="text: queueId, click: toggleQueueIdLinkModal">00000000-0000-0000-0000-000000000001</a>
+                    </div>
+                    <div id="footer-queueit-link">
+                        <strong class="by">
+                            <a href="https://queue-it.com/what-is-this/?customerId=frontenddevelopers&amp;eventId=localhost&amp;queueId=00000000-0000-0000-0000-000000000001&amp;language=en-US&amp;hostUrl=localhost"
+                                id="aThisIsQueueIt" target="_blank">QUEUE-IT</a>
+                        </strong>
+                    </div>
+                </div>
+                <!-- <div id="queueIdLinkModal" class="modal queueElement" data-bind="visible: queueIdLinkModalVisible()"
+                    style="display: none">
+                    <div class="modal-background" data-bind="click: toggleQueueIdLinkModal"></div>
+                    <div id="queueIdLinkModal_Content" class="modal-content">
+                        <div id="queueIdModal_Header">
+                            <span></span>
+                            <img class="btn-close" title="Close" data-bind="click: toggleQueueIdLinkModal"
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkNCRjlFQTk5QzkyMTExRTc4NzNFQUEzMDgwOTM2RUY0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkNCRjlFQTlBQzkyMTExRTc4NzNFQUEzMDgwOTM2RUY0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Q0JGOUVBOTdDOTIxMTFFNzg3M0VBQTMwODA5MzZFRjQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Q0JGOUVBOThDOTIxMTFFNzg3M0VBQTMwODA5MzZFRjQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5gMX/zAAABeElEQVR42uzbUY7CMAwEUDIH7GF7Qa/2v7tVkhl7IpwfJERjzxOUkNIREZ9vHqMBGqABGqABGuB5XNf1+/D0gmGa57HX+77/PAALE/73vFv4114hKOgU/nWgqrBDeAZANcJ2bbg0UlXzDWCYIszUGrvvADcEWviZj4ALAjX87DmgGiEUvc6eBKsQQtTj0rdANoIs/M7XYBaCNPzuOkCNIA/PWAipEFLCs1aCbIS08MylMAshNTwTgIGQHp4NsINQEl4BsIJQFl4FIGlUNKcMgN2wbBNWCcBqXLoDrQbYDSDffs8AWA2Scu0hC8B2ZAFE0jGWAFF0rAVAmMxRAhCmc6UAxCFzSgBm1/alu80oDs/eTygF2P1VV4IAk/BlCDAKX4IAs/DpCDAMn4oA0/BpCDAOn4IA8/ByBBwQXoqAQ8LLEHBQeAkCDgtPR6i4OPpxqolDw9Nq4+DwlB5wePjtXlb/Kut4w8RSr33LTAM0QAM0QAN88fgRYACafYBF8MXWSwAAAABJRU5ErkJggg==">
+                        </div>
+                        <div id="queueIdLinkModal_Body" class="modal-body">
+                            <p>
+                                <input id="queueIdLinkURL" data-bind="value: initialWindowLocation()" readonly="">
+                                <button id="copyToClipboardButton"
+                                    data-bind="attr: { &#39;data-clipboard-target&#39;: &#39;#queueIdLinkURL&#39; }"
+                                    type="button" class="btn" data-clipboard-target="#queueIdLinkURL">
+                                    <span class="l"></span>
+                                    <img data-bind="attr: { &#39;data-clipboard-target&#39;: &#39;#queueIdLinkURL&#39; }"
+                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUU4NTk1QURCQjBGMTFFNzkxRjVEODBCNUI0MzU5OTgiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUU4NTk1QUNCQjBGMTFFNzkxRjVEODBCNUI0MzU5OTgiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NzBBOTVFOTBCQjA5MTFFNzgxQjVCREUwNkJBOTU0OEUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NzBBOTVFOTFCQjA5MTFFNzgxQjVCREUwNkJBOTU0OEUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5srmKQAAADWklEQVR42uyaS2gTQRjHN/FVbZoqseADEYqKeBQEEbUUnweVKujBFyoYBa3owWMRFDypaBVzq7Q+bh49aK3GUhDqEwRptRbFR31WrY1RG7P+Rz9xGWYnszu7ybbmgx9JZuex337ffPPNbAzTNA2PmAuaQQqkwQB4DvZ5OIYtXnWUMOXyGlT6qUjotzZ6cgrsUqjXB2aAN4YPEtZsXyVQ4hJYD+rAR0t5lJT2RzRN2sS50Dbueil4wtWZ6odr6VpkvuV7M2jgrqfAXq5smR8GGc79joHl5AbfJe2+gnFgkqUsaVP3vkCRZ2CypP8QGAXawW2nrsXCZ8Z0L+tszB4BfRr9NjoJvzXgrcZg3SAsGajO1JO46hxZBSpcuucdsBBkJXUOgQPgh8sxVjidI3bSC3aCNpo/zIdHgB7wXrGPg+AwqKS2P0EajKby1ZK2pV4owgacA7rpd49GcMmAR4LyNaAJbPJzQTxnUcJPOell+BXJPHARjGVBziclsmQtNodG+qXIdCLQEjaGiNhZpBN8cmtm3fSP3GwWiOgqwrLXuwV+yK1gQdG1BBKjBHHARf8h+nzpsr2nihwBWzTHYTvDx8WoVZwj4hSlV6P/d4JrLHHcDi5QqPddkRbCazkPVoLTg9m16sFa8CKfrlUDlti4R5TczskxzzFQa0kWZRu2GD3s3IszbRUbuK3lbMs28kyObWiHg2ObE1zbzqAcBzmR42BPIaNWmj6/CK6V0dmVypyotRm/gtynxOX9s4j3QcW1SkA5KBMQpdNEmdnrJW6ZJXSE3buSRb4RbrevuxVysby4llthC+mGIK3s+0Gcjjl5GQ/uga1c+cx8KqGqCNupTSNEIpqkHWApuDIUkkZ2Or84SBZ5CLpyuJYsT5NZhoXuNnqgTh8qCxQT6f6UVnYvqPYgKwjEyn4dVBc6/Drdsw+jdecVV56kOXNVsZ8Jxr/D634j10tUD5JGkTyQuEGVYtLYaqnXEqSk8a/cAIvoe2QwhF+ZXAObjT+vLEL5miMJcBN8VuxzjKH2DuUsuEX1U/lQpJ3wQzr+h+Mg0wuL7KCnVV4ABbLkalPcKNLPlccDZp0uVdc6Ci4H2M0SORMvy9+cmFKNYCPt0zMFvPEQrTFPaa+TzNXglwADAE7MbABFeZNUAAAAAElFTkSuQmCC"
+                                        data-clipboard-target="#queueIdLinkURL">
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div id="MainPart_divVersionInfo" class="b" title="4.3.48.0"></div>
+        </div>
+        <div id="rightpanel" data-bind="visible: layout.rightPanelVisible">
+            <iframe id="rightpanel_iframe" src="files/right.html" allowtransparency="true" frameborder="0"
+                scrolling="no"></iframe>
+        </div>
+    </div>
+    <div id="sidebar" data-bind="visible: layout.sidePanelVisible">
+        <iframe id="sidebar_iframe" src="files/side.html" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div id="bottompanel" data-bind="visible: layout.bottomPanelVisible">
+        <iframe id="bottompanel_iframe" src="files/bottom.html" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,450 @@
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap'); */
+body {
+  background-color: #fff;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+
+  /*
+    font-family: 'Open Sans', sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
+    background-image: url(./background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+
+    */
+}
+
+/* panels */
+
+#toppanel {
+  height: 100px;
+  width: 100%;
+}
+
+#toppanel_iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* hide default background images - beginning */
+#main .t,
+#main .b {
+  display: none;
+}
+
+#main .c,
+.warning-box,
+.processbar-box,
+.processbar-box .holder {
+  background-image: none;
+  color: inherit;
+}
+
+#content {
+  color: inherit;
+  font-weight: 400;
+}
+
+/* hide empty containers - beginning */
+.after .warning-box,
+.after .processbar-box,
+.error .processbar-box,
+.exit .processbar-box {
+  display: none;
+}
+/* hide empty containers - end */
+
+#wrapper {
+  min-height: 0;
+}
+/* mainbox */
+#main {
+  width: auto;
+  margin: 0 auto;
+  padding: 15px 0;
+  max-width: 514px;
+}
+#main .c {
+  width: auto;
+  padding: 0 15px;
+}
+#main-top {
+  padding: 0 15px;
+}
+
+#language-selector {
+  /*dropdown*/
+  padding-top: 4px;
+}
+/*you can close this page without losing your place in line*/
+#main-top-message {
+  text-align: center;
+  padding-top: 3px;
+}
+
+.item {
+  padding-top: 3px;
+}
+
+.logo {
+  font-size: 0;
+}
+#header {
+  padding: 0px;
+  font-weight: 400;
+  color: inherit;
+  border: none;
+}
+
+#header h2 {
+  font-weight: 400;
+  margin: 15px 0;
+  line-height: normal;
+  text-align: center;
+}
+#whatisthis,
+#detailExpander {
+}
+a {
+  color: inherit;
+}
+#hlThisIsQueueIt:hover {
+}
+#detailExpander:hover {
+}
+.warning-box {
+  min-height: 0;
+  border: none;
+  margin: 20px 0;
+  padding: 0;
+  font-weight: 400;
+}
+@-webkit-keyframes gradient_bkgd {
+  0% {
+    background-position: 50% 50%, 0;
+  }
+  100% {
+    background-position: -100% 50%, 0;
+  }
+}
+@-moz-keyframes gradient_bkgd {
+  0% {
+    background-position: 50% 50%, 0;
+  }
+  100% {
+    background-position: -100% 50%, 0;
+  }
+}
+@keyframes gradient_bkgd {
+  0% {
+    background-position: 50% 50%, 0;
+  }
+  100% {
+    background-position: -100% 50%, 0;
+  }
+}
+/* progressbar ppp  */
+.progressbar {
+  background: #4d4d4d;
+  border: 5px solid #000;
+  border-radius: 15px;
+}
+.progressbar .progress,
+.progressbar .progress.updated {
+  background-color: #3f87ff;
+  background-image: none;
+  border-radius: 15px;
+  background-size: 200% 100%;
+  background-image: linear-gradient(90deg, #3f87ff 0%, #764bff 50%, #764bff 100%);
+}
+
+.progressbar .progress.updated {
+  background-image: linear-gradient(
+      90deg,
+      rgba(63, 133, 255, 0) 0%,
+      #41bcff 20%,
+      rgba(63, 133, 255, 0) 23%
+    ),
+    linear-gradient(90deg, #3f87ff 0%, #764bff 50%, #764bff 100%);
+  background-size: 200% 100%, cover;
+  -webkit-animation: gradient_bkgd 2s ease-out 3 forwards;
+  -moz-animation: gradient_bkgd 2s ease-out 3 forwards;
+  animation: gradient_bkgd 2s ease-out 3 forwards;
+}
+.progressbar .progress .runner,
+.progressbar .progress .runner.paused {
+  background-repeat: no-repeat;
+  display: none;
+}
+
+#MainPart_lbManualUpdateWarning {
+  margin: 15px 0;
+}
+
+.alert {
+  padding: 8px 15px;
+}
+
+.alert-error {
+  border-color: #ff6600;
+  color: #fe3e3c;
+  color: #b94a48;
+}
+
+.alert-success {
+  border-color: #468847;
+}
+
+.processbar-box {
+  line-height: normal;
+  font-weight: 400;
+  padding: 0 0 0px 0;
+  margin: 0;
+}
+
+.processbar-box p {
+  margin: 0;
+}
+
+.processbar-box .holder {
+  min-height: 0;
+  padding: 10px 0 10px 0;
+  border: none;
+}
+
+.processbar-box .holder .larger {
+  min-height: 0;
+  font-size: 18px;
+}
+
+#MainPart_lbQueueNumber,
+#MainPart_lbUsersInLineAheadOfYou,
+#MainPart_lbExpectedServiceTime,
+#MainPart_lbWhichIsIn,
+#MainPart_lbExpectedServiceTimeTimeZonePostfix {
+  font-weight: 700;
+}
+/*Blinking icon*/
+#MainPart_ulProgressbarBox_Holder_Processbar {
+}
+.processbar {
+  width: 24px;
+  margin: 5px auto;
+}
+.processbar li {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  /* border: 1px solid #000; */
+  box-shadow: 0px 0px 3px #000;
+  margin: 3px;
+}
+.processbar span {
+  background-image: linear-gradient(to bottom, #fff 21px, green 21px);
+}
+/*status last updated*/
+#MainPart_divProgressbarBox_Holder_LastUpdateTime {
+  font-size: 12px;
+}
+/* Dynamic message mmm*/
+.time-box {
+  margin: 0 0 0px 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: inherit;
+  text-align: center;
+}
+
+.time-box .frame {
+  min-height: 0;
+  padding: 10px 15px 15px;
+}
+
+.time-box h2 {
+  font-weight: 400;
+  color: inherit;
+  font-size: 10px;
+}
+.time-box p {
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+#MainPart_frmReminder2 {
+  /* email,button,label */
+}
+#MainPart_FormEmailInput {
+}
+/*iiinput*/
+.reminder-form {
+  margin: 0;
+  min-height: 0;
+}
+
+.reminder-form form {
+  font-size: 0;
+}
+/* please notify... */
+.reminder-form h2 {
+  font-weight: normal;
+  color: inherit;
+  margin: 8px 0;
+}
+/* email input iii*/
+.reminder-form .item-input {
+  padding: 3px 15px 0px;
+  font-size: 15px;
+  background: #fff;
+  border: 1px solid #adaeb0;
+  color: #4d4d4d;
+  font-family: inherit;
+  font-weight: 400;
+  box-sizing: border-box;
+  line-height: normal;
+  width: 294px;
+  min-width: 250px;
+  vertical-align: top;
+  margin: 0 5px 5px 0;
+}
+
+.reminder-form .item-input:focus {
+  outline: none;
+  font-weight: 400;
+}
+.reminder-form .row {
+  margin: 0;
+}
+
+/*button*/
+.btn {
+  background-color: #3daf2c;
+  color: #fff;
+  width: 184px;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+  white-space: nowrap;
+  padding: 8px 15px 10px 15px;
+  font-size: 15px;
+  font-family: inherit;
+  line-height: normal;
+  border-radius: 0;
+  box-sizing: border-box;
+  /*font-weight: bold;*/
+}
+.btn .r {
+  display: none;
+}
+body.error .btn,
+body.exit .btn {
+  width: auto;
+}
+.btn:hover {
+  background: none;
+  background-color: #3daf2c;
+  box-shadow: none;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  top: 0;
+}
+.btn.btn-disabled {
+  padding: 8px 15px 10px 15px;
+}
+.reminder-form .item-input,
+.btn {
+  height: 37px;
+}
+/*leave the line */
+.block {
+  padding: 5px 0 0 0;
+}
+
+.block a {
+  color: inherit;
+}
+.block p {
+  margin: 0;
+}
+#footer {
+  width: auto;
+  color: inherit;
+  padding: 10px 0;
+  font-weight: 400;
+}
+
+#footer-direct-link {
+  padding: 0;
+}
+
+#footer a {
+  color: inherit;
+}
+
+#footer .by {
+  padding: 0;
+  background-size: 110px 12px;
+}
+/* elements that main .c padding affects */
+#header,
+.warning-box,
+#MainPart_lbManualUpdateWarning,
+#MainPart_divProgressbarBox,
+#MainPart_divBlock,
+#MainPart_divTimeBox,
+#MainPart_frmReminder2,
+#MainPart_divExitLine,
+#footer {
+}
+/* change font weight for elements */
+#content,
+#header,
+#header h2,
+.warning-box,
+.processbar-box,
+.time-box h2,
+.reminder-form h2,
+.reminder-form .item-input,
+.reminder-form .item-input:focus,
+#footer {
+}
+#MainPart_divExitLine {
+  display: none;
+}
+@media screen and (max-width: 540px) {
+  .reminder-form .item-input,
+  .btn {
+    width: 100%;
+    text-align: center;
+    max-width: none;
+  }
+  #main-top-message {
+    display: none;
+  }
+  .processbar-box .holder .larger {
+    font-size: 16px;
+  }
+  #footer {
+    margin: 20px;
+  }
+
+  #footer .by {
+    display: block;
+    margin: 5px auto 0;
+    float: none;
+  }
+  #footer-direct-link {
+    text-align: center;
+    float: none;
+  }
+  #language-selector {
+    text-align: center;
+    padding: 0 0 15px 0;
+  }
+}
