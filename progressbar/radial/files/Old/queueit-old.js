@@ -1,0 +1,1388 @@
+function GetQueueIdWhenRedirectedToTarget() {
+    var n = window;
+    return n.queueViewModel ? n.queueViewModel.getIsRedirectedToTarget ? n.queueViewModel.getIsRedirectedToTarget() ? n.queueViewModel.getQueueId() : void 0 : null : null
+}
+var __extends, QueueIt;
+(function (n) {
+    var t;
+    (function (n) {
+        var t;
+        (function (n) {
+            var u = function () {
+                function n() { }
+                return n.retry = function (n, t, i, r) {
+                    var u = 1,
+                        f = function () {
+                            return t(function (t, e) {
+                                e && u++ < n ? setTimeout(f, r(u)) : i(t, e)
+                            })
+                        };
+                    f()
+                }, n
+            }(),
+                r, i, t;
+            n.RetryHelper = u;
+            r = function () {
+                function n(n, t) {
+                    this.eventId = n;
+                    this.customerId = t
+                }
+                return n.prototype.logAjaxCallError = function (n, t, i, r, u) {
+                    (u === void 0 && (u = ""), t) && (t.status != 503 && t.status != 504 ? window.logger.Error({
+                        Page: n,
+                        Message: "Error in ajax call," + u + " responseText: " + t.responseText + "; textstatus: " + i + "; errorThrown: " + r + "; jqXHR.status:" + t.status
+                    }, this.eventId, this.customerId) : console.info("server call error"))
+                }, n
+            }();
+            n.AjaxLogger = r;
+            i = function () {
+                function n() {
+                    var n = window.onerror,
+                        i = this;
+                    window.onerror = function (r, u, f, e) {
+                        (r !== "Script error." || u) && i.Error({
+                            Message: "Unhandled Exception in window.onerror: '" + r + "', url: '" + u + "', line: " + f + ", col: " + e
+                        }, null, null, null, t.Critical);
+                        n && typeof n == "function" && n.apply(window, arguments)
+                    }
+                }
+                return n.prototype.Log = function (n) {
+                    var i, t, r, u, f;
+                    try {
+                        if (console.info(n.LogMessageInfo.Message + (n.LogMessageInfo.Ex ? n.LogMessageInfo.Ex.message : "")), !this.logContainer && (this.logContainer = $("#queue-it_log"), this.userId = this.logContainer.attr("data-userid"), this.proxyUrl = this.logContainer.attr("data-proxyurl"), !this.proxyUrl)) return;
+                        i = {};
+                        n.LogMessageInfo.Ex && n.LogMessageInfo.Ex.stack && (i.StackTrace = n.LogMessageInfo.Ex.stack);
+                        n.LogMessageInfo.Ex && n.LogMessageInfo.Ex.message && (i.ErrorMessage = n.LogMessageInfo.Ex.message);
+                        n.LogMessageInfo.Message || (n.LogMessageInfo.Message = "Unexpected Error");
+                        n.LogMessageInfo.Page && (n.LogMessageInfo.Message = n.LogMessageInfo.Message + "; in page: " + n.LogMessageInfo.Page);
+                        t = window.queueViewModel;
+                        r = n.CustomerId;
+                        !r && t && (r = t.customerId);
+                        u = n.EventId;
+                        !u && t && (u = t.eventId);
+                        f = n.QueueId;
+                        !f && t && t.queueId && (f = $.isFunction(t.queueId) ? t.queueId() : t.queueId);
+                        this.logToProxy({
+                            Category: n.Category,
+                            QueueId: f,
+                            CustomerId: r,
+                            EventId: u,
+                            Message: n.LogMessageInfo.Message,
+                            Severity: n.Severity,
+                            Exception: i,
+                            UserId: this.userId,
+                            Service: "JavaScript(queuefront)",
+                            Url: window.location.href,
+                            UserAgent: navigator.userAgent,
+                            PlatformInfo: window.getClientInfo(),
+                            Timestamp: (new Date).toISOString(),
+                            CustomInfo: n.CustomInfo
+                        })
+                    } catch (e) {
+                        console.debug(e)
+                    }
+                }, n.prototype.Error = function (n, i, r, u, f, e) {
+                    i === void 0 && (i = "");
+                    r === void 0 && (r = "");
+                    u === void 0 && (u = "");
+                    f === void 0 && (f = t.Error);
+                    e === void 0 && (e = null);
+                    this.Log({
+                        LogMessageInfo: n,
+                        Category: "Error",
+                        Severity: t[f],
+                        QueueId: u,
+                        CustomerId: r,
+                        EventId: i,
+                        CustomInfo: e
+                    })
+                }, n.prototype.Business = function (n, i, r, u, f, e) {
+                    i === void 0 && (i = "");
+                    r === void 0 && (r = "");
+                    u === void 0 && (u = "");
+                    f === void 0 && (f = t.Information);
+                    e === void 0 && (e = null);
+                    this.Log({
+                        LogMessageInfo: n,
+                        Category: "Business",
+                        Severity: t[f],
+                        QueueId: u,
+                        CustomerId: r,
+                        EventId: i,
+                        CustomInfo: e
+                    })
+                }, n.prototype.Debug = function (n, i, r, u, f, e) {
+                    i === void 0 && (i = "");
+                    r === void 0 && (r = "");
+                    u === void 0 && (u = "");
+                    f === void 0 && (f = t.Information);
+                    e === void 0 && (e = null);
+                    this.Log({
+                        LogMessageInfo: n,
+                        Category: "Debug",
+                        Severity: t[f],
+                        QueueId: u,
+                        CustomerId: r,
+                        EventId: i,
+                        CustomInfo: e
+                    })
+                }, n.prototype.logToProxy = function (n) {
+                    try {
+                        var t = this.objectToQuery(n, "");
+                        $("head").append('<script type="text/javascript" src="' + this.proxyUrl + "?" + t + '"><\/script>')
+                    } catch (i) {
+                        window && window.console && typeof window.console.log == "function" && (console.log("Failed to log to loggly because of this exception:\n" + i), console.log("Failed log data:", n))
+                    }
+                }, n.prototype.objectToQuery = function (n, t) {
+                    var r = "";
+                    for (var i in n)
+                        if (n.hasOwnProperty(i)) {
+                            if (!n[i]) continue;
+                            r && (r += "&");
+                            r += typeof n[i] == "object" ? this.objectToQuery(n[i], i) : t + i.substr(0, 1).toUpperCase() + i.substr(1) + "=" + encodeURIComponent(n[i])
+                        }
+                    return r
+                }, n
+            }();
+            n.Logger = i,
+                function (n) {
+                    n[n.Critical = 1] = "Critical";
+                    n[n.Error = 2] = "Error";
+                    n[n.Warning = 4] = "Warning";
+                    n[n.Information = 8] = "Information"
+                }(t = n.ErrorSeverity || (n.ErrorSeverity = {}));
+            window.logger = new i
+        })(t = n.Helpers || (n.Helpers = {}))
+    })(t = n.Queue || (n.Queue = {}))
+})(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (n) {
+            var t = function () {
+                function n() {
+                    var n = this;
+                    this.post = function (t, i, r, u, f) {
+                        var e = !0;
+                        f != null && f && (e = !1);
+                        $.ajax({
+                            type: "POST",
+                            url: t,
+                            async: e,
+                            data: n.serialize(i),
+                            success: function (n) {
+                                r(n)
+                            },
+                            error: function (n, t, i) {
+                                u(n, t, i)
+                            },
+                            dataType: "json",
+                            contentType: "application/json"
+                        })
+                    };
+                    this.get = function (n, t, i) {
+                        $.ajax({
+                            type: "GET",
+                            url: n,
+                            success: function (n) {
+                                t(n)
+                            },
+                            error: function (n) {
+                                i(n)
+                            },
+                            dataType: "json",
+                            contentType: "application/json"
+                        })
+                    };
+                    this.serialize = function (n) {
+                        return JSON.stringify(n)
+                    }
+                }
+                return n
+            }();
+            n.HttpUtil = t
+        })(t = n.Tools || (n.Tools = {}))
+    }(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (n) {
+            var i = function () {
+                function t(t, i) {
+                    this.callbackArray = [];
+                    this.statusChangeCallbackArray = [];
+                    this.customerId = t;
+                    this.eventId = i;
+                    this.logger = new n.Helpers.AjaxLogger(i, t);
+                    this.listenChildFrame()
+                }
+                return t.prototype.listenChildFrame = function () {
+                    var n = this,
+                        t = this;
+                    window.addEventListener ? window.addEventListener("message", function (i) {
+                        return n.receiveMessageSafe(i, t)
+                    }, !1) : window.attachEvent && window.attachEvent("onmessage", function (i) {
+                        return n.receiveMessageSafe(i, t)
+                    })
+                }, t.prototype.receiveMessageSafe = function (n, t) {
+                    var i;
+                    try {
+                        i = JSON.parse(n.data)
+                    } catch (r) {
+                        return
+                    }
+                    this.receiveMessage(i, t)
+                }, t.prototype.modelUpdated = function (n) {
+                    this.callbackArray.push(n)
+                }, t.prototype.notifyFrames = function (n) {
+                    var t = document.getElementById("toppanel_iframe"),
+                        i = document.getElementById("leftpanel_iframe"),
+                        r = document.getElementById("rightpanel_iframe"),
+                        u = document.getElementById("middlepanel_iframe"),
+                        f = document.getElementById("bottompanel_iframe"),
+                        e = document.getElementById("sidebar_iframe");
+                    this.notifyFrame(t, n);
+                    this.notifyFrame(i, n);
+                    this.notifyFrame(r, n);
+                    this.notifyFrame(u, n);
+                    this.notifyFrame(f, n);
+                    this.notifyFrame(e, n)
+                }, t.prototype.notifyFrame = function (n, t) {
+                    if (n && n.contentWindow) try {
+                        n.contentWindow.postMessage(t.toString(), "*")
+                    } catch (i) {
+                        window.logger.Error({
+                            Message: "Error notifying frames",
+                            Ex: i
+                        }, this.eventId, this.customerId)
+                    }
+                }, t.prototype.doCallbacks = function (n) {
+                    for (var t = 0; t < this.callbackArray.length; t++) try {
+                        $.isFunction(this.callbackArray[t]) && this.callbackArray[t](n)
+                    } catch (i) {
+                        window.logger.Error({
+                            Message: "Error executing callback: " + i.message,
+                            Ex: i
+                        }, this.eventId, this.customerId)
+                    }
+                }, t.prototype.pageReady = function (n) {
+                    this.statusChangeCallbackArray.push(n)
+                }, t.prototype.doStatusChangeCallbacks = function (n) {
+                    for (var t = 0; t < this.statusChangeCallbackArray.length; t++) try {
+                        $.isFunction(this.statusChangeCallbackArray[t]) && this.statusChangeCallbackArray[t](n)
+                    } catch (i) {
+                        window.logger.Error({
+                            Message: "Error executing Status change callback: " + i.message,
+                            Ex: i
+                        }, this.eventId, this.customerId)
+                    }
+                }, t.prototype.onReady = function (n) {
+                    this.doStatusChangeCallbacks(n)
+                }, t
+            }(),
+                t;
+            n.ViewBase = i;
+            t = function () {
+                function n(n) {
+                    this.messageType = n
+                }
+                return n.prototype.toString = function () {
+                    return JSON.stringify(this)
+                }, n
+            }();
+            n.FrameDto = t
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {}));
+__extends = this && this.__extends || function () {
+    var n = Object.setPrototypeOf || {
+        __proto__: []
+    }
+        instanceof Array && function (n, t) {
+            n.__proto__ = t
+        } || function (n, t) {
+            for (var i in t) t.hasOwnProperty(i) && (n[i] = t[i])
+        };
+    return function (t, i) {
+        function r() {
+            this.constructor = t
+        }
+        n(t, i);
+        t.prototype = i === null ? Object.create(i) : (r.prototype = i.prototype, new r)
+    }
+}(),
+    function (n) {
+        var t;
+        (function (n) {
+            var t = function (t) {
+                function i(n, i, r, u, f) {
+                    var e = t.call(this, n, i) || this;
+                    return e.jsErrors = 0, e.updateInterval = 5e3, e.creole = new Parse.Simple.Creole({
+                        forIE: document.all
+                    }), e.queueId = r, e.language = u, e.layoutName = f, e.message = ko.observable(), e
+                }
+                return __extends(i, t), i.prototype.ajaxGetMessage = function () {
+                    var n = this;
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json",
+                        url: "/after/" + this.customerId + "/" + this.eventId + "/" + this.queueId + "/status?cid=" + this.language + "&l=" + this.layoutName,
+                        success: function (t) {
+                            var i = t.redirectUrl;
+                            if (i) {
+                                document.location.href = i;
+                                return
+                            }
+                            n.refreshClientInfo(t);
+                            n.jsErrors = 0
+                        },
+                        error: function (t, i, r) {
+                            n.jsErrors = n.jsErrors + 1;
+                            n.logger.logAjaxCallError("AfterPage", t, i, r)
+                        }
+                    })
+                }, i.prototype.updateTimer = function () {
+                    var n = this;
+                    setTimeout(function () {
+                        n.ajaxGetMessage();
+                        n.updateTimer()
+                    }, this.updateInterval)
+                }, i.prototype.getCreole = function () {
+                    return this.creole
+                }, i.prototype.init = function () {
+                    this.notifyFrames(new n.UpdateQueueFrameDto(null, null, "after", []));
+                    this.updateTimer()
+                }, i.prototype.refreshClientInfo = function (t) {
+                    this.updateInterval = t.updateInterval ? t.updateInterval : 5e3;
+                    t.message && t.message.text ? this.message(new n.Message(t.message)) : this.message(null)
+                }, i.prototype.receiveMessage = function (t) {
+                    switch (t.messageType) {
+                        case "RequestRefresh":
+                            this.notifyFrames(new n.UpdateQueueFrameDto(null, null, "after", []));
+                            return;
+                        default:
+                            return
+                    }
+                }, i
+            }(n.ViewBase);
+            n.AfterView = t
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (t) {
+            var i = function () {
+                function n() { }
+                return n
+            }(),
+                r, u, f, e, o, s, h, c, l, a, v, y, p, w, b, k;
+            i.ENTERED_QUEUE_GOT_QUEUEID = "EnteredQueueGotQueueId";
+            i.QUEUEID_ALREADY_EXIST = "QueueIdAlreadyExist";
+            i.INVALID_CAPTCHA_TOKEN = "InvalidCaptchaToken";
+            i.MISSING_CUSTOM_DATA_KEY = "MissingCustomDataKey";
+            i.UNIQUE_KEY_VIOLATION = "UniqueKeyViolation";
+            i.UNEXPECTED_FAILURE_TO_ENQUEUE = "UnexpectedFailureToEnqueue";
+            i.IDLE_QUEUE_ILLEGAL_ACTION = "IdleQueueIllegalAction";
+            i.CUSTOM_DATA_UPDATED = "CustomDataUpdated";
+            i.MISSING_QUEUE_ID = "MissingQueueId";
+            i.UNEXPECTED_FAILURE_TO_UPDATE = "UnexpectedFailureToUpdate";
+            r = function () {
+                function n() { }
+                return n
+            }();
+            r.CUSTOM_DATA_BY_KEY = "CustomDataByKey";
+            r.UNEXPECTED_FAILURE_TO_GET_BY_KEY = "UnexpectedFailureToGetByKey";
+            r.CUSTOM_DATA_BY_QUEUE_ID = "CustomDataByQueueId";
+            r.UNEXPECTED_FAILURE_TO_GET_BY_QUEUE_ID = "UnexpectedFailureToGetByQueueId";
+            u = function (n) {
+                function t(t) {
+                    var r = n.call(this, i.ENTERED_QUEUE_GOT_QUEUEID) || this;
+                    return r.queueId = t, r
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.EnteredQueueGotQueueIdDto = u;
+            f = function (n) {
+                function t() {
+                    return n.call(this, i.IDLE_QUEUE_ILLEGAL_ACTION) || this
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.IdleQueueIllegalActionDto = f;
+            e = function (n) {
+                function t(t) {
+                    var r = n.call(this, i.QUEUEID_ALREADY_EXIST) || this;
+                    return r.queueId = t, r
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.QueueIdAlreadyExistDto = e;
+            o = function (n) {
+                function t() {
+                    return n.call(this, i.MISSING_QUEUE_ID) || this
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.MissingQueueIdForUpdateDto = o;
+            s = function (n) {
+                function t() {
+                    return n.call(this, i.INVALID_CAPTCHA_TOKEN) || this
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.InvalidCaptchaTokenDto = s;
+            h = function (n) {
+                function t() {
+                    return n.call(this, i.MISSING_CUSTOM_DATA_KEY) || this
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.MissingCustomDataKeyDto = h;
+            c = function (n) {
+                function t() {
+                    return n.call(this, i.UNIQUE_KEY_VIOLATION) || this
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.UniqueKeyViolationDto = c;
+            l = function (n) {
+                function t() {
+                    return n.call(this, i.CUSTOM_DATA_UPDATED) || this
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.CustomDataUpdatedDto = l;
+            a = function (n) {
+                function t() {
+                    return n.call(this, i.UNEXPECTED_FAILURE_TO_ENQUEUE) || this
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.UnexpectedFailureToEnqueueDto = a;
+            v = function (n) {
+                function t() {
+                    return n.call(this, i.UNEXPECTED_FAILURE_TO_UPDATE) || this
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.UnexpectedFailureToUpdateDto = v;
+            y = function (n) {
+                function t(t) {
+                    var i = n.call(this, r.CUSTOM_DATA_BY_KEY) || this;
+                    return i.records = t, i
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.CustomDataByKeyDto = y;
+            p = function (n) {
+                function t() {
+                    return n.call(this, r.UNEXPECTED_FAILURE_TO_GET_BY_KEY) || this
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.UnexpectedFailureToGetByKeyDto = p;
+            w = function (n) {
+                function t(t, i) {
+                    var u = n.call(this, r.CUSTOM_DATA_BY_QUEUE_ID) || this;
+                    return u.key = t, u.customData = i, u
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.CustomDataByQueueIdDto = w;
+            b = function (n) {
+                function t() {
+                    return n.call(this, r.UNEXPECTED_FAILURE_TO_GET_BY_QUEUE_ID) || this
+                }
+                return __extends(t, n), t
+            }(t.FrameDto);
+            t.UnexpectedFailureToGetByQueueIdDto = b;
+            k = function () {
+                function i(i, r) {
+                    var k = this;
+                    this.options = i;
+                    this.frameNotifier = r;
+                    this.http = new n.Tools.HttpUtil;
+                    this.setCaptchaSessionId = function (n) {
+                        k.captchaSessionId = n
+                    };
+                    this.receiveMessage = function (n) {
+                        var t, r, u, s, i;
+                        if (!k.isMessageFromCaptcha(n.origin) && (t = n.data, r = t.Key, t.Type))
+                            if (t.Type == "GetByKey") i = "/api/customdata/" + k.options.customerId + "/" + k.options.eventId + "/get/key/" + r, k.http.get(i, k.onGetCustomDataByKeySuccess, k.onGetCustomDataByKeyFailed);
+                            else if (t.Type == "GetByQueueId") i = "/api/customdata/" + k.options.customerId + "/" + k.options.eventId + "/get/queueid/" + t.QueueId, k.http.get(i, k.onGetCustomDataByQueueIdSuccess, k.onGetCustomDataByQueueIdFailed);
+                            else if (t.Type == "Enqueue" || t.Type == "Update") {
+                                if (k.options.isIdle) {
+                                    k.notify(new f);
+                                    return
+                                }
+                                u = t.Email;
+                                s = k.getAllKeyValues(t.CustomData);
+                                t.Type == "Enqueue" ? k.inqueueView.hasQueueId() && r ? k.notify(new e(k.inqueueView.queueId())) : (i = "/queue/" + k.options.customerId + "/" + k.options.eventId + "/enqueue", k.http.post(i, k.buildEnterQueueDto(u, r, s), k.onEnqueuePostSuccess, k.onEnqueueFailed)) : t.Type == "Update" && (k.inqueueView.hasQueueId() ? (i = "/api/customdata/" + k.options.customerId + "/" + k.options.eventId + "/" + k.inqueueView.queueId() + "/update", k.http.post(i, k.buildUpdateCustomDataDto(u, s), k.onUpdateCustomDataSuccess, k.onUpdateCustomDataFailed)) : k.notify(new o))
+                            }
+                    };
+                    this.isMessageFromCaptcha = function (n) {
+                        return n == "https://www.google.com"
+                    };
+                    this.onGetCustomDataByKeySuccess = function (n) {
+                        k.notify(new y(n.records))
+                    };
+                    this.onGetCustomDataByKeyFailed = function () {
+                        k.notify(new p)
+                    };
+                    this.onGetCustomDataByQueueIdSuccess = function (n) {
+                        k.notify(new w(n.key, n.customData))
+                    };
+                    this.onGetCustomDataByQueueIdFailed = function () {
+                        k.notify(new b)
+                    };
+                    this.onUpdateCustomDataSuccess = function () {
+                        k.notify(new l)
+                    };
+                    this.onUpdateCustomDataFailed = function (n, t, i) {
+                        k.logger.logAjaxCallError("Update CustomData: ", n, t, i);
+                        k.notify(new v)
+                    };
+                    this.onEnqueuePostSuccess = function (n) {
+                        if (n.redirectUrl) {
+                            document.location.href = n.redirectUrl;
+                            return
+                        }
+                        n.queueId ? (k.notify(new u(n.queueId)), k.inqueueView.setQueueId(n.queueId), $("body").removeClass("key-required"), k.inqueueView.continueAfterResolvingQueueId()) : n.captchaFailed ? (k.notify(new s), k.log("Failed to enqueue with CustomData. Invalid captcha verification token")) : n.missingCustomDataKey ? (k.notify(new h), k.log("Failed to enqueue. CustomDataKey is missing")) : n.customDataUniqueKeyViolation && (k.notify(new c), k.log("Failed to enqueue. CustomDataKey is not unique"))
+                    };
+                    this.onEnqueueFailed = function (n, t, i) {
+                        k.logger.logAjaxCallError("Enqueue with custom data: ", n, t, i);
+                        k.notify(new a)
+                    };
+                    this.buildUpdateCustomDataDto = function (n, t) {
+                        return {
+                            Email: n,
+                            CustomData: t
+                        }
+                    };
+                    this.buildEnterQueueDto = function (n, t, i) {
+                        var r = {
+                            Email: n,
+                            Key: t,
+                            CustomData: i
+                        };
+                        return {
+                            CaptchaToken: k.captchaSessionId,
+                            LayoutName: "",
+                            TargetUrl: "",
+                            CustomDataEnqueue: r
+                        }
+                    };
+                    this.getAllKeyValues = function (n) {
+                        for (var r, o = JSON.stringify(n), e = o.replace(/[{}"\[\]]/g, ""), u = [], i = "", t = "", f = 0; f < e.length; f++) r = e.substr(f, 1), r == ":" ? (i = t, t = "") : r == "," ? (u.push({
+                            Key: i,
+                            Value: t
+                        }), t = "") : t = t + r;
+                        return i.length > 0 && t.length > 0 && u.push({
+                            Key: i,
+                            Value: t
+                        }), u
+                    };
+                    this.notify = function (n) {
+                        window.customDataClient ? window.customDataClient.notifyDirect(n) : k.frameNotifier.notifyFrames(n)
+                    };
+                    this.listenOnFrames = function () {
+                        window.addEventListener ? window.addEventListener("message", k.receiveMessage, !1) : window.attachEvent && window.attachEvent("onmessage", function () {
+                            return k.receiveMessage
+                        })
+                    };
+                    this.log = function (n) {
+                        window.logger.Error({
+                            Message: n
+                        }, k.options.eventId, k.options.customerId)
+                    };
+                    this.logger = new t.Helpers.AjaxLogger(i.eventId, i.customerId);
+                    this.listenOnFrames();
+                    this.inqueueView = r
+                }
+                return i
+            }();
+            t.CustomData = k
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (n) {
+            var t = function (t) {
+                function i(i, r) {
+                    var u = t.call(this, i, r) || this;
+                    return u.notifyFrames(new n.UpdateQueueFrameDto(null, null, "error", [])), u
+                }
+                return __extends(i, t), i.prototype.receiveMessage = function (t) {
+                    switch (t.messageType) {
+                        case "RequestRefresh":
+                            this.notifyFrames(new n.UpdateQueueFrameDto(null, null, "error", []));
+                            return;
+                        default:
+                            return
+                    }
+                }, i
+            }(n.ViewBase);
+            n.ErrorView = t
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (n) {
+            var t = function (t) {
+                function i(i, r, u, f) {
+                    var e = t.call(this, i, r) || this;
+                    return e.queueId = u, e.language = f, e.notifyFrames(new n.UpdateQueueFrameDto(null, null, "exit", [])), e
+                }
+                return __extends(i, t), i.prototype.receiveMessage = function (t) {
+                    switch (t.messageType) {
+                        case "RequestRefresh":
+                            this.notifyFrames(new n.UpdateQueueFrameDto(null, null, "exit", []));
+                            return;
+                        default:
+                            return
+                    }
+                }, i
+            }(n.ViewBase);
+            n.ExitView = t
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (n) {
+            var t = function () {
+                function t(t) {
+                    var i = this;
+                    this.options = t;
+                    this.logger = new n.Helpers.AjaxLogger(t.eventId, t.customerId);
+                    this.queueId = ko.observable(t.queueId);
+                    this.hasQueueId = ko.computed(function () {
+                        return i.queueId() != "00000000-0000-0000-0000-000000000000"
+                    });
+                    this.isBeforeOrIdle = t.isBeforeOrIdle;
+                    this.updateFraudProtectionInterval = 1e4
+                }
+                return t.prototype.init = function () {
+                    this.startFraudProtectionCheck()
+                }, t.prototype.setQueueId = function (n) {
+                    this.queueId(n)
+                }, t.prototype.startFraudProtectionCheck = function () {
+                    this.hasQueueId() || this.updateFraudProtectionTimer()
+                }, t.prototype.updateFraudProtectionTimer = function () {
+                    var n = this;
+                    setTimeout(function () {
+                        n.getFraudProtectionStatus()
+                    }, this.updateFraudProtectionInterval)
+                }, t.prototype.getFraudProtectionStatus = function () {
+                    var n = this,
+                        t;
+                    this.hasQueueId() || (t = "/fraudprotection/getstatus?c=" + this.options.customerId + "&e=" + this.options.eventId, $.ajax({
+                        type: "GET",
+                        dataType: "json",
+                        contentType: "application/json",
+                        url: t,
+                        success: function (t) {
+                            if (t && t.redirectUrl) {
+                                document.location.href = t.redirectUrl;
+                                return
+                            }
+                            n.updateFraudProtectionInterval = 1e4;
+                            n.updateFraudProtectionTimer()
+                        },
+                        error: function (t, i, r) {
+                            n.logger.logAjaxCallError("FraudProtection: isBeforeOrIdle" + n.isBeforeOrIdle, t, i, r);
+                            t && (t.status === 503 || t.status === 504) && (n.updateFraudProtectionInterval *= 1.25, n.updateFraudProtectionInterval > 2e5 && (n.updateFraudProtectionInterval = 2e5));
+                            n.updateFraudProtectionTimer()
+                        }
+                    }))
+                }, t
+            }();
+            n.FraudProtection = t
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (n) {
+            var t = function () {
+                function n() {
+                    var n = this;
+                    try {
+                        document.addEventListener("visibilitychange", function () {
+                            return n.handleVisibilityChange()
+                        }, !1)
+                    } catch (t) {
+                        window.logger.Debug({
+                            Message: "Error in adding visibilitychange",
+                            Ex: t
+                        })
+                    }
+                    try {
+                        document.addEventListener("mozvisibilitychange", function () {
+                            return n.handleVisibilityChange()
+                        }, !1)
+                    } catch (t) {
+                        window.logger.Debug({
+                            Message: "Error in adding mozvisibilitychange",
+                            Ex: t
+                        })
+                    }
+                    try {
+                        document.addEventListener("webkitvisibilitychange", function () {
+                            return n.handleVisibilityChange()
+                        }, !1)
+                    } catch (t) {
+                        window.logger.Debug({
+                            Message: "Error in adding webkitvisibilitychange",
+                            Ex: t
+                        })
+                    }
+                    try {
+                        document.addEventListener("msvisibilitychange", function () {
+                            return n.handleVisibilityChange()
+                        }, !1)
+                    } catch (t) {
+                        window.logger.Debug({
+                            Message: "Error in adding msvisibilitychange",
+                            Ex: t
+                        })
+                    }
+                }
+                return n.prototype.handleVisibilityChange = function () {
+                    var n = document;
+                    this._isHidden = n.hidden || n.mozHidden || n.webkitHidden || n.msHidden
+                }, n.prototype.isHidden = function () {
+                    return this._isHidden
+                }, n
+            }();
+            n.InactivityDetector = t
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (n) {
+            var t = function () {
+                function n(n) {
+                    this.body = ko.observable();
+                    this.disclaimerText = ko.observable();
+                    this.header = ko.observable();
+                    this.bottompanelIFrameSrc = ko.observable();
+                    this.leftpanelIFrameSrc = ko.observable();
+                    this.logoSrc = ko.observable();
+                    this.middlepanelIFrameSrc = ko.observable();
+                    this.rightpanelIFrameSrc = ko.observable();
+                    this.sidepanelIFrameSrc = ko.observable();
+                    this.toppanelIFrameSrc = ko.observable();
+                    this.whatIsThisUrl = ko.observable();
+                    this.languages = ko.observableArray();
+                    this.selectedLanguage = ko.observable();
+                    this.refresh(n)
+                }
+                return n.prototype.refresh = function (n) {
+                    n && (this.welcomeSoundUrls = n.welcomeSoundUrls, this.isWelcomeSoundEnabled = this.welcomeSoundUrls && this.welcomeSoundUrls.length > 0, this.body() != n.body && this.body(n.body), this.disclaimerText() != n.disclaimerText && this.disclaimerText(n.disclaimerText), this.header() != n.header && this.header(n.header), this.logoSrc() != n.logoSrc && this.logoSrc(n.logoSrc), this.styleSheets = n.styleSheets, this.initLanguage(n), this.sidepanelIFrameSrc() != n.sidepanelIFrameSrc && this.sidepanelIFrameSrc(n.sidepanelIFrameSrc), this.toppanelIFrameSrc() != n.toppanelIFrameSrc && this.toppanelIFrameSrc(n.toppanelIFrameSrc), this.rightpanelIFrameSrc() != n.rightpanelIFrameSrc && this.rightpanelIFrameSrc(n.rightpanelIFrameSrc), this.middlepanelIFrameSrc() != n.middlepanelIFrameSrc && this.middlepanelIFrameSrc(n.middlepanelIFrameSrc), this.leftpanelIFrameSrc() != n.leftpanelIFrameSrc && this.leftpanelIFrameSrc(n.leftpanelIFrameSrc), this.bottompanelIFrameSrc() != n.bottompanelIFrameSrc && this.bottompanelIFrameSrc(n.bottompanelIFrameSrc), this.whatIsThisUrl() != n.whatIsThisUrl && this.whatIsThisUrl(n.whatIsThisUrl), this.countdownFinishedText != n.countdownFinishedText && (this.countdownFinishedText = n.countdownFinishedText))
+                }, n.prototype.initLanguage = function (n) {
+                    var i = this,
+                        t;
+                    if (n.languages) {
+                        for (this._selectedLanguageSubscribe && this._selectedLanguageSubscribe.dispose(), this.languages.removeAll(), t = 0; t < n.languages.length; ++t) this.languages.push({
+                            text: n.languages[t].Text,
+                            value: n.languages[t].Value
+                        }), n.languages[t].Selected && this.selectedLanguage(n.languages[t].Value);
+                        this._selectedLanguageSubscribe = this.selectedLanguage.subscribe(function () {
+                            return i.changeLanguage()
+                        })
+                    }
+                }, n.prototype.changeLanguage = function () {
+                    var i = document.location.href,
+                        r = i.split("?"),
+                        u, n, t;
+                    if (r.length >= 2) {
+                        for (u = encodeURIComponent("cid") + "=", n = r[1].split(/[&;]/g), t = n.length - 1; t >= 0; t--) n[t].lastIndexOf(u, 0) !== -1 && n.splice(t, 1);
+                        i = r[0] + "?" + n.join("&")
+                    }
+                    document.location.href = i + "&cid=" + this.selectedLanguage()
+                }, n
+            }();
+            n.InQueueTexts = t
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (t) {
+            var r = function (n) {
+                function t(t, i, r, u) {
+                    var f = n.call(this, "UpdateQueue") || this;
+                    return isNaN(t) || (f.queueNumber = t), isNaN(i) || (f.usersInLineAheadOfYou = i), r && (f.pageId = r), f.targetUrlParams = u, f
+                }
+                return __extends(t, n), t
+            }(t.FrameDto),
+                u, i, f;
+            t.UpdateQueueFrameDto = r;
+            u = function () {
+                function n(n, t) {
+                    this.key = n;
+                    this.value = t
+                }
+                return n
+            }();
+            t.TargetUrlParam = u,
+                function (n) {
+                    n[n.None = 0] = "None";
+                    n[n.Recaptcha = 1] = "Recaptcha";
+                    n[n.RecaptchaInvisible = 2] = "RecaptchaInvisible"
+                }(i = t.CaptchaType || (t.CaptchaType = {}));
+            f = function (f) {
+                function e(n, i, r) {
+                    var u = f.call(this, n.customerId, n.eventId) || this;
+                    return u.redirector = i, u.cssReplacer = r, u._firstInLine = !1, u._soundIsPlayingFlag = !1, u.isRedirectPromptDialogConfirmed = null, u._logSoundPlayerInfo = {
+                        SoundPlayer_setup_IsCalled: !1,
+                        SoundPlayer_onready_IsCalled: !1,
+                        SoundPlayer_onready_Exception: !1
+                    }, u.waitingStateUpdateInterval = 6e4, u.getStatus = function () {
+                        return u.inqueueStatus
+                    }, u.getIsRedirectedToTarget = function () {
+                        return u.isRedirectedToTarget
+                    }, u.getQueueId = function () {
+                        return u.options.queueId
+                    }, u.setQueueId = function (n) {
+                        u.options.queueId = n;
+                        u.queueId(n);
+                        u.fraudProtection && u.fraudProtection.setQueueId(n)
+                    }, u.updateNotify = function () {
+                        u.toggleButton("#aUpdateEmail", !0);
+                        $("#MainPart_inpEmailAddress").on("change keyup paste", function () {
+                            u.toggleButton("#aUpdateEmail", !1)
+                        });
+                        $.ajax({
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/json",
+                            data: JSON.stringify({
+                                email: u.emailAddress(),
+                                targetUrl: u.options.targetUrl,
+                                customUrlParams: u.options.customUrlParams
+                            }),
+                            url: "queue/" + u.options.customerId + "/" + u.options.eventId + "/" + u.options.queueId + "/UpdateEmail/?cid=" + (u.options.culture ? u.options.culture : "") + "&l=" + u.options.layout,
+                            success: function (n) {
+                                u.notify(n.Message, n.Status)
+                            },
+                            error: function (n, t, i) {
+                                u.toggleButton("#aUpdateEmail", !1);
+                                u.notify("Error subscribing", "error");
+                                u.logger.logAjaxCallError("InqueuePage", n, t, i, "Error subscribing")
+                            }
+                        })
+                    }, u.handleCaptchaCallback = function (n) {
+                        var t = n;
+                        u.verifyCaptcha(t, function (n, t) {
+                            if (t) {
+                                window.logger.Error({
+                                    Message: "Error verifying captcha: " + t
+                                }, u.eventId, u.customerId);
+                                grecaptcha.reset(u._captchaWidgetID);
+                                return
+                            }
+                            $("body").removeClass("captcha").addClass("captcha-solved");
+                            u.setQueueId(n);
+                            u.continueAfterResolvingQueueId()
+                        })
+                    }, u.options = n, u.inqueueStatus = "NotReadyYet", u.notReadyCount = 0, u.jsErrorCount = 0, u.lastTryUpdate = new Date, u.lastLayoutVersion = n.layoutVersion, u.lastLayoutName = n.layout, u.requireKey = n.requireKey, u.requireKeyToBeUnique = n.requireKeyToBeUnique, u.detector = new t.InactivityDetector, u.redirector || (u.redirector = {
+                        redirect: function (n) {
+                            n ? window.location.href = n : window.location.reload()
+                        }
+                    }), u.cssReplacer || (u.cssReplacer = {
+                        replace: function (n) {
+                            $("head< link").filter("[href$='.css']").remove();
+                            $("head").append(n)
+                        }
+                    }), u.creole = new Parse.Simple.Creole({
+                        forIE: document.all
+                    }), u.isBeforeOrIdle = n.isBeforeOrIdle, u.updateInterval = u.isBeforeOrIdle ? 5e3 : 2e3, u.showConfirmRedirectDialog = ko.observable(!1), u.message = ko.observable(undefined), u.queueId = ko.observable(n.queueId), u.hasQueueId = ko.computed(function () {
+                        return u.queueId() != "00000000-0000-0000-0000-000000000000"
+                    }), u.isRunning = ko.observable(!0), u.isRedirected = !1, u.isRedirectedToTarget = !1, u.emailAddress = ko.observable(u.options.emailAddress), u.isClientInactive = ko.observable(!1), u.ticket = new t.Ticket(null), u
+                }
+                return __extends(e, f), e.prototype.get_firstInLine = function () {
+                    return this._firstInLine
+                }, e.prototype.set_firstInLine = function (n) {
+                    this._firstInLine != n && (this._firstInLine = n, n && window.welcomeAudioPlayer && this.playWelcomeSound())
+                }, e.prototype.init = function () {
+                    var n = this;
+                    this.set_firstInLine(this.options.inqueueInfo.forecastStatus == "FirstInLine");
+                    this.doCallbacks(this.options.inqueueInfo);
+                    this.layout = new t.Layout(this.options.inqueueInfo.layout, this.get_firstInLine());
+                    this.texts = new t.InQueueTexts(this.options.inqueueInfo.texts);
+                    this.ticket.refresh(this.options.inqueueInfo.ticket);
+                    this.options.inqueueInfo.message && this.options.inqueueInfo.message.text && this.message(new t.Message(this.options.inqueueInfo.message));
+                    this.options.isBeforeOrIdle || this.initSoundTrack();
+                    this.notifyFrames(new r(this.options.isBeforeOrIdle ? null : this.options.inqueueInfo.ticket.queueNumber, this.options.isBeforeOrIdle ? null : this.options.inqueueInfo.ticket.usersInLineAheadOfYou, this.options.isBeforeOrIdle ? "before" : "queue", this.getTargetUrlParams()));
+                    this.setupBlinkingDot();
+                    this.customData = new t.CustomData(this.options, this);
+                    this.options.showCaptcha ? (window.loadCaptchaWidget = function () {
+                        return n.loadCaptchaWidget()
+                    }, this.fraudProtection = new t.FraudProtection(this.options), this.fraudProtection.init()) : this.requireKey && !this.options.isIdle || this.start(this.options.doGetStatusUpdate)
+                }, e.prototype.getTargetUrlParams = function () {
+                    for (var e, n, o, i = "t_", s = decodeURIComponent(this.options.customUrlParams), r = [], t = 0, f = s.split("&"); t < f.length; t++) e = f[t], n = e.split("="), n.length == 2 && (o = n[0].length >= i.length ? n[0].substr(i.length) : n[0], r.push(new u(o, n[1])));
+                    return r
+                }, e.prototype.start = function (n) {
+                    n === void 0 && (n = !0);
+                    n && (this.updateTimer(), this.updateCheckTimer())
+                }, e.prototype.getCreole = function () {
+                    return this.creole
+                }, e.prototype.refresh = function (n) {
+                    !n.isBeforeOrIdle && this.isBeforeOrIdle && ($("body").attr("data-pageid", "queue").addClass("queue").removeClass("prequeue").removeClass("before").removeClass("idle"), this.doStatusChangeCallbacks("queue"), this.isBeforeOrIdle = !1);
+                    this.isBeforeOrIdle ? this.refreshBeforeStatusUpdate(n) : this.refreshGetForecast(n)
+                }, e.prototype.refreshBeforeStatusUpdate = function (t) {
+                    this.doCallbacks(t);
+                    this.updateInterval = t.updateInterval ? t.updateInterval : 4e4;
+                    var i = t.ticket.secondsToStart;
+                    $("#defaultCountdown").countdown("option", {
+                        until: i
+                    });
+                    this.ticket.refresh(t.ticket);
+                    this.lastLayoutVersion = t.layoutVersion;
+                    this.lastLayoutName = t.layoutName;
+                    t.layout && this.layout.refresh(t.layout, !1);
+                    t.texts && (this.texts.styleSheets != t.texts.styleSheets && this.cssReplacer.replace(t.texts.styleSheets), this.texts.refresh(t.texts));
+                    this.message(t.message && t.message.text ? new n.Queue.Message(t.message) : undefined)
+                }, e.prototype.refreshGetForecast = function (t) {
+                    this.inqueueStatus != "NotReadyYet" && t.forecastStatus && t.forecastStatus == "NotReadyYet" || this.get_firstInLine() && t.forecastStatus != "FirstInLine" || (this.updateInterval = t.updateInterval, this.inqueueStatus = t.forecastStatus, this.inqueueStatus === "NotReadyYet" && this.notReadyCount++ , this.notReadyCount >= 10 && (this.isRedirected = !0, this.redirector.redirect()), this.doCallbacks(t), this.notifyFrames(new r(t.ticket.queueNumber, t.ticket.usersInLineAheadOfYou, t.pageId, this.getTargetUrlParams())), this.isRedirectPromptDialogConfirmed || t.ticket.queuePaused != !1 || this.inqueueStatus != "FirstInLine" || (this.layout.isRedirectPromptDialogEnabled || this.isClientInactive()) && (this.ticket.windowStartTime() && (this.updateInterval = Math.max(this.updateInterval, this.waitingStateUpdateInterval)), this.showConfirmRedirectDialog(!0), this.message(null), this.isRedirectPromptDialogConfirmed = !1), this.inqueueStatus == "FirstInLine" && this.set_firstInLine(!0), this.ticket.refresh(t.ticket), this.layout.refresh(t.layout, this.get_firstInLine()), t.texts && (t.texts.styleSheets !== this.texts.styleSheets && this.cssReplacer.replace(t.texts.styleSheets), this.texts.refresh(t.texts)), this.lastLayoutVersion >= t.layoutVersion && this.lastLayoutName == t.layoutName) || (this.message(t.message ? new n.Queue.Message(t.message) : undefined), this.initSoundTrack(), this.lastLayoutVersion = t.layoutVersion, this.lastLayoutName = t.layoutName)
+                }, e.prototype.updateTimer = function () {
+                    var n = this;
+                    setTimeout(function () {
+                        n.lastTryUpdate = new Date;
+                        n.isBeforeOrIdle || n.showConfirmRedirectDialog() || n.isRedirectPromptDialogConfirmed || n.isClientInactive(n.detector.isHidden());
+                        n.ajaxGetStatus()
+                    }, this.updateInterval)
+                }, e.prototype.initSoundTrack = function () {
+                    var n = this;
+                    if (!window.welcomeAudioPlayer && this.texts.isWelcomeSoundEnabled) try {
+                        this._logSoundPlayerInfo.SoundPlayer_setup_IsCalled = !0;
+                        window.soundManager.setup({
+                            url: "/css/sound",
+                            debugMode: !1,
+                            preferFlash: !1,
+                            onready: function () {
+                                n._logSoundPlayerInfo.SoundPlayer_onready_IsCalled = !0;
+                                try {
+                                    window.welcomeAudioPlayer = window.soundManager.createSound({
+                                        url: n.texts.welcomeSoundUrls
+                                    });
+                                    n.get_firstInLine() && n.playWelcomeSound()
+                                } catch (t) {
+                                    window.logger.Error({
+                                        Message: "Error initing sound file",
+                                        Ex: t,
+                                        Page: "InqueuePage"
+                                    }, n.eventId, n.customerId, n.options.queueId || "");
+                                    n._logSoundPlayerInfo.SoundPlayer_onready_Exception = !0
+                                }
+                            }
+                        })
+                    } catch (t) {
+                        window.logger.Error({
+                            Message: "Error setuping soundmanager",
+                            Ex: t,
+                            Page: "InqueuePage"
+                        }, this.eventId, this.customerId, this.options.queueId || "")
+                    }
+                }, e.prototype.playWelcomeSound = function (t) {
+                    var i = this;
+                    try {
+                        this._soundIsPlayingFlag = !0;
+                        setTimeout(function () {
+                            i._soundIsPlayingFlag = !1
+                        }, 1e4);
+                        this.texts.isWelcomeSoundEnabled && (window.welcomeAudioPlayer ? window.welcomeAudioPlayer.play({
+                            onfinish: function () {
+                                i._soundIsPlayingFlag = !1;
+                                t && t()
+                            }
+                        }) : window.logger.Debug({
+                            Message: "Not expected case in playing welcome sound"
+                        }, this.eventId, this.customerId, this.options.queueId || "", n.Queue.Helpers.ErrorSeverity.Information, this._logSoundPlayerInfo))
+                    } catch (r) {
+                        this._soundIsPlayingFlag = !1;
+                        window.logger.Error({
+                            Message: "Error playing sound",
+                            Ex: r,
+                            Page: "InqueuePage"
+                        }, this.eventId, this.customerId, this.options.queueId || "")
+                    }
+                }, e.prototype.updateCheckTimer = function () {
+                    var n = this;
+                    setInterval(function () {
+                        (new Date).getTime() - n.lastTryUpdate.getTime() > 6e4 && setTimeout(function () {
+                            (new Date).getTime() - n.lastTryUpdate.getTime() > 12e4 && n.redirector.redirect()
+                        }, 6e4);
+                        n.jsErrorCount > 3 && n.isRunning(!1)
+                    }, 2e3)
+                }, e.prototype.setupBlinkingDot = function () {
+                    var n = this;
+                    setInterval(function () {
+                        n.jsErrorCount == 0 ? $("#defaultViewPb1").toggleClass("active") : $("#defaultViewPb1").removeClass("active")
+                    }, 2e3)
+                }, e.prototype.ajaxGetStatus = function (n, t) {
+                    var i = this,
+                        r;
+                    if (n === void 0 && (n = this.isRedirectPromptDialogConfirmed), !this.isRedirected) {
+                        if (this._soundIsPlayingFlag) {
+                            this.updateTimer();
+                            return
+                        }
+                        r = "/queue/" + this.options.customerId + "/" + this.options.eventId + "/" + this.options.queueId + "/GetStatus?cid=" + (this.options.culture ? this.options.culture : "") + "&l=" + (this.options.layout ? this.options.layout : "");
+                        this.options.sdkVersion && (r += "&sdkv=" + this.options.sdkVersion);
+                        $.ajax({
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/json",
+                            data: JSON.stringify({
+                                targetUrl: this.options.targetUrl,
+                                customUrlParams: this.options.customUrlParams,
+                                layoutVersion: this.lastLayoutVersion,
+                                layoutName: this.lastLayoutName,
+                                isClientRedayToRedirect: this.isBeforeOrIdle ? null : this.GetClientReadyToRedirect(n),
+                                isBeforeOrIdle: this.isBeforeOrIdle
+                            }),
+                            url: r,
+                            success: function (n) {
+                                try {
+                                    if (n.redirectUrl && !n.isRedirectToTarget) {
+                                        document.location.href = n.redirectUrl;
+                                        return
+                                    }
+                                    if (n.isRedirectToTarget) {
+                                        i.redirectToTarget(n);
+                                        return
+                                    }
+                                    i.refresh(n);
+                                    i.jsErrorCount = 0;
+                                    i.isRunning(!0)
+                                } catch (r) {
+                                    i.jsErrorCount++;
+                                    window.logger.Error({
+                                        Message: "Error in updating result ajaxGetForecast",
+                                        Ex: r,
+                                        Page: "InqueuePage"
+                                    }, i.eventId, i.customerId, i.options.queueId || "")
+                                } finally {
+                                    t && t();
+                                    i.updateTimer()
+                                }
+                            },
+                            error: function (n, r, u) {
+                                i.logger.logAjaxCallError("InqueuePage: isBeforeOrIdle" + i.isBeforeOrIdle, n, r, u);
+                                try {
+                                    $.isFunction(i.options.errorCallback) && i.options.errorCallback()
+                                } finally {
+                                    i.jsErrorCount++;
+                                    n && (n.status === 503 || n.status === 504) && (i.updateInterval *= 1.25, i.updateInterval > 2e5 && (i.updateInterval = 2e5));
+                                    t && t();
+                                    i.updateTimer()
+                                }
+                            }
+                        })
+                    }
+                }, e.prototype.redirectToTarget = function (n) {
+                    var t = this,
+                        i;
+                    this.isRedirected = !0;
+                    this.isRedirectedToTarget = n.isRedirectToTarget;
+                    this.get_firstInLine() ? this.redirector.redirect(n.redirectUrl, n.isRedirectToTarget) : (this._firstInLine = !0, i = setTimeout(function () {
+                        t.redirector.redirect(n.redirectUrl, n.isRedirectToTarget)
+                    }, 1e4), this.ticket.setProgressBar(100), this.playWelcomeSound(function () {
+                        clearTimeout(i);
+                        t.redirector.redirect(n.redirectUrl, n.isRedirectToTarget)
+                    }))
+                }, e.prototype.notify = function (n, t) {
+                    $("#divEmailStatusFrame").removeClass().show().addClass(t == "Success" ? "submit_success alert alert-success" : "submit_failure alert alert-error").delay(6e4).fadeOut().click(function () {
+                        $(this).stop(!0, !0).fadeOut()
+                    });
+                    $("#divEmailStatus").html(n)
+                }, e.prototype.setActiveClient = function () {
+                    var n = this;
+                    this.isClientInactive(!1);
+                    this.showConfirmRedirectDialog(!1);
+                    this.options.doGetStatusUpdate && this.ajaxGetStatus(!0, function () {
+                        n.isRedirectPromptDialogConfirmed = !0
+                    })
+                }, e.prototype.GetClientReadyToRedirect = function (n) {
+                    return n || !this.layout.isRedirectPromptDialogEnabled && !this.isClientInactive()
+                }, e.prototype.continueAfterResolvingQueueId = function () {
+                    var t = window.location.href.indexOf("?") === -1 ? "?" : "&",
+                        n = window.location.href + t + "q=" + this.queueId();
+                    window.history.replaceState ? window.history.replaceState(null, document.title, n) : window.location.href = n;
+                    this.start(this.options.doGetStatusUpdate)
+                }, e.prototype.loadCaptchaWidget = function () {
+                    this.options.captchaType == i.Recaptcha ? this._captchaWidgetID = grecaptcha.render("captcha-widget-container", {
+                        sitekey: this.options.captchaPublicKey,
+                        callback: this.handleCaptchaCallback
+                    }) : this.options.captchaType == i.RecaptchaInvisible && (this._captchaWidgetID = grecaptcha.render("captcha-widget-container", {
+                        sitekey: this.options.captchaInvisiblePublicKey,
+                        callback: this.handleCaptchaCallback,
+                        size: "invisible"
+                    }), grecaptcha.execute())
+                }, e.prototype.verifyCaptcha = function (t, i) {
+                    var r = this,
+                        u = function (n) {
+                            return $.ajax({
+                                type: "POST",
+                                dataType: "json",
+                                contentType: "application/json",
+                                data: JSON.stringify({
+                                    captchaProvider: r.getCaptchaProvider(),
+                                    sessionId: t,
+                                    customerId: r.customerId,
+                                    eventId: r.eventId
+                                }),
+                                url: r.options.captchaVerifyEndpoint,
+                                success: function (t) {
+                                    t.signedSessionId && !r.requireKey ? r.enqueueWithCaptcha(t.signedSessionId, n) : t.signedSessionId && r.requireKey ? ($("body").removeClass("captcha").addClass("captcha-solved"), r.customData.setCaptchaSessionId(t.signedSessionId)) : i(null, "No signed session id returned")
+                                },
+                                error: function (t, i, u) {
+                                    r.logger.logAjaxCallError("InqueuePage", t, i, u, "Error captcha verify");
+                                    n(null, "Error from captcha verify end point: " + i + " - " + u)
+                                }
+                            })
+                        },
+                        f = function (n) {
+                            return 300 * n
+                        };
+                    n.Queue.Helpers.RetryHelper.retry(10, u, i, f)
+                }, e.prototype.getCaptchaProvider = function () {
+                    switch (this.options.captchaType) {
+                        case i.Recaptcha:
+                            return "recaptcha";
+                        case i.RecaptchaInvisible:
+                            return "recaptcha-invisible"
+                    }
+                }, e.prototype.enqueueWithCaptcha = function (t, i) {
+                    var r = this,
+                        u = function (n) {
+                            return $.ajax({
+                                type: "POST",
+                                dataType: "json",
+                                contentType: "application/json",
+                                data: JSON.stringify({
+                                    captchaToken: t,
+                                    layoutName: r.options.layout,
+                                    targetUrl: r.options.targetUrl
+                                }),
+                                url: "queue/" + r.options.customerId + "/" + r.options.eventId + "/enqueue",
+                                success: function (t) {
+                                    if (t.captchaFailed) return n(null, "Captcha verification failed");
+                                    if (t.redirectUrl) {
+                                        document.location.href = t.redirectUrl;
+                                        return
+                                    }
+                                    t.queueId ? n(t.queueId, null) : n(null, "Missing queue id")
+                                },
+                                error: function (t, i, u) {
+                                    r.logger.logAjaxCallError("InqueuePage", t, i, u, "Error enqueuing");
+                                    n(null, "Error from enqueue end point: " + i + " - " + u)
+                                }
+                            })
+                        },
+                        f = function (n) {
+                            return 300 * n
+                        };
+                    n.Queue.Helpers.RetryHelper.retry(10, u, i, f)
+                }, e.prototype.onReady = function () {
+                    var t, i, n, r;
+                    t = this.isBeforeOrIdle ? "before" : "queue";
+                    f.prototype.onReady.call(this, t);
+                    this.isBeforeOrIdle && (i = this.options.culture, n = $, n.countdown.setDefaults(n.countdown.regional[i]), r = this.ticket.secondsToStart(), n("#defaultCountdown").countdown({
+                        until: r,
+                        format: "dhmS",
+                        layout: '{d<}{dnn} <span class="countdown_label">{dl}<\/span>{d>} {h<}{hnn} <span class="countdown_label">{hl}<\/span>{h>} {m<}{mnn} <span class="countdown_label">{ml}<\/span>{m>} {snn} <span class="countdown_label">{sl}<\/span>',
+                        expiryText: '<div class="finished">' + this.texts.countdownFinishedText + " <\/div>"
+                    }))
+                }, e.prototype.receiveMessage = function (n, t) {
+                    switch (n.messageType) {
+                        case "RequestRefresh":
+                            this.notifyFrames(new r(this.isBeforeOrIdle ? null : parseInt(t.ticket.queueNumber()), this.isBeforeOrIdle ? null : t.ticket.usersInLineAheadOfYou(), this.isBeforeOrIdle ? "before" : "queue", this.getTargetUrlParams()));
+                            return;
+                        default:
+                            return
+                    }
+                }, e.prototype.toggleButton = function (n, t) {
+                    $(n).prop("disabled", t);
+                    t ? $(n).addClass("btn-disabled") : $(n).removeClass("btn-disabled")
+                }, e
+            }(t.ViewBase);
+            t.InQueueView = f
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (n) {
+            var t = function () {
+                function n(n, t) {
+                    this.servicedSoonDelayLengthMS = 15e3;
+                    this.firstInLineTimeStamp = null;
+                    this.bottomPanelVisible = ko.observable();
+                    this.dynamicMessageVisible = ko.observable();
+                    this.expectedServiceTimeVisible = ko.observable();
+                    this.firstInLineVisible = ko.observable();
+                    this.highLoadVisible = ko.observable();
+                    this.leftPanelVisible = ko.observable();
+                    this.middlePanelVisible = ko.observable();
+                    this.queueIsPausedVisible = ko.observable();
+                    this.queueNumberVisible = ko.observable();
+                    this.queueNumberLoadingVisible = ko.observable();
+                    this.reminderEmailVisible = ko.observable();
+                    this.reminderVisible = ko.observable();
+                    this.rightPanelVisible = ko.observable();
+                    this.servicedSoonVisible = ko.observable();
+                    this.sidePanelVisible = ko.observable();
+                    this.topPanelVisible = ko.observable();
+                    this.usersInLineAheadOfYouVisible = ko.observable();
+                    this.usersInQueueVisible = ko.observable();
+                    this.logoVisible = ko.observable();
+                    this.whichIsInVisible = ko.observable();
+                    this.progressVisible = ko.observable();
+                    this.servicedSoonDelayVisible = ko.observable(!1);
+                    this.languageSelectorVisible = ko.observable();
+                    this.refresh(n, t)
+                }
+                return n.prototype.refresh = function (n, t) {
+                    n && (this.isRedirectPromptDialogEnabled = n.isRedirectPromptDialogEnabled, this.bottomPanelVisible(n.bottomPanelVisible), this.dynamicMessageVisible(n.dynamicMessageVisible), this.expectedServiceTimeVisible(n.expectedServiceTimeVisible && !t), this.firstInLineVisible(t || n.firstInLineVisible), this.highLoadVisible(n.highLoadVisible), this.leftPanelVisible(n.leftPanelVisible), this.middlePanelVisible(n.middlePanelVisible), this.queueIsPausedVisible(n.queueIsPausedVisible), this.queueNumberVisible(n.queueNumberVisible), this.queueNumberLoadingVisible(n.queueNumberLoadingVisible), this.reminderEmailVisible(n.reminderEmailVisible), this.reminderVisible(n.reminderVisible), this.rightPanelVisible(n.rightPanelVisible), this.servicedSoonVisible(t && !n.queueIsPausedVisible), this.sidePanelVisible(n.sidePanelVisible), this.topPanelVisible(n.topPanelVisible), this.usersInLineAheadOfYouVisible(n.usersInLineAheadOfYouVisible && !t), this.usersInQueueVisible(n.usersInQueueVisible), this.logoVisible(n.logoVisible), this.whichIsInVisible(n.whichIsInVisible && !t), this.progressVisible(n.progressVisible), this.languageSelectorVisible(n.languageSelectorVisible), t && this.firstInLineTimeStamp == null ? this.firstInLineTimeStamp = new Date : t && this.firstInLineTimeStamp != null && !this.servicedSoonDelayVisible() && Date.now() - this.firstInLineTimeStamp.valueOf() > this.servicedSoonDelayLengthMS && this.servicedSoonDelayVisible(!0))
+                }, n
+            }();
+            n.Layout = t
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (n) {
+            var t = function () {
+                function n(n) {
+                    this.header = n == null ? null : n.header;
+                    this.id = n == null ? null : n.id;
+                    this.text = n == null ? null : n.text;
+                    this.timestamp = n && n.timestamp ? new Date(parseInt(n.timestamp.substr(6))) : new Date;
+                    this.timestampFormatted = n == null ? null : n.timestampFormatted;
+                    this.timeZonePostfix = n == null ? null : n.timeZonePostfix
+                }
+                return n
+            }();
+            n.Message = t
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (n) {
+            var t = function () {
+                function n(n, t) {
+                    var i = this;
+                    this.inQueueView = n;
+                    this.initialInqueueInfo = t;
+                    this.inQueueVM = n;
+                    this.inqueueInfo = t;
+                    this.queueNumberVisibleByLayout = n.layout.queueNumberVisible();
+                    this.usersAheadVisibleByLayout = n.layout.usersInLineAheadOfYouVisible();
+                    this.relativeTimeVisibleByLayout = n.layout.whichIsInVisible();
+                    this.absoluteTimeVisibleByLayout = n.layout.expectedServiceTimeVisible();
+                    this.dynamicMessageVisibleByLayout = n.layout.dynamicMessageVisible();
+                    this.reminderFormVisibleByLayout = n.layout.reminderVisible();
+                    this.connectionLost = ko.observable(!1);
+                    this.connectionLost.subscribe(function () {
+                        return i.connectionLostChange()
+                    });
+                    this.javascriptDisabled = ko.observable();
+                    this.javascriptDisabled.subscribe(function () {
+                        return i.javascriptDisabledChange()
+                    });
+                    this.queuePaused = ko.observable(!1);
+                    this.queuePaused.subscribe(function () {
+                        return i.queuePausedChange()
+                    });
+                    this.firstInLine = ko.observable(!1);
+                    this.firstInLine.subscribe(function () {
+                        return i.firstInLineChange()
+                    });
+                    this.serviceSoon = ko.observable(!1);
+                    this.serviceSoon.subscribe(function () {
+                        return i.serviceSoonChange()
+                    });
+                    this.redirectModal = this.inQueueVM.showConfirmRedirectDialog;
+                    this.redirectModal.subscribe(function () {
+                        return i.redirectModalChange()
+                    });
+                    this.hideDynamicMessage = ko.observable();
+                    this.hideDynamicMessage.subscribe(function () {
+                        return i.hideDynamicMessageChange()
+                    });
+                    this.reminderEmailStatus = ko.observable();
+                    this.reminderEmailStatus.subscribe(function () {
+                        return i.reminderEmailStatusChange()
+                    })
+                }
+                return n.prototype.connectionLostChange = function () {
+                    this.inQueueVM.isRunning(!this.inQueueVM.isRunning())
+                }, n.prototype.javascriptDisabledChange = function () {
+                    $("#noscript").toggle()
+                }, n.prototype.queuePausedChange = function () {
+                    this.redirectModal() && this.redirectModal(!1);
+                    this.inqueueInfo.layout.queueIsPausedVisible = !this.inqueueInfo.layout.queueIsPausedVisible;
+                    this.absoluteTimeVisibleByLayout && (this.inqueueInfo.layout.expectedServiceTimeVisible = !this.inqueueInfo.layout.expectedServiceTimeVisible);
+                    this.relativeTimeVisibleByLayout && (this.inqueueInfo.layout.whichIsInVisible = !this.inqueueInfo.layout.whichIsInVisible);
+                    this.inQueueVM.refresh(this.inqueueInfo)
+                }, n.prototype.firstInLineChange = function () {
+                    this.serviceSoon() && this.serviceSoon(!1);
+                    this.usersAheadVisibleByLayout && (this.inqueueInfo.layout.usersInLineAheadOfYouVisible = !this.inqueueInfo.layout.usersInLineAheadOfYouVisible);
+                    this.inqueueInfo.layout.firstInLineVisible = !this.inqueueInfo.layout.firstInLineVisible;
+                    this.inQueueVM.refresh(this.inqueueInfo)
+                }, n.prototype.serviceSoonChange = function () {
+                    this.absoluteTimeVisibleByLayout && (this.inqueueInfo.layout.expectedServiceTimeVisible = !this.inqueueInfo.layout.expectedServiceTimeVisible);
+                    this.relativeTimeVisibleByLayout && (this.inqueueInfo.layout.whichIsInVisible = !this.inqueueInfo.layout.whichIsInVisible);
+                    this.inQueueVM.refresh(this.inqueueInfo);
+                    this.serviceSoon() && this.inQueueVM.layout.servicedSoonVisible(!0)
+                }, n.prototype.redirectModalChange = function () {
+                    if (this.redirectModal()) {
+                        var n = new Date;
+                        this.inQueueVM.ticket.windowStartTime(n.getHours() + (n.getMinutes() < 10 ? ":0" : ":") + n.getMinutes())
+                    }
+                }, n.prototype.hideDynamicMessageChange = function () {
+                    this.dynamicMessageVisibleByLayout && (this.inqueueInfo.layout.dynamicMessageVisible = !this.inqueueInfo.layout.dynamicMessageVisible, this.inQueueVM.refresh(this.inqueueInfo))
+                }, n.prototype.reminderEmailStatusChange = function () {
+                    this.reminderEmailStatus() == "success" ? (this.inQueueVM.notify("We will send you an e-mail containing a link to your place in the queue, and another e-mail when it is time for you to return to the queue. E-mails may be delayed, moved to your spam folder, or lost due to reasons beyond our control, so we recommend that you check your status in the queue frequently.", "Success"), $("#aUpdateEmail").addClass("btn-disabled")) : ($("#aUpdateEmail").removeClass("btn-disabled"), this.inQueueVM.notify("Error subscribing", "Error"))
+                }, n.prototype.hideReminderStatusMessage = function () {
+                    this.reminderEmailStatus("");
+                    $("#divEmailStatusFrame").hide();
+                    $("#aUpdateEmail").removeClass("btn-disabled")
+                }, n.prototype.minimizeWindow = function () {
+                    $("#PreviewQueueStatesDiv").toggleClass("min")
+                }, n
+            }();
+            n.PreviewQueueStateVM = t
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {})),
+    function (n) {
+        var t;
+        (function (n) {
+            var t = function () {
+                function n(n) {
+                    var t = this;
+                    this.isReady = !1;
+                    this.expectedServiceTime = ko.observable();
+                    this.lastUpdated = ko.observable();
+                    this.queueNumber = ko.observable();
+                    this.usersInLineAheadOfYou = ko.observable();
+                    this.whichIsIn = ko.observable();
+                    this.highLoad = ko.observable();
+                    this.progress = ko.observable(.01);
+                    this.timeZonePostfix = ko.observable();
+                    this.windowStartTime = ko.observable();
+                    this.eventStartTimeFormatted = ko.observable();
+                    this.secondsToStart = ko.observable();
+                    this.usersInQueue = ko.observable(0);
+                    this.refresh(n);
+                    $(window).load(function () {
+                        t.isReady = !0;
+                        t.setProgressBar(t.progress() * 100)
+                    })
+                }
+                return n.prototype.refresh = function (n) {
+                    n && (this.expectedServiceTime() != n.expectedServiceTime && this.expectedServiceTime(n.expectedServiceTime), this.lastUpdated() != n.lastUpdated && this.lastUpdated(n.lastUpdated), this.queueNumber() != n.queueNumber && this.queueNumber(n.queueNumber), this.usersInLineAheadOfYou() != n.usersInLineAheadOfYou && (isNaN(this.usersInLineAheadOfYou()) || isNaN(n.usersInLineAheadOfYou) || this.usersInLineAheadOfYou() > parseInt(n.usersInLineAheadOfYou)) && this.usersInLineAheadOfYou(parseInt(n.usersInLineAheadOfYou)), this.whichIsIn() != n.whichIsIn && this.whichIsIn(n.whichIsIn), this.highLoad() != n.highLoad && this.highLoad(n.highLoad), n.progress != null && n.progress != this.progress() && (this.progress(n.progress), this.setProgressBar(this.progress() * 100)), this.timeZonePostfix(n.timeZonePostfix), !this.windowStartTime() && n.windowStartTime && this.windowStartTime(n.windowStartTime), this.eventStartTimeFormatted(n.eventStartTimeFormatted), this.secondsToStart(n.secondsToStart), this.usersInQueue(n.usersInQueue))
+                }, n.prototype.setProgressBar = function (n) {
+                    this.isReady && window.progressBar(n, $(".progressbar"))
+                }, n
+            }();
+            n.Ticket = t
+        })(t = n.Queue || (n.Queue = {}))
+    }(QueueIt || (QueueIt = {}));

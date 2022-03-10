@@ -1,3 +1,8 @@
+/* #### radial progressbar start #### */
+.progressbar {
+  /*background-color: #581e00;
+  border-color: #581e00;*/
+}
 .progressbar .progress {
   background-color: inherit;
   background-image: url(progress2-black.gif);
@@ -6,12 +11,19 @@
 .progressbar .progress.updated {
   background-image: url(progress2-1-black.gif);
 }
+/* .progressbar .progress .runner {
+      background-image: url(player_b_right_walk1-0.2.gif);
+    }
+
+    .progressbar .progress .runner.paused{
+      background-image: url(./person_pause_b.png);
+    } */
 
 /* to change the size of the radial progressbar, change all of the @circle-size accordingly */
 
 .radial-progressbar {
-  height: 150px; /*@circle-size */
-  width: 150px; /*@circle-size */
+  height: 200px; /*@circle-size */
+  width: 200px; /*@circle-size */
   margin: 5px auto;
   border-radius: 50%;
 }
@@ -19,8 +31,8 @@
 .circle .mask,
 .circle .fill,
 .circle .shadow {
-  height: 150px; /*@circle-size */
-  width: 150px; /*@circle-size */
+  height: 200px; /*@circle-size */
+  width: 200px; /*@circle-size */
   border-radius: 50%;
   position: absolute;
 }
@@ -36,55 +48,40 @@
   border-radius: 50%;
 }
 .circle .mask {
-  clip: rect(
-    0px,
-    150px,
-    150px,
-    75px
-  ); /*clip: rect(0px, @circle-size, @circle-size, @circle-size/2); */
+  clip: rect(0px, 200px, 200px, 100px); /*clip: rect(0px, @circle-size, @circle-size, @circle-size/2); */
 }
 .circle .mask .fill {
-  clip: rect(
-    0px,
-    75px,
-    150px,
-    0px
-  ); /*clip: rect(0px, @circle-size/2, @circle-size, 0px);*/
-  background-color: #a3d092;
+  clip: rect(0px, 100px, 200px, 0px); /*clip: rect(0px, @circle-size/2, @circle-size, 0px);*/
+  background-color: pink;
 }
 
 .circle-inset {
-  background-color: #3daf2c;
-  width: 100px;
-  height: 100px;
+  background-color: white;
+  width: 80px;
+  height: 80px;
   position: relative;
-  top: 24px;
-  left: 25px;
+  top: 60px;
+  left: 60px;
   border-radius: 50%;
-  box-shadow: inset 0px 0px 20px 0px rgba(49, 46, 46, 0.61);
+  box-shadow: 0px 0px 20px 4px rgba(216, 210, 210, 0.96);
   border: 1px solid rgba(136, 136, 136, 0.58);
 }
 .circle-inset .runner {
   width: 80px;
   height: 80px;
-  position: relative;
-  top: 8px;
-  left: 9px;
-  background-image: url(player_w_right_walk1-0.2.gif);
+  background-image: url(player_b_right_walk1-0.2.gif);
   background-size: 80%;
   background-position: 5px center;
   background-repeat: no-repeat;
 }
 
 .circle-inset .runner.paused {
-  left: 33px;
-  background-image: url(./person_pause_w.png);
+  background-image: url(./person_pause_b.png);
   background-size: 80%;
   background-position: 7px center;
   background-repeat: no-repeat;
 }
 .circle-inset .contents {
-  /*for percentage display */
   display: none;
   position: absolute;
   top: 30px;
@@ -106,3 +103,5 @@
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
 }
+
+/* #### radial progressbar end #### */

@@ -1,4 +1,4 @@
-@-webkit-keyframes gradient_bkgd {
+@-webkit-keyframes burst-gradient {
   0% {
     background-position: 50% 50%, 0;
   }
@@ -6,7 +6,7 @@
     background-position: -100% 50%, 0;
   }
 }
-@-moz-keyframes gradient_bkgd {
+@-moz-keyframes burst-gradient {
   0% {
     background-position: 50% 50%, 0;
   }
@@ -14,7 +14,7 @@
     background-position: -100% 50%, 0;
   }
 }
-@keyframes gradient_bkgd {
+@keyframes burst-gradient {
   0% {
     background-position: 50% 50%, 0;
   }
@@ -38,17 +38,12 @@
 }
 
 .progressbar .progress.updated {
-  background-image: linear-gradient(
-      90deg,
-      rgba(63, 133, 255, 0) 0%,
-      #41bcff 20%,
-      rgba(63, 133, 255, 0) 23%
-    ),
+  background-image: linear-gradient(90deg, rgba(63, 133, 255, 0) 0%, #41bcff 20%, rgba(63, 133, 255, 0) 23%),
     linear-gradient(90deg, #3f87ff 0%, #764bff 50%, #764bff 100%);
   background-size: 200% 100%, cover;
-  -webkit-animation: gradient_bkgd 2s ease-out 3 forwards;
-  -moz-animation: gradient_bkgd 2s ease-out 3 forwards;
-  animation: gradient_bkgd 2s ease-out 3 forwards;
+  -webkit-animation: burst-gradient 2s ease-out 3 forwards;
+  -moz-animation: burst-gradient 2s ease-out 3 forwards;
+  animation: burst-gradient 2s ease-out 3 forwards;
 }
 .progressbar .progress .runner,
 .progressbar .progress .runner.paused {

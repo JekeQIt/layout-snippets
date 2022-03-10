@@ -52,12 +52,10 @@ queueViewModel.pageReady(function (data) {
 //for when progressbar is updated
 queueViewModel.modelUpdated(function (data) {
   var radialPercent = data.ticket.progress;
-  console.log("radialPercent", radialPercent);
   var pageid = $("body").attr("data-pageid");
   if (pageid == "queue") {
     $("#MainPart_divProgressbar").hide();
     radialPercent = radialPercent * 100;
-    console.log("radialPercent * 100", radialPercent);
     $(".circle-inset .contents").text(radialPercent + "%");
     $(".circle .mask.full, .circle .fill").css({ transform: "rotate(" + (radialPercent * 3.6) / 2 + "deg)" });
     $(".circle .fill.fix").css({ transform: "rotate(" + radialPercent * 3.6 + "deg)" });

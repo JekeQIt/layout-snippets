@@ -1,40 +1,51 @@
-@-webkit-keyframes gradient_bkgd {
-  from{background-position: 0px}
-	to{background-position: 31px}
+/* ### multi-colored ### */
+@-webkit-keyframes multi_colored {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 40px;
+  }
 }
-@-moz-keyframes gradient_bkgd {
-  from{background-position: 0px}
-	to{background-position: 31px}
+@-moz-keyframes multi_colored {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 40px;
+  }
 }
-@keyframes gradient_bkgd {
-	from{background-position: 0px}
-	to{background-position: 31px}
+@keyframes multi_colored {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 40px;
+  }
+}
+.progressbar.multi-colored {
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.progressbar.multi-colored .progress {
+  background-color: #fff;
+  background-image: none;
+  border-radius: 3px;
+}
 
+.progressbar.multi-colored .progress.updated {
+  background-color: #fff;
+  background-image: none;
+  -webkit-animation: multi_colored 1s linear infinite;
+  -moz-animation: multi_colored 1s linear infinite;
+  animation: multi_colored 1s linear infinite;
 }
-/* ppprogress */
-.progressbar {
-  background: rgba(0,0,0,0);
-  border: 1px solid rgba(0,0,0,.5);
+.progressbar.multi-colored .progress,
+.progressbar.multi-colored .progress.updated {
+  background-image: linear-gradient(90deg, #47cb9a 10px, #19be81 11px, #19be81 20px, #ceefe1 20px, #ceefe1 29px, #75d8b3 30px);
+  background-size: 40px;
 }
-.progressbar .progress {
-    background-color: #ff505a;
-    background-image: none;
-    background-image: linear-gradient(90deg, #ffcb00 14px,#eee 14px,#eee 15px, #ff505a 15px, #ff505a 30px, #eee 30px);
-    background-size: 31px;
-
-}
-
-    .progressbar .progress.updated {
-        background-color: #ff505a;
-        background-image: none;
-        background-image: linear-gradient(90deg, #ffcb00 14px,#eee 14px,#eee 15px, #ff505a 15px, #ff505a 30px, #eee 30px);
-        background-size: 31px;
-        -webkit-animation: gradient_bkgd 1s linear infinite!important;
-        -moz-animation: gradient_bkgd 1s linear infinite!important;
-        animation: gradient_bkgd 1s linear infinite!important;
-
-    }
-    /* .progressbar .progress .runner {
+/* .progressbar .progress .runner {
       background-image: url(player_b_right_walk1-0.2.gif);
     }
 
