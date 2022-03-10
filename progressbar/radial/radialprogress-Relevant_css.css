@@ -91,7 +91,6 @@
   color: pink;
   font-weight: 800;
 }
-
 .circle .mask.full,
 .circle .fill {
   -webkit-transform: rotate(0deg);
