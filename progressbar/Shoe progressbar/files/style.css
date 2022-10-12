@@ -163,14 +163,9 @@ a {
 }
 
 .progressbar .progress.updated {
-  /* -webkit-animation: gradient_bkgd 1s linear infinite!important;
-        -moz-animation: gradient_bkgd 1s linear infinite!important;
-        animation: gradient_bkgd 1s linear infinite!important; */
+  animation: none;
 }
-.progressbar .progress .runner {
-  background-image: none;
-}
-
+.progressbar .progress .runner ,
 .progressbar .progress .runner.paused {
   background-image: none;
 }

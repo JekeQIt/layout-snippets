@@ -1,4 +1,4 @@
-@-webkit-keyframes gradient_bkgd {
+@-webkit-keyframes diagonal {
   from {
     background-position: 0px;
   }
@@ -6,7 +6,7 @@
     background-position: 50px;
   }
 }
-@-moz-keyframes gradient_bkgd {
+@-moz-keyframes diagonal {
   from {
     background-position: 0px;
   }
@@ -14,7 +14,7 @@
     background-position: 50px;
   }
 }
-@keyframes gradient_bkgd {
+@keyframes diagonal {
   from {
     background-position: 0px;
   }
@@ -31,19 +31,13 @@
 .progressbar .progress.updated {
   background-color: black;
 
-  background-image: linear-gradient(
-    130deg,
-    blue 19px,
-    orange 20px,
-    orange 38px,
-    blue 39px
-  );
+  background-image: linear-gradient(130deg, blue 19px, orange 20px, orange 38px, blue 39px);
 
   background-size: 50px;
 }
 
 .progressbar .progress.updated {
-  -webkit-animation: gradient_bkgd 1s linear infinite !important;
-  -moz-animation: gradient_bkgd 1s linear infinite !important;
-  animation: gradient_bkgd 1s linear infinite !important;
+  -webkit-animation: diagonal 1s linear infinite !important;
+  -moz-animation: diagonal 1s linear infinite !important;
+  animation: diagonal 1s linear infinite !important;
 }

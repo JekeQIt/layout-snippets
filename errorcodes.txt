@@ -1,0 +1,19 @@
+0: General, 
+
+1: UnknownCustomerId, 
+
+2: UnknownEventId, 
+
+3: EventNotFound, 
+
+4: AfterWindow, 
+
+5: MaxNoOfRedirectsPerQId, 
+
+6: KnownUserV3, 
+
+7: ChallengeSolveTimeout 
+
+8: 
+
+9:InvalidQueueitEnqueueToken 
