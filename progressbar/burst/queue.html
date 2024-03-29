@@ -3,46 +3,19 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <!-- <meta id="queue-it_log" data-userid="819cc795-0b90-4bb4-96a8-ff9321c5d81b" data-proxyurl="https://logging.queue-it.net/logging/event"> -->
     <title>Queue-it</title>
 
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="144x144"
-      href="files/default_images/apple-touch-icon-144x144.png"
-    />
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="152x152"
-      href="files/default_images/apple-touch-icon-152x152.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="files/default_images/queue-it_appletouch.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="files/default_images/favicon-32x32.png"
-      sizes="32x32"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="files/default_images/favicon-16x16.png"
-      sizes="16x16"
-    />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="files/default_images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="files/default_images/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" href="files/default_images/queue-it_appletouch.png" />
+    <link rel="icon" type="image/png" href="files/default_images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="files/default_images/favicon-16x16.png" sizes="16x16" />
     <link rel="shortcut icon" href="files/default_images/queue-it.ico" />
     <meta name="application-name" content=" " />
     <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta
-      name="msapplication-TileImage"
-      content="files/default_images/mstile-144x144.png"
-    />
+    <meta name="msapplication-TileImage" content="files/default_images/mstile-144x144.png" />
     <link rel="stylesheet" href="files/default_style.css" type="text/css" />
     <!-- [if lte IE 7]><link rel='stylesheet' href='files/ie.css' type='text/css' /><![endif] -->
     <link rel="stylesheet" href="files/temp.css" type="text/css" />
@@ -64,17 +37,11 @@
     </script>
     <script type="text/javascript" src="files/common.js"></script>
     <script>
-      window.jQuery ||
-        document.write(
-          '<script src="' + getScriptBasePath() + "common.js" + '"><\/script>'
-        );
+      window.jQuery || document.write('<script src="' + getScriptBasePath() + "common.js" + '"><\/script>');
     </script>
     <script type="text/javascript" src="files/queueit.js"></script>
     <script>
-      window.QueueIt ||
-        document.write(
-          '<script src="' + getScriptBasePath() + "queueit.js" + '"><\/script>'
-        );
+      window.QueueIt || document.write('<script src="' + getScriptBasePath() + "queueit.js" + '"><\/script>');
 
       if (window.soundManager) window.soundManager.debugMode = false;
     </script>
@@ -118,12 +85,12 @@
             queuePaused: false,
             lastUpdatedUTC: "\/Date(1568981970752)\/",
             queueNumber: "8445",
-            whichIsIn: "4 minutes",
+            whichIsIn: "14 minutes",
             expectedServiceTime: "12:24 PM",
             usersInLineAheadOfYou: "1758",
             lastUpdated: "12:19:30 PM",
             progress: 0.75,
-            timeZonePostfix: "",
+            timeZonePostfix: "GMT",
             expectedServiceTimeUTC: "\/Date(1568982270752)\/",
             customUrlParams: null,
             sdkVersion: null,
@@ -140,19 +107,18 @@
             timestamp: null,
             id: null,
             timestampFormatted: "12:19 PM",
-            timeZonePostfix: "",
+            timeZonePostfix: "GMT",
             timestampUTC: null,
           },
           texts: {
             countdownFinishedText: "You will now be redirected to the line.",
             header: "You are now in line",
-            body:
-              "You are in line for [Event Name].  When it is your turn, you will have 10 minutes to enter the website.",
+            body: "You are in line for [Event Name].  When it is your turn, you will have 10 minutes to enter the website.",
             disclaimerText: null,
             styleSheets:
               "<link rel='stylesheet' href='files/default_style.css' type='text/css' /><!--[if lte IE 7]><link rel='stylesheet' href='files/ie.js' type='text/css' /><![endif]--><link rel='stylesheet' href='files/temp.css' type='text/css' /><link rel='stylesheet' href='files/style.css' type='text/css' />",
             javascripts: ["files/script.js"],
-            logoSrc: "files/default_images/queue-it_logo.png",
+            logoSrc: "/files/assets/queue-it_logo.png",
             toppanelIFrameSrc: "",
             sidepanelIFrameSrc: "",
             leftpanelIFrameSrc: "",
@@ -435,8 +401,7 @@
                 Value: "cy-GB",
               },
             ],
-            whatIsThisUrl:
-              "https://queue-it.com/what-is-this/?preview=true&customerId=frontenddevelopers&hostUrl=localhost",
+            whatIsThisUrl: "https://queue-it.com/what-is-this/?preview=true&customerId=frontenddevelopers&hostUrl=localhost",
             queueItLogoPointsToUrl:
               "https://queue-it.com/what-is-this/?customerId=frontenddevelopers&eventId=localhost&queueId=00000000-0000-0000-0000-000000000001&language=en-US&hostUrl=localhost",
             welcomeSoundUrls: null,
@@ -475,8 +440,7 @@
           layoutVersion: 1,
           updateInterval: 0,
         },
-        captchaVerifyEndpoint:
-          "https://eu-west-1-verifycaptcha-api.queue-it.net/captchaverify",
+        captchaVerifyEndpoint: "https://eu-west-1-verifycaptcha-api.queue-it.net/captchaverify",
         captchaPublicKey: "6Lc9sScUAAAAALTk003eM2ytnYGGKQaQa7usPKwo",
         showCaptcha: false,
         captchaInvisiblePublicKey: "6LePTyoUAAAAADPttQg1At44EFCygqxZYzgleaKp",
@@ -485,10 +449,7 @@
       });
 
       window.queueViewModel.init();
-      window.PreviewQueueStateVM = new QueueIt.Queue.PreviewQueueStateVM(
-        window.queueViewModel,
-        window.queueViewModel.options.inqueueInfo
-      );
+      window.PreviewQueueStateVM = new QueueIt.Queue.PreviewQueueStateVM(window.queueViewModel, window.queueViewModel.options.inqueueInfo);
 
       $(document).ready(function () {
         ko.applyBindings(window.queueViewModel);
@@ -689,7 +650,10 @@
       }
     </style>
     <script type="text/javascript" src="files/test.js"></script>
+    <script type="text/javascript" src="files/script-for-preview.js"></script>
+
     <script type="text/javascript" src="files/script.js"></script>
+
     <script type="text/javascript" src="files/iframeResizer.min.js"></script>
     <script>
       $(function () {
@@ -703,14 +667,9 @@
 
   <body data-pageid="queue" data-culture="en-US" class="queue">
     <div id="noscript" style="display: none">
-      <div
-        id="BodyTop_nojavascriptenabled"
-        class="nojavascript alert alert-error"
-      >
-        JavaScript is not enabled in your browser. Please enable JavaScript for
-        automated updates. If you do not want to enable JavaScript, you must
-        manually refresh this page to view your place in line. You can also
-        click <a href="#">here</a> to automatically reload this page.
+      <div id="BodyTop_nojavascriptenabled" class="nojavascript alert alert-error">
+        The site requires JavaScript to be enabled! The browser you're using doesn't support JavaScript, or has JavaScript turned off. <br />Try again with a
+        browser that has JavaScript turned on. <a href="https://www.enable-javascript.com/" target="_blank">Learn More</a>
       </div>
     </div>
     <script type="text/javascript">
@@ -728,179 +687,108 @@
       </div>
       <div id="PreviewStatesContent">
         <p class="explain">
-          Components of the <span class="beforeElement">before</span
-          ><span class="queueElement">queue</span> page that will be visible
-          when:
+          Components of the <span class="beforeElement">before</span><span class="queueElement">queue</span> page that will be visible when:
         </p>
         <label class="cblabel">
-          <input
-            type="checkbox"
-            data-bind="checked: PreviewQueueStateVM.connectionLost"
-          />
+          <input type="checkbox" data-bind="checked: PreviewQueueStateVM.connectionLost" />
           The user's internet connection is lost
           <span class="qmark">
             ?
-            <span class="tooltip"
-              >A warning message is displayed instead of the queue information
-              when the user loses internet connection</span
-            >
+            <span class="tooltip">A warning message is displayed instead of the queue information when the user loses internet connection</span>
           </span>
         </label>
         <label class="cblabel queueElement">
-          <input
-            type="checkbox"
-            data-bind="checked: PreviewQueueStateVM.javascriptDisabled"
-          />
+          <input type="checkbox" data-bind="checked: PreviewQueueStateVM.javascriptDisabled" />
           JavaScript is disabled in the user's browser
           <span class="qmark">
             ?
-            <span class="tooltip"
-              >A warning message is displayed on top of the page if JavaScript
-              is not enabled in the user's browser</span
-            >
+            <span class="tooltip">A warning message is displayed on top of the page if JavaScript is not enabled in the user's browser</span>
           </span>
         </label>
         <label class="cblabel queueElement">
-          <input
-            type="checkbox"
-            data-bind="checked: PreviewQueueStateVM.queuePaused"
-          />
+          <input type="checkbox" data-bind="checked: PreviewQueueStateVM.queuePaused" />
           The queue is paused
           <span class="qmark">
             ?
             <span class="tooltip"
-              >While the queue is paused, this information is displayed instead
-              of estimated wait time and/or expected arrival time on the
-              website</span
+              >While the queue is paused, this information is displayed instead of estimated wait time and/or expected arrival time on the website</span
             >
           </span>
         </label>
         <label class="cblabel queueElement">
-          <input
-            type="checkbox"
-            data-bind="checked: PreviewQueueStateVM.firstInLine"
-          />
+          <input type="checkbox" data-bind="checked: PreviewQueueStateVM.firstInLine" />
           The user is first in line
           <span class="qmark">
             ?
             <span class="tooltip"
-              >When the user is first in line, the displayed message changes
-              from "Number of users in queue ahead of you: [number]" to "It is
-              your turn"</span
+              >When the user is first in line, the displayed message changes from "Number of users in queue ahead of you: [number]" to "It is your turn"</span
             >
           </span>
         </label>
         <label class="cblabel queueElement">
-          <input
-            type="checkbox"
-            data-bind="checked: PreviewQueueStateVM.serviceSoon, enable:PreviewQueueStateVM.firstInLine"
-            disabled=""
-          />
+          <input type="checkbox" data-bind="checked: PreviewQueueStateVM.serviceSoon, enable:PreviewQueueStateVM.firstInLine" disabled="" />
           The user is being redirected to the website
           <span class="qmark">
             ?
             <span class="tooltip"
-              >Just before being redirected to the website, redirection
-              information is displayed instead of estimated wait time and/or
-              expected arrival time on the website</span
+              >Just before being redirected to the website, redirection information is displayed instead of estimated wait time and/or expected arrival time on
+              the website</span
             >
           </span>
         </label>
         <label class="cblabel queueElement">
-          <input
-            type="checkbox"
-            data-bind="checked: PreviewQueueStateVM.redirectModal"
-          />
+          <input type="checkbox" data-bind="checked: PreviewQueueStateVM.redirectModal" />
           It's the user's turn and the queue browser tab is inactive
           <span class="qmark">
             ?
             <span class="tooltip"
-              >In this situation, a pop-up message is displayed informing the
-              user when their turn started and asking them to confirm that they
-              want to proceed to the website</span
+              >In this situation, a pop-up message is displayed informing the user when their turn started and asking them to confirm that they want to proceed
+              to the website</span
             >
           </span>
         </label>
-        <label
-          class="cblabel"
-          data-bind="visible:PreviewQueueStateVM.dynamicMessageVisibleByLayout"
-        >
-          <input
-            type="checkbox"
-            data-bind="checked: PreviewQueueStateVM.hideDynamicMessage"
-          />
+        <label class="cblabel" data-bind="visible:PreviewQueueStateVM.dynamicMessageVisibleByLayout">
+          <input type="checkbox" data-bind="checked: PreviewQueueStateVM.hideDynamicMessage" />
           No dynamic message has been posted
           <span class="qmark">
             ?
             <span class="tooltip"
-              >If there is no dynamic message saved on the event console, then
-              the dynamic message section is hidden from the
-              <span class="beforeElement">before</span
-              ><span class="queueElement">queue</span> page for all users</span
+              >If there is no dynamic message saved on the event console, then the dynamic message section is hidden from the
+              <span class="beforeElement">before</span><span class="queueElement">queue</span> page for all users</span
             >
           </span>
         </label>
-        <div
-          id="reminderStatusMesage"
-          class="queueElement"
-          data-bind="visible: PreviewQueueStateVM.reminderFormVisibleByLayout"
-        >
+        <div id="reminderStatusMesage" class="queueElement" data-bind="visible: PreviewQueueStateVM.reminderFormVisibleByLayout">
           <label id="reminderStatusLabel" class="cblabel">
             The user enters:
             <span class="qmark">
               ?
               <span class="tooltip"
-                >After the user enters an email address and clicks on "Notify me
-                by e-mail", a status message is displayed for 60 seconds</span
+                >After the user enters an email address and clicks on "Notify me by e-mail", a status message is displayed for 60 seconds</span
               >
             </span>
           </label>
           <label class="cblabel"
-            ><input
-              type="radio"
-              name="reminderMessage"
-              value="success"
-              data-bind="checked: PreviewQueueStateVM.reminderEmailStatus"
-            />
+            ><input type="radio" name="reminderMessage" value="success" data-bind="checked: PreviewQueueStateVM.reminderEmailStatus" />
             A valid email address
           </label>
           <label class="cblabel"
-            ><input
-              type="radio"
-              name="reminderMessage"
-              value="error"
-              data-bind="checked: PreviewQueueStateVM.reminderEmailStatus"
-            />
-            An empty or invalid email address</label
+            ><input type="radio" name="reminderMessage" value="error" data-bind="checked: PreviewQueueStateVM.reminderEmailStatus" /> An empty or invalid email
+            address</label
           >
-          <button
-            data-bind="click: PreviewQueueStateVM.hideReminderStatusMessage, enable: PreviewQueueStateVM.reminderEmailStatus"
-            disabled=""
-          >
+          <button data-bind="click: PreviewQueueStateVM.hideReminderStatusMessage, enable: PreviewQueueStateVM.reminderEmailStatus" disabled="">
             Hide now
           </button>
         </div>
       </div>
     </div>
     <div id="toppanel" data-bind="visible: layout.topPanelVisible">
-      <iframe
-        id="toppanel_iframe"
-        src="files/top.html"
-        allowtransparency="true"
-        frameborder="0"
-        scrolling="no"
-      ></iframe>
+      <iframe id="toppanel_iframe" src="files/top.html" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
     </div>
 
     <div id="wrapper">
       <div id="leftpanel" data-bind="visible: layout.leftPanelVisible">
-        <iframe
-          id="leftpanel_iframe"
-          src="files/left.html"
-          allowtransparency="true"
-          frameborder="0"
-          scrolling="no"
-        ></iframe>
+        <iframe id="leftpanel_iframe" src="files/left.html" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
       </div>
 
       <div id="main">
@@ -958,11 +846,8 @@
           </div>
           <div id="main-top-message">
             <p class="item">
-              <span
-                id="lbCookieInfo"
-                title="You will not lose your place in line if you close this page, but you must return when your turn comes up."
-                >You can close this page without losing your place in
-                line.</span
+              <span id="lbCookieInfo" title="You will not lose your place in line if you close this page, but you must return when your turn comes up."
+                >You can close this page without losing your place in line.</span
               >
             </p>
           </div>
@@ -971,326 +856,164 @@
         <div id="main_c" class="c">
           <div id="content">
             <div id="header">
-              <h1 class="logo" data-bind="visible: layout.logoVisible">
+              <div id="logocontainer" class="logo" data-bind="visible: layout.logoVisible">
                 <img
-                  src="files/default_images/queue-it_logo.png"
+                  src="./files/assets/new_logo.svg"
                   id="imgCustomerLogo"
-                  alt="logo"
-                  longdesc="company logo for Queue-it"
+                  alt="My Layout Test Event"
+                  longdesc="company logo for Jeff Inc"
+                  data-bind="attr: { src: texts.logoSrc }"
                 />
+              </div>
+              <h1 id="headertext">
+                <span id="lbHeaderH2" data-bind="html: texts.header">You are now in line for concert tickets</span>
               </h1>
-              <h2>
-                <span id="lbHeaderH2" data-bind="html: texts.header"
-                  >You are now in line</span
-                >
-              </h2>
               <div id="headerparagraph">
                 <span id="lbHeaderP" data-bind="html: texts.body"
-                  >You are in line for [Event Name]. When it is your turn, you
-                  will have 10 minutes to enter the website.</span
+                  >You are in line for My Layout Test Event. When it is your turn, you will have 10 minutes to enter the website.</span
                 >
               </div>
               <div id="whatisthis">
                 <a
                   id="hlThisIsQueueIt"
-                  href="https://queue-it.com/what-is-this/?preview=true&amp;customerId=frontenddevelopers&amp;hostUrl=localhost"
+                  href="https://queue-it.com/what-is-this.html?customerId=queuejeff&eventId=preview-layout&queueId=00000000-0000-0000-0000-000000000000&language=en-US&preview=true"
                   target="_blank"
+                  data-bind="attr: { href: texts.whatIsThisUrl }"
+                  rel="noopener noreferrer"
                   >What is this?</a
                 >
               </div>
             </div>
-            <div
-              id="divConfirmRedirectModal"
-              class="modal queueElement"
-              data-bind="visible: showConfirmRedirectDialog()"
-              style="display: none"
-            >
+            <div id="divConfirmRedirectModal" class="modal queueElement" data-bind="visible: showConfirmRedirectDialog()" style="display: none">
               <div class="modal-background"></div>
               <div id="divConfirmRedirectModal_Content" class="modal-content">
                 <div class="modal-body">
                   <h2 id="h2ConfirmRedirect">Your turn started at</h2>
-                  <h3
-                    data-bind="{visible:ticket.windowStartTime()}"
-                    style="display: none"
-                  >
+                  <h3 data-bind="{visible:ticket.windowStartTime()}" style="display: none">
                     <span data-bind="{text:ticket.windowStartTime()}"></span>
                     <span data-bind="{text:ticket.timeZonePostfix()}"></span>
                   </h3>
-                  <p id="pConfirmRedirect">
-                    Please confirm that you want to proceed to the site as soon
-                    as possible
-                  </p>
-                  <button
-                    id="buttonConfirmRedirect"
-                    type="button"
-                    class="btn"
-                    data-bind="click: setActiveClient"
-                  >
-                    <span class="l">Yes, please</span
-                    ><span class="r">&nbsp;</span>
+                  <p id="pConfirmRedirect">Please confirm that you want to proceed to the site as soon as possible</p>
+                  <button id="buttonConfirmRedirect" type="button" class="btn" data-bind="click: setActiveClient">
+                    <span class="l">Yes, please</span><span class="r">&nbsp;</span>
                   </button>
                 </div>
               </div>
             </div>
             <div class="warning-box">
               <p class="beforeElement">
-                <span id="MainPart_lbEventStartsAtText"
-                  >The event will begin at:</span
-                >
-                <span
-                  id="MainPart_lbEventStartTime"
-                  data-bind="text: ticket.eventStartTimeFormatted"
-                  >2:22 PM</span
-                >
-                <span
-                  id="MainPart_lbEventStartTimeTimeZonePostfix"
-                  data-bind="text: ticket.timeZonePostfix"
-                ></span>
+                <span id="MainPart_lbEventStartsAtText">The event will begin at:</span>
+                <span id="MainPart_lbEventStartTime" data-bind="text: ticket.eventStartTimeFormatted">2:22 PM</span>
+                <span id="MainPart_lbEventStartTimeTimeZonePostfix" data-bind="text: ticket.timeZonePostfix"></span>
               </p>
-              <div
-                id="MainPart_divProgressbar"
-                class="progressbar queueElement"
-                data-bind="visible: layout.progressVisible"
-              >
-                <div
-                  id="MainPart_divProgressbar_Progress"
-                  class="progress updated"
-                  style="width: 75%"
-                >
-                  <div
-                    id="MainPart_divProgressbar_Progress_Runner"
-                    class="runner"
-                    data-bind="css: { paused: layout.queueIsPausedVisible }"
-                  ></div>
+              <div id="MainPart_divProgressbar" class="progressbar queueElement" data-bind="visible: layout.progressVisible">
+                <div id="MainPart_divProgressbar_Progress" class="progress updated" style="width: 75%">
+                  <div id="MainPart_divProgressbar_Progress_Runner" class="runner" data-bind="css: { paused: layout.queueIsPausedVisible }"></div>
                 </div>
                 <div id="MainPart_divProgressbar_Clear" class="clear"></div>
               </div>
             </div>
-            <div
-              id="MainPart_lbManualUpdateWarning"
-              style="display: none"
-              class="alert alert-error"
-              data-bind="visible: !isRunning()"
-            >
-              You have lost your connection to the line. Please check your
-              internet connection.
+            <div id="MainPart_lbManualUpdateWarning" style="display: none" class="alert alert-error" data-bind="visible: !isRunning()">
+              You have lost your connection to the line. Please check your internet connection.
             </div>
-            <div
-              id="MainPart_divProgressbarBox"
-              data-bind="visible: isRunning()"
-              class="processbar-box"
-            >
+            <div id="MainPart_divProgressbarBox" data-bind="visible: isRunning()" class="processbar-box">
               <div id="MainPart_divProgressbarBox_Holder" class="holder">
                 <!-- before/idle -->
                 <div id="defaultCountdown" class="beforeElement"></div>
                 <p class="larger beforeElement"></p>
-                <div
-                  id="MainPart_divUsersInQueueCount"
-                  style="display: none"
-                  data-bind="visible: layout.usersInQueueVisible"
-                >
-                  <span id="MainPart_lbUsersInQueueCountText"
-                    >Total number of users in line:</span
-                  >
-                  <span
-                    id="MainPart_lbUsersInQueueCount"
-                    data-bind="text: ticket.usersInQueue"
-                    >0</span
-                  >
+                <div id="MainPart_divUsersInQueueCount" style="display: none" data-bind="visible: layout.usersInQueueVisible">
+                  <span id="MainPart_lbUsersInQueueCountText">Total number of users in line:</span>
+                  <span id="MainPart_lbUsersInQueueCount" data-bind="text: ticket.usersInQueue">0</span>
                 </div>
                 <p></p>
                 <!-- queue -->
-                <p
-                  id="MainPart_pProgressbarBox_Holder_Larger"
-                  class="larger queueElement"
-                >
+                <p id="MainPart_pProgressbarBox_Holder_Larger" class="larger queueElement">
                   <span data-bind="visible: layout.queueNumberVisible">
-                    <span id="MainPart_lbQueueNumberText"
-                      >Your number in line:</span
-                    >
-                    <span
-                      id="MainPart_lbQueueNumber"
-                      data-bind="text: ticket.queueNumber"
-                      >8445</span
-                    >
+                    <span id="MainPart_lbQueueNumberText">Your number in line:</span>
+                    <span id="MainPart_lbQueueNumber" data-bind="text: ticket.queueNumber">8445</span>
                     <br id="MainPart_lbQueueNumberLineBreak" />
                   </span>
-                  <span
-                    id="MainPart_lbUsersInLineAheadOfYouText"
-                    data-bind="visible: layout.usersInLineAheadOfYouVisible"
+                  <span id="MainPart_lbUsersInLineAheadOfYouText" data-bind="visible: layout.usersInLineAheadOfYouVisible"
                     >Number of users in line ahead of you:</span
                   >
-                  <span
-                    id="MainPart_lbUsersInLineAheadOfYou"
-                    data-bind="visible: layout.usersInLineAheadOfYouVisible, text: ticket.usersInLineAheadOfYou"
+                  <span id="MainPart_lbUsersInLineAheadOfYou" data-bind="visible: layout.usersInLineAheadOfYouVisible, text: ticket.usersInLineAheadOfYou"
                     >1758</span
                   >
-                  <span
-                    id="first-in-line"
-                    style="display: none"
-                    data-bind="visible: layout.firstInLineVisible"
-                    >It is your turn</span
-                  >
+                  <span id="first-in-line" style="display: none" data-bind="visible: layout.firstInLineVisible">It is your turn</span>
                   <br
                     id="MainPart_lbUsersInLineAheadOfYouLineBreak"
                     data-bind="visible: layout.usersInLineAheadOfYouVisible() || layout.firstInLineVisible()"
                   />
-                  <span
-                    id="MainPart_lbExpectedServiceTimeText"
-                    data-bind="visible: layout.expectedServiceTimeVisible"
+                  <span id="MainPart_lbExpectedServiceTimeText" data-bind="visible: layout.expectedServiceTimeVisible"
                     >Expected arrival time on the website:</span
                   >
-                  <span
-                    id="MainPart_lbExpectedServiceTime"
-                    data-bind="visible: layout.expectedServiceTimeVisible, text: ticket.expectedServiceTime"
+                  <span id="MainPart_lbExpectedServiceTime" data-bind="visible: layout.expectedServiceTimeVisible, text: ticket.expectedServiceTime"
                     >1:28 PM</span
                   >
                   <span
                     id="MainPart_lbExpectedServiceTimeTimeZonePostfix"
                     data-bind="visible: layout.expectedServiceTimeVisible, text: ticket.timeZonePostfix"
                   ></span>
-                  <span
-                    id="queue-paused"
-                    style="display: none"
-                    data-bind="visible: layout.queueIsPausedVisible"
-                    >The line is paused.</span
-                  >
-                  <br
-                    id="MainPart_lbExpectedServiceTimeLineBreak"
-                    data-bind="visible: layout.expectedServiceTimeVisible() || layout.queueIsPausedVisible()"
-                  />
-                  <span
-                    id="serviced-soon"
-                    style="display: none"
-                    data-bind="visible: layout.servicedSoonVisible()"
-                  >
-                    <span
-                      data-bind="visible: !layout.servicedSoonDelayVisible()"
-                      >Thank you for waiting. You are now being redirected to
-                      the website.</span
-                    >
-                    <span
-                      data-bind="visible: layout.servicedSoonDelayVisible()"
-                      style="display: none"
-                      >You're almost there. You will be redirected to the
-                      website as soon as possible.</span
+                  <span id="queue-paused" style="display: none" data-bind="visible: layout.queueIsPausedVisible">The line is paused.</span>
+                  <br id="MainPart_lbExpectedServiceTimeLineBreak" data-bind="visible: layout.expectedServiceTimeVisible() || layout.queueIsPausedVisible()" />
+                  <span id="serviced-soon" style="display: none" data-bind="visible: layout.servicedSoonVisible()">
+                    <span data-bind="visible: !layout.servicedSoonDelayVisible()">Thank you for waiting. You are now being redirected to the website.</span>
+                    <span data-bind="visible: layout.servicedSoonDelayVisible()" style="display: none"
+                      >You're almost there. You will be redirected to the website as soon as possible.</span
                     >
                   </span>
-                  <span
-                    id="MainPart_lbWhichIsInText"
-                    data-bind="visible: layout.whichIsInVisible"
-                    >Your estimated wait time is:</span
-                  >
-                  <span
-                    id="MainPart_lbWhichIsIn"
-                    data-bind="visible: layout.whichIsInVisible, text: ticket.whichIsIn"
-                    >5 minutes</span
-                  >
+                  <span id="MainPart_lbWhichIsInText" data-bind="visible: layout.whichIsInVisible">Your estimated wait time is:</span>
+                  <span id="MainPart_lbWhichIsIn" data-bind="visible: layout.whichIsInVisible, text: ticket.whichIsIn">5 minutes</span>
                 </p>
-                <ul
-                  id="MainPart_ulProgressbarBox_Holder_Processbar"
-                  class="processbar"
-                >
-                  <li id="defaultViewPb1" class="active">
+                <div id="MainPart_ulProgressbarBox_Holder_Processbar" class="processbar">
+                  <div id="defaultViewPb1" class="active">
                     <span>&nbsp;</span>
-                  </li>
-                </ul>
-                <div
-                  id="MainPart_divProgressbarBox_Holder_LastUpdateTime"
-                  data-bind="visible: isRunning"
-                >
-                  <span
-                    id="MainPart_lbLastUpdateTime"
-                    title="Everything is fine, as long the 'Status last updated' time is updated regularly."
+                  </div>
+                </div>
+                <div id="MainPart_divProgressbarBox_Holder_LastUpdateTime" data-bind="visible: isRunning">
+                  <span id="MainPart_lbLastUpdateTime" title="Everything is fine, as long the 'Status last updated' time is updated regularly."
                     >Status last updated:</span
                   >
-                  <span
-                    id="MainPart_lbLastUpdateTimeText"
-                    data-bind="text: ticket.lastUpdated"
-                    >12:19:30 PM</span
-                  >
-                  <span
-                    id="MainPart_lbLastUpdateTimeTextTimeZonePostfix"
-                    data-bind="text: ticket.timeZonePostfix"
-                  ></span>
+                  <span id="MainPart_lbLastUpdateTimeText" data-bind="text: ticket.lastUpdated">12:19:30 PM</span>
+                  <span id="MainPart_lbLastUpdateTimeTextTimeZonePostfix" data-bind="text: ticket.timeZonePostfix"></span>
                 </div>
               </div>
             </div>
             <div id="MainPart_divBlock" class="block beforeElement">
               <p></p>
             </div>
-            <div
-              id="MainPart_divTimeBox"
-              class="time-box"
-              style=""
-              data-bind="visible: layout.dynamicMessageVisible() &amp;&amp; message()"
-            >
-              <div
-                id="MainPart_divTimeBox_Holder"
-                class="holder"
-                data-bind="if: message"
-              >
+            <div id="MainPart_divTimeBox" class="time-box" style="" data-bind="visible: layout.dynamicMessageVisible() &amp;&amp; message()">
+              <div id="MainPart_divTimeBox_Holder" class="holder" data-bind="if: message">
                 <div id="MainPart_divTimeBox_Holder_Frame" class="frame">
                   <h2>
-                    <span
-                      id="MainPart_h2MessageOnQueueTicket"
-                      data-bind="text: message().header"
-                      >Message last updated:</span
-                    >
-                    <span
-                      id="MainPart_h2MessageOnQueueTicketTimeText"
-                      data-bind="text: message().timestampFormatted"
-                      >12:19 PM</span
-                    >
-                    <span
-                      id="MainPart_h2MessageOnQueueTicketTimeTextTimeZonePostfix"
-                      data-bind="text: message().timeZonePostfix"
-                    ></span>
+                    <span id="MainPart_h2MessageOnQueueTicket" data-bind="text: message().header">Message last updated:</span>
+                    <span id="MainPart_h2MessageOnQueueTicketTimeText" data-bind="text: message().timestampFormatted">12:19 PM</span>
+                    <span id="MainPart_h2MessageOnQueueTicketTimeTextTimeZonePostfix" data-bind="text: message().timeZonePostfix"></span>
                   </h2>
-                  <p
-                    id="MainPart_pMessageOnQueueTicket"
-                    data-bind="creoleText: message().text"
-                  ></p>
+                  <p id="MainPart_pMessageOnQueueTicket" data-bind="creoleText: message().text"></p>
                 </div>
               </div>
             </div>
-            <div
-              id="MainPart_frmReminder2"
-              name="Notify me"
-              class="reminder-form queueElement"
-              data-bind="visible: layout.reminderVisible"
-            >
+            <div id="MainPart_frmReminder2" name="Notify me" class="reminder-form queueElement" data-bind="visible: layout.reminderVisible">
               <h2>
-                <span id="MainPart_lbNotyfyMeText"
-                  >Please notify me when it is my turn:</span
-                >
+                <span id="MainPart_lbNotyfyMeText">Please notify me when it is my turn:</span>
               </h2>
-              <div
-                id="MainPart_divEmailInput"
-                class="row"
-                data-bind="visible: layout.reminderEmailVisible"
-              >
-                <form
-                  id="MainPart_FormEmailInput"
-                  name="Email notification form"
-                >
+              <div id="MainPart_divEmailInput" class="row" data-bind="visible: layout.reminderEmailVisible">
+                <form id="MainPart_FormEmailInput" name="Email notification form">
+                  <label id="MainPart_lblEmailAddress" for="MainPart_inpEmailAddress">Enter email address</label>
                   <input
-                    name="ctl00$MainPart$inpEmailAddress"
-                    type="text"
+                    type="email"
                     id="MainPart_inpEmailAddress"
+                    name="notificationEmailAddress"
                     title="Enter email address"
                     class="item-input"
-                    placeholder="Enter email address"
+                    placeholder="Enter Email"
                     data-bind="value: emailAddress"
+                    autocomplete="on"
+                    aria-labelledby="MainPart_lblEmailAddress"
                   />
-                  <button
-                    type="submit"
-                    class="btn"
-                    id="aUpdateEmail"
-                    data-bind="click: updateNotify"
-                  >
-                    <span class="l">Notify me by e-mail</span
-                    ><span class="r">&nbsp;</span>
+                  <button type="submit" class="btn" id="aUpdateEmail" data-bind="click: updateNotify">
+                    <span class="l">Notify me by e-mail</span><span class="r">&nbsp;</span>
                   </button>
                 </form>
                 <div id="divEmailStatusFrame">
@@ -1301,37 +1024,18 @@
             <div id="MainPart_divExitLine" class="block queueElement">
               <p>
                 <a href="exit.html" id="MainPart_aExitLine">Leave the line</a>
-                <span id="MainPart_lbExitLineLoseYourPlaceText"
-                  >(You will lose your place)</span
-                >
+                <span id="MainPart_lbExitLineLoseYourPlaceText">(You will lose your place)</span>
               </p>
             </div>
           </div>
           <div id="middlepanel" data-bind="visible: layout.middlePanelVisible">
-            <iframe
-              id="middlepanel_iframe"
-              src="files/middle.html"
-              allowtransparency="true"
-              frameborder="0"
-              scrolling="no"
-            ></iframe>
+            <iframe id="middlepanel_iframe" src="files/middle.html" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
           </div>
           <div id="footer">
-            <div
-              id="footer-disclaimer"
-              data-bind="html: texts.disclaimerText"
-            ></div>
-            <div
-              id="footer-direct-link"
-              style=""
-              data-bind="visible: hasQueueId"
-            >
-              <span id="hlLinkToQueueTicket2Text">Queue ID:</span>
-              <a
-                id="hlLinkToQueueTicket2"
-                data-bind="text: queueId, click: toggleQueueIdLinkModal"
-                >00000000-0000-0000-0000-000000000001</a
-              >
+            <div id="footer-disclaimer" data-bind="html: texts.disclaimerText"></div>
+            <div id="footer-direct-link" style="" data-bind="visible: hasQueueId">
+              <button id="hlLinkToQueueTicket2Text">Queue ID:</button>
+              <span id="hlLinkToQueueTicket2" data-bind="text: queueId">24296a6f-3a0f-460b-a887-7b7717bd50cb</span>
             </div>
             <div id="footer-queueit-link">
               <strong class="by">
@@ -1339,21 +1043,42 @@
                   href="https://queue-it.com/what-is-this.html?customerId=gaha&amp;eventId=localhost&amp;queueId=00000000-0000-0000-0000-000000000000&amp;language=en-US&amp;preview=true"
                   id="aThisIsQueueIt"
                   target="_blank"
-                  >QUEUE-IT</a
                 >
+                  <svg id="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4486.51 763.5" aria-labelledby="footer-logo-svg-title" role="img">
+                    <title id="footer-logo-svg-title">Queue-it Logo</title>
+                    <path
+                      class="footer-logo-svg-path"
+                      d="M453,594c-118,0-202-53-232-137-10-26-15-54-15-85s5-59,15-85c30-84,114-137,232-137s203,53,233,137c10,26,15,54,15,85s-5,59-15,85c-31,85-115,137-233,137ZM0,372c0,49,7,94,22,134,54,151,211,238,429,238h447v-199l-249,65v-24c61-13,110-31,149-56,76-46,100-113,100-212C898,90,658,0,450,0,231,0,76,88,22,238,7,278,0,323,0,372Z"
+                    ></path>
+                    <path
+                      class="footer-logo-svg-path"
+                      d="M1159.42,763c104,0,170-52,206-156h20l-38,137h186V249h-186v247c0,79-43,127-117,127-66,0-98-36-98-101V249h-186v302c0,138,71,212,213,212Z"
+                    ></path>
+                    <path
+                      class="footer-logo-svg-path"
+                      d="M2465.02,763c104,0,170-52,206-156h20l-38,137h186V249h-186v247c0,79-43,127-117,127-66,0-98-36-98-101V249h-186v302c0,138,71,212,213,212Z"
+                    ></path>
+                    <path
+                      class="footer-logo-svg-path"
+                      d="M1903.66,763c162,0,277-69,300-173h-185c-19,36-59,56-118,56-55,0-95-16-116-47-12-16-19-38-23-64h440v-39c0-169-110-266-305-266-122,0-218,40-269,113-27,41-45,93-45,155s15,112,43,152c51,73,148,113,278,113Zm-139-322c4-19,10-35,19-48,22-32,63-49,114-49,80,0,122,35,126,97h-259Z"
+                    ></path>
+                    <path
+                      class="footer-logo-svg-path"
+                      d="M3209.26,763c162,0,277-69,300-173h-185c-19,36-59,56-118,56-55,0-95-16-116-47-12-16-19-38-23-64h440v-39c0-169-110-266-305-266-122,0-218,40-269,113-27,41-45,93-45,155s15,112,43,152c51,73,148,113,278,113Zm-139-322c4-19,10-35,19-48,22-32,63-49,114-49,80,0,122,35,126,97h-259Z"
+                    ></path>
+                    <path class="footer-logo-svg-path" d="M3713.82,611c64,0,118-53,118-117s-54-118-118-118-117,54-117,118,53,117,117,117Z"></path>
+                    <path class="footer-logo-svg-path" d="M3922.54,249.64v495h186V249.64h-186Zm-3-46h192V73.64h-192V203.64Z"></path>
+                    <path
+                      class="footer-logo-svg-path"
+                      d="M4160.51,118.5v432c0,148,92,213,212,213,40,0,74-2,111-8v-130c-17,3-37,3-49,3-58,0-88-37-88-102v-161h140v-113h-140V118.5h-186Z"
+                    ></path>
+                  </svg>
+                </a>
               </strong>
             </div>
           </div>
-          <div
-            id="queueIdLinkModal"
-            class="modal queueElement"
-            data-bind="visible: queueIdLinkModalVisible()"
-            style="display: none"
-          >
-            <div
-              class="modal-background"
-              data-bind="click: toggleQueueIdLinkModal"
-            ></div>
+          <div id="queueIdLinkModal" class="modal queueElement" data-bind="visible: queueIdLinkModalVisible()" style="display: none">
+            <div class="modal-background" data-bind="click: toggleQueueIdLinkModal"></div>
             <div id="queueIdLinkModal_Content" class="modal-content">
               <div id="queueIdModal_Header">
                 <span></span>
@@ -1366,11 +1091,7 @@
               </div>
               <div id="queueIdLinkModal_Body" class="modal-body">
                 <p>
-                  <input
-                    id="queueIdLinkURL"
-                    data-bind="value: initialWindowLocation()"
-                    readonly=""
-                  />
+                  <input id="queueIdLinkURL" data-bind="value: initialWindowLocation()" readonly="" />
                   <button
                     id="copyToClipboardButton"
                     data-bind="attr: { 'data-clipboard-target': '#queueIdLinkURL' }"
@@ -1393,33 +1114,15 @@
         <div id="MainPart_divVersionInfo" class="b" title="4.3.48.0"></div>
       </div>
       <div id="rightpanel" data-bind="visible: layout.rightPanelVisible">
-        <iframe
-          id="rightpanel_iframe"
-          src="files/right.html"
-          allowtransparency="true"
-          frameborder="0"
-          scrolling="no"
-        ></iframe>
+        <iframe id="rightpanel_iframe" src="files/right.html" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
     <div id="sidebar" data-bind="visible: layout.sidePanelVisible">
-      <iframe
-        id="sidebar_iframe"
-        src="files/side.html"
-        allowtransparency="true"
-        frameborder="0"
-        scrolling="no"
-      ></iframe>
+      <iframe id="sidebar_iframe" src="files/side.html" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
     </div>
 
     <div id="bottompanel" data-bind="visible: layout.bottomPanelVisible">
-      <iframe
-        id="bottompanel_iframe"
-        src="files/bottom.html"
-        allowtransparency="true"
-        frameborder="0"
-        scrolling="no"
-      ></iframe>
+      <iframe id="bottompanel_iframe" src="files/bottom.html" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
     </div>
   </body>
 </html>

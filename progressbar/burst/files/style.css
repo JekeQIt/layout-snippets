@@ -223,6 +223,7 @@ a {
 }
 /*Blinking icon*/
 #MainPart_ulProgressbarBox_Holder_Processbar {
+  display: none;
 }
 .processbar {
   width: 24px;

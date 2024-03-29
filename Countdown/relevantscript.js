@@ -3,6 +3,10 @@ $.countdown.setDefaults($.countdown.regional[language]);
 $("#defaultCountdown").countdown("option", {
   layout:
     '<span class="countdown_row ">' +
+    '{d<}<span class="countdown_section days">' +
+    '<span class="countdown_amount days">{dnn} </span>' +
+    '<span class="countdown_label days">days</span>' +
+    "</span>{d>}" +
     '{h<}<span class="countdown_section">' +
     '<span class="countdown_amount hrs"> {hnn} </span>' +
     '<span class="countdown_label hrs">hrs</span>' +

@@ -26,8 +26,9 @@ queueViewModel.pageReady(function (data) {
   }
 });
 
-//queueViewModel.modelUpdated(function (data) {
-//});
+queueViewModel.modelUpdated(function (data) {
+  console.log(data.texts.tags);
+});
 
 // $(document).ready(function(){
 //   $('#MainPart_ulProgressbarBox_Holder_Processbar').removeAttr('style')

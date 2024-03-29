@@ -82,7 +82,10 @@
   /* display: none; */
 }
 
-/* Your Estimated arrival time. */
+/*
+Your Estimated arrival time. 
+Your estimated wait time is
+*/
 #MainPart_lbWhichIsInText,
 #MainPart_lbWhichIsIn {
   /* display: none; */
@@ -96,5 +99,18 @@
 /* email */
 #MainPart_frmReminder2 {
   /* display: none; */
+}
+/* leave the line  */
+#MainPart_divExitLine {
+  display: none;
+}
+/* queue-it link logo */
+#footer-queueit-link .by {
+}
+.progressbar .progress .runner {
+  content: url(./default_images/player_right_walk1-0.2.gif);
+}
+.progressbar .progress .runner.paused {
+  content: url(./default_images/person_pause.png);
 }
 /* temp css - end */

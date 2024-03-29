@@ -1,26 +1,13 @@
 queueViewModel.pageReady(function (data) {
   var pageid = $("body").attr("data-pageid");
-  if (pageid == "queue") {
-    $("#reminderStatusMesage").after(
-      '<label class="cblabel queueElement">' +
-        '<input type="range" value="75" id="progressWidthInput" max="100" min="0">' +
-        '<span class="title">&nbsp Width of progress bar</span>' +
-        '<span class="qmark">?' +
-        '<span class="tooltip">Change the width of the progress bar</span>' +
-        "</span>" +
-        "</label>"
-    );
-    // $("#lbHeaderH2").html(`YOU ARE NOW IN LINE`);
-    // $("#lbHeaderP").html(`YOU ARE NOW IN LINE`);
+  var culture = $("body").attr("data-culture");
+  if (pageid == "before") {
+    // $("#lbHeaderH2").html(`[Event Name]`);
+    // $("#lbHeaderP").html(`[Event Name] has not yet begun...`);
   }
-});
-
-$(document).ready(function () {
-  $("#progressWidthInput").change(function () {
-    var inputWidth = $("#progressWidthInput").val();
-    console.log(inputWidth);
-    $("#MainPart_divProgressbar_Progress")
-      .removeAttr("style")
-      .attr("style", "width:" + inputWidth + "%");
-  });
+  if (pageid == "queue") {
+    // $("#lbHeaderH2").html(`YOU ARE NOW IN LINE`);
+    // $("#lbHeaderP").html(`You are in line for...`);
+  }
+  // $("#footer-disclaimer").html("Footer disclaimer");
 });

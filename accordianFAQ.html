@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="iframeResizer.contentWindow.min.js"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+      body {
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+        max-width: 878px;
+        margin: 0 auto;
+      }
+
+      .main-container {
+        background-color: #fff;
+        padding: 10px;
+      }
+      .accordion-container {
+        padding: 0 10px;
+        margin: 0px auto 10px;
+      }
+      .question-answer {
+        padding: 0 10px;
+        margin: 0px auto 10px;
+        border: 1px solid rgba(0, 0, 0, 0);
+      }
+      .accordion-container.active,
+      .question-answer.active {
+        background-color: rgba(204, 204, 204, 0.137);
+      }
+
+      .question-answer:hover {
+        background-color: rgba(204, 204, 204, 0.137);
+        border: 1px solid rgba(204, 204, 204, 0.2);
+      }
+      .question-answer .answer {
+        padding-bottom: 22px;
+      }
+      .accordion {
+        cursor: pointer;
+        outline: none;
+        transition: 0.4s;
+        padding: 22px 22px 22px 24px;
+        position: relative;
+      }
+      .question {
+        font-weight: 700;
+      }
+      .plus-minus {
+        position: absolute;
+        border-radius: 2px;
+        width: 20px;
+        height: 20px;
+        top: 36px;
+        left: 0;
+      }
+      .question-answer .plus-minus {
+        top: 23px;
+      }
+      .plus-minus span {
+        position: absolute;
+        background: #000;
+        transition: 300ms all;
+      }
+      .plus {
+        top: 25%;
+        bottom: 25%;
+        width: 10%;
+        left: 45%;
+      }
+      .minus {
+        left: 25%;
+        right: 25%;
+        height: 10%;
+        top: 45%;
+      }
+
+      .change.plus {
+        transform: rotate(90deg);
+      }
+
+      .change.minus {
+        left: 50%;
+        right: 50%;
+      }
+      .panel {
+        padding: 0 0 0 22px;
+        display: none;
+        overflow: hidden;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="accordion-container">
+        <div class="question-answer">
+          <div class="accordion">
+            <span class="plus-minus"> <span class="plus pm"></span><span class="minus pm"></span> </span>
+
+            <div class="question">quesion</div>
+          </div>
+          <div class="answer panel">Answer</div>
+        </div>
+        <div class="question-answer">
+          <div class="accordion">
+            <span class="plus-minus"> <span class="plus pm"></span><span class="minus pm"></span> </span>
+
+            <div class="question">quesion</div>
+          </div>
+          <div class="answer panel">Answer</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+      var pm;
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          this.parentElement.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          var plusMinus = this.firstElementChild;
+          var pm = this.getElementsByClassName("pm");
+          if (panel.style.display === "block") {
+            panel.style.display = "none";
+            for (let j = 0; j < pm.length; j++) {
+              pm[j].classList.remove("change");
+            }
+          } else {
+            panel.style.display = "block";
+            for (let k = 0; k < pm.length; k++) {
+              pm[k].classList.add("change");
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
