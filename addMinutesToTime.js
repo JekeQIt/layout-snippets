@@ -15,7 +15,7 @@ modalPresentObserver.observe(target, config);
 
 // Function to add minutes to a given time
 function addMinutesToTime(time, minutesToAdd) {
-  timeSpaceRemoved = time.split(" ");
+  timeSpaceRemoved = time.split(" "); //the theme uses the character u+202f, which is not the typical space character
   console.log("time", time);
   // Split the input time into hours and minutes
   let [hours, minutes] = timeSpaceRemoved[0].split(":").map(Number);
