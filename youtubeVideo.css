@@ -1,0 +1,10 @@
+.video {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 516px;
+}
+.video iframe {
+  aspect-ratio: 16 / 9;
+  width: 100% !important;
+}
