@@ -9,11 +9,20 @@ queueViewModel.pageReady(function (data) {
     if ($(".expectedServiceTime").length === 0) {
       $(`<span class="expectedServiceTime"></span>`).insertAfter("#MainPart_lbExpectedServiceTimeText");
     }
-    //Hide if expectedServiceTime if queue is paused
-    if (queueViewModel.layout.queueIsPausedVisible() === true) {
+    // if queue is paused/unpaused show/hide expectedservcietime
+    if (queueViewModel.layout.queueIsPausedVisible()) {
       $(".expectedServiceTime").hide();
     } else {
       $(".expectedServiceTime").show();
+    }
+
+    //Hide expectedServiceTime first in line message present
+    if (queueViewModel.layout.firstInLineVisible() === true) {
+      $(".expectedServiceTime").hide();
+    }
+    //Hide expectedServiceTime if serviced soon message is present
+    if (queueViewModel.layout.servicedSoonVisible() === true) {
+      $(".expectedServiceTime").hide();
     }
     //Get ISO service time
     const isoTimeString = queueViewModel.options.inqueueInfo.ticket.expectedServiceTimeUTC;
@@ -41,11 +50,19 @@ queueViewModel.modelUpdated(function (data) {
   const isoTimeString = data.ticket.expectedServiceTimeUTC;
   convertISOTimeToLocalTime(isoTimeString);
 
-  //Hide if expectedServiceTime if queue is paused
+  //Hide/show  expectedServiceTime if queue is paused/unpaused
   if (data.ticket.queuePaused === true) {
     $(".expectedServiceTime").hide();
   } else {
     $(".expectedServiceTime").show();
+  }
+  //Hide expectedServiceTime first in line message present
+  if (data.layout.firstInLineVisible === true) {
+    $(".expectedServiceTime").hide();
+  }
+  //Hide expectedServiceTime if serviced soon message is present
+  if (data.layout.servicedSoonVisible === true) {
+    $(".expectedServiceTime").hide();
   }
 });
 

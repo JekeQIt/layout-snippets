@@ -8,3 +8,16 @@
   aspect-ratio: 16 / 9;
   width: 100% !important;
 }
+
+/* This is how the embedded youtube video html should be set up */
+/* <div class="video">
+        <iframe 
+          src="https://www.youtube.com/embed/I4TkkS7xePY?si=DiYN7SpU_kBfljSb"
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen>
+        </iframe>
+     </div> */
+
+/* right click on youtube video and select statns for nerds to get aspect ratio */
