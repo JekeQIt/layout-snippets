@@ -15,11 +15,6 @@ queueViewModel.pageReady(function (data) {
     } else {
       $(".expectedServiceTime").show();
     }
-
-    //Hide expectedServiceTime first in line message present
-    if (queueViewModel.layout.firstInLineVisible() === true) {
-      $(".expectedServiceTime").hide();
-    }
     //Hide expectedServiceTime if serviced soon message is present
     if (queueViewModel.layout.servicedSoonVisible() === true) {
       $(".expectedServiceTime").hide();
@@ -56,10 +51,7 @@ queueViewModel.modelUpdated(function (data) {
   } else {
     $(".expectedServiceTime").show();
   }
-  //Hide expectedServiceTime first in line message present
-  if (data.layout.firstInLineVisible === true) {
-    $(".expectedServiceTime").hide();
-  }
+
   //Hide expectedServiceTime if serviced soon message is present
   if (data.layout.servicedSoonVisible === true) {
     $(".expectedServiceTime").hide();
