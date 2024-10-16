@@ -2,7 +2,7 @@
 #MainPart_lbExpectedServiceTimeTimeZonePostfix {
   display: none;
 }
-.queue .processbar-box .holder .expectedServiceTime {
+.queue .processbar-box .holder #expectedServiceTime {
   padding-left: 5px;
   font-family: inherit;
   color: #a05b12;
