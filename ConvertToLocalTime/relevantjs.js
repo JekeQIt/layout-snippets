@@ -10,14 +10,21 @@ queueViewModel.pageReady(function (data) {
     if ($("#expectedServiceTime").length === 0) {
       $(`<span id="expectedServiceTime" data-bind="visible: layout.expectedServiceTimeVisible"></span>`).insertAfter("#MainPart_lbExpectedServiceTimeText");
     }
+    //Create new elements for MessageOnQueueTicketTimeText. overwrite issues can cause the original elements to momentarsily display inaccurate times.
+    if ($("#messageOnQueueTicketTimeText").length === 0) {
+      $(`<span id="messageOnQueueTicketTimeText"></span>`).insertAfter("#MainPart_h2MessageOnQueueTicket");
+    }
+
     //apply the Knockout data-bind that's added to the to the new expected service time element.
     ko.applyBindings(queueViewModel, document.getElementById("expectedServiceTime"));
 
     //Get ISO service time
     const isoTimeString = queueViewModel.options.inqueueInfo.ticket.expectedServiceTimeUTC;
+    const messageUpdateTime = queueViewModel.message().timestamp;
 
     //run conversion function
     convertISOTimeToLocalTime(isoTimeString);
+    convertMessageUpdateTimeToLocalTime(messageUpdateTime);
   }
 
   if (pageid == "after") {
@@ -37,10 +44,13 @@ queueViewModel.pageReady(function (data) {
 queueViewModel.modelUpdated(function (data) {
   //Continue updating expectedServiceTime when model waiting room updates.
   const isoTimeString = data.ticket.expectedServiceTimeUTC;
+  const messageUpdateTime = data.message.timestampUTC;
   //run conversion function
   convertISOTimeToLocalTime(isoTimeString);
+  convertMessageUpdateTimeToLocalTime(messageUpdateTime);
 });
 
+//function to convert expectedServiceTime to local time
 function convertISOTimeToLocalTime(isoTimeString) {
   // Create a Date object from the ISO 8601 string (interpreted as UTC)
   const utcDate = new Date(isoTimeString);
@@ -62,5 +72,29 @@ function convertISOTimeToLocalTime(isoTimeString) {
 
   //update new expectedServiceTime element
   $("#expectedServiceTime").text(localTime.replace(/\s/g, ""));
+  return { localTime, timeZone };
+}
+//function to convert Message last updated time to local time
+function convertMessageUpdateTimeToLocalTime(messageUpdateTime) {
+  // Create a Date object from the ISO 8601 string (interpreted as UTC)
+  const utcDate = new Date(messageUpdateTime);
+
+  // Format the time to display hours and minutes in 12-hour format (standard time)
+  const localTime = utcDate.toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true, // Use 12-hour format (standard time)
+  });
+
+  // Get the time zone abbreviation separately
+  const timeZone = utcDate
+    .toLocaleString("en-US", {
+      timeZoneName: "short", // Only show the time zone abbreviation
+    })
+    .split(" ")
+    .pop(); // Extract the time zone abbreviation from the string
+
+  //update new expectedServiceTime element
+  $("#messageOnQueueTicketTimeText").text(localTime.replace(/\s/g, ""));
   return { localTime, timeZone };
 }

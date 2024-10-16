@@ -8,3 +8,8 @@
   color: #a05b12;
   font-weight: bold;
 }
+
+#MainPart_h2MessageOnQueueTicketTimeText,
+#MainPart_h2MessageOnQueueTicketTimeTextTimeZonePostfix {
+  display: none;
+}
