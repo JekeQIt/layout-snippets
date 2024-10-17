@@ -20,11 +20,14 @@ queueViewModel.pageReady(function (data) {
 
     //Get ISO service time
     const isoTimeString = queueViewModel.options.inqueueInfo.ticket.expectedServiceTimeUTC;
-    const messageUpdateTime = queueViewModel.message().timestamp;
-
     //run conversion function
     convertISOTimeToLocalTime(isoTimeString);
-    convertMessageUpdateTimeToLocalTime(messageUpdateTime);
+
+    //test to see if a dynamic message has been created. There is no timestamp if a messsage has not been created.
+    if (queueViewModel.message() != null) {
+      const messageUpdateTime = queueViewModel.message().timestamp;
+      convertMessageUpdateTimeToLocalTime(messageUpdateTime);
+    }
   }
 
   if (pageid == "after") {
@@ -44,10 +47,14 @@ queueViewModel.pageReady(function (data) {
 queueViewModel.modelUpdated(function (data) {
   //Continue updating expectedServiceTime when model waiting room updates.
   const isoTimeString = data.ticket.expectedServiceTimeUTC;
-  const messageUpdateTime = data.message.timestampUTC;
-  //run conversion function
   convertISOTimeToLocalTime(isoTimeString);
-  convertMessageUpdateTimeToLocalTime(messageUpdateTime);
+
+  //test to see if a dynamic message has been created. There is no timestamp if a messsage has not been created.
+  if (data.message != null) {
+    const messageUpdateTime = data.message.timestampUTC;
+    //run conversion function
+    convertMessageUpdateTimeToLocalTime(messageUpdateTime);
+  }
 });
 
 //function to convert expectedServiceTime to local time
