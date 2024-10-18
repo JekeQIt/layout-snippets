@@ -14,6 +14,10 @@ queueViewModel.pageReady(function (data) {
     if ($("#messageOnQueueTicketTimeText").length === 0) {
       $(`<span id="messageOnQueueTicketTimeText"></span>`).insertAfter("#MainPart_h2MessageOnQueueTicket");
     }
+    //create new element for windowStartTime
+    if ($("#windowStartTime").length === 0) {
+      $(`<div id="windowStartTime"></div>`).appendTo("#pConfirmRedirectTime");
+    }
 
     //apply the Knockout data-bind that's added to the to the new expected service time element.
     ko.applyBindings(queueViewModel, document.getElementById("expectedServiceTime"));
@@ -43,7 +47,8 @@ queueViewModel.pageReady(function (data) {
     }
   }
 });
-
+//model update
+var windowStartTimeSet = false;
 queueViewModel.modelUpdated(function (data) {
   //Continue updating expectedServiceTime when model waiting room updates.
   const isoTimeString = data.ticket.expectedServiceTimeUTC;
@@ -54,6 +59,13 @@ queueViewModel.modelUpdated(function (data) {
     const messageUpdateTime = data.message.timestampUTC;
     //run conversion function
     convertMessageUpdateTimeToLocalTime(messageUpdateTime);
+  }
+  //test to see if show confirm redirect modal is open. if it is, display current time in local timezone.
+  if (windowStartTimeSet === false) {
+    if (queueViewModel.showConfirmRedirectDialog() === true) {
+      //run conversion function
+      convertWindowStartTimeToLocalTime();
+    }
   }
 });
 
@@ -69,17 +81,8 @@ function convertISOTimeToLocalTime(isoTimeString) {
     hour12: true, // Use 12-hour format (standard time)
   });
 
-  // Get the time zone abbreviation separately
-  const timeZone = utcDate
-    .toLocaleString("en-US", {
-      timeZoneName: "short", // Only show the time zone abbreviation
-    })
-    .split(" ")
-    .pop(); // Extract the time zone abbreviation from the string
-
   //update new expectedServiceTime element
   $("#expectedServiceTime").text(localTime.replace(/\s/g, ""));
-  return { localTime, timeZone };
 }
 //function to convert Message last updated time to local time
 function convertMessageUpdateTimeToLocalTime(messageUpdateTime) {
@@ -93,15 +96,23 @@ function convertMessageUpdateTimeToLocalTime(messageUpdateTime) {
     hour12: true, // Use 12-hour format (standard time)
   });
 
-  // Get the time zone abbreviation separately
-  const timeZone = utcDate
-    .toLocaleString("en-US", {
-      timeZoneName: "short", // Only show the time zone abbreviation
-    })
-    .split(" ")
-    .pop(); // Extract the time zone abbreviation from the string
-
   //update new expectedServiceTime element
   $("#messageOnQueueTicketTimeText").text(localTime.replace(/\s/g, ""));
-  return { localTime, timeZone };
+}
+///function to convert Window Start time. Only Runs once, when confirmRedirct modal opens
+function convertWindowStartTimeToLocalTime() {
+  const now = new Date(); //
+  console.log(now);
+
+  // Format the time to display hours and minutes in 12-hour format (standard time)
+  const localTime = now.toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true, // Use 12-hour format (standard time)
+  });
+
+  //update new expectedServiceTime element
+  $("#windowStartTime").text(localTime.replace(/\s/g, ""));
+  windowStartTimeSet = true;
+  console.log("windowStartTimeSet", windowStartTimeSet);
 }
