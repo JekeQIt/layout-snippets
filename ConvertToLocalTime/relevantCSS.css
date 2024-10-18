@@ -13,3 +13,6 @@
 #MainPart_h2MessageOnQueueTicketTimeTextTimeZonePostfix {
   display: none;
 }
+#pConfirmRedirectTime > span {
+  display: none;
+}
