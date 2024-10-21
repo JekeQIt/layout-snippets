@@ -2,6 +2,15 @@ queueViewModel.pageReady(function (data) {
   var pageid = $("body").attr("data-pageid");
   var culture = $("body").attr("data-culture");
 
+  //Create new element for MessageOnQueueTicketTimeText. overwrite issues can cause the original elements to momentarsily display inaccurate times.
+  if ($("#messageOnQueueTicketTimeText").length === 0) {
+    $(`<span id="messageOnQueueTicketTimeText"></span>`).insertAfter("#MainPart_h2MessageOnQueueTicket");
+  }
+  //test to see if a dynamic message has been created. There is no timestamp if a messsage has not been created.
+  if (queueViewModel.message() != null) {
+    const messageUpdateTime = queueViewModel.message().timestamp;
+    convertMessageUpdateTimeToLocalTime(messageUpdateTime);
+  }
   if (pageid == "before") {
   }
 
@@ -10,10 +19,7 @@ queueViewModel.pageReady(function (data) {
     if ($("#expectedServiceTime").length === 0) {
       $(`<span id="expectedServiceTime" data-bind="visible: layout.expectedServiceTimeVisible"></span>`).insertAfter("#MainPart_lbExpectedServiceTimeText");
     }
-    //Create new elements for MessageOnQueueTicketTimeText. overwrite issues can cause the original elements to momentarsily display inaccurate times.
-    if ($("#messageOnQueueTicketTimeText").length === 0) {
-      $(`<span id="messageOnQueueTicketTimeText"></span>`).insertAfter("#MainPart_h2MessageOnQueueTicket");
-    }
+
     //create new element for windowStartTime
     if ($("#windowStartTime").length === 0) {
       $(`<div id="windowStartTime"></div>`).appendTo("#pConfirmRedirectTime");
@@ -26,12 +32,6 @@ queueViewModel.pageReady(function (data) {
     const isoTimeString = queueViewModel.options.inqueueInfo.ticket.expectedServiceTimeUTC;
     //run conversion function
     convertISOTimeToLocalTime(isoTimeString);
-
-    //test to see if a dynamic message has been created. There is no timestamp if a messsage has not been created.
-    if (queueViewModel.message() != null) {
-      const messageUpdateTime = queueViewModel.message().timestamp;
-      convertMessageUpdateTimeToLocalTime(messageUpdateTime);
-    }
   }
 
   if (pageid == "after") {
