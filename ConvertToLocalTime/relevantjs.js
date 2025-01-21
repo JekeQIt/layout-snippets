@@ -72,7 +72,7 @@ queueViewModel.modelUpdated(function (data) {
 //function to convert expectedServiceTime to local time
 function convertISOTimeToLocalTime(isoTimeString) {
   // Create a Date object from the ISO 8601 string (interpreted as UTC)
-  const utcDate = new Date(isoTimeString);
+  const utcDate = new Date(isoTimeString + "Z"); // Append "Z" to treat it as UTC
 
   // Format the time to display hours and minutes in 12-hour format (standard time)
   const localTime = utcDate.toLocaleString("en-US", {
@@ -81,7 +81,7 @@ function convertISOTimeToLocalTime(isoTimeString) {
     hour12: true, // Use 12-hour format (standard time)
   });
 
-  //update new expectedServiceTime element
+  //update new expectedServiceTime element and remove space between time and meridiem
   $("#expectedServiceTime").text(localTime.replace(/\s/g, ""));
 }
 //function to convert Message last updated time to local time
