@@ -21,13 +21,5 @@ $("#defaultCountdown").countdown("option", {
     "</span>" +
     "</span>",
   expiryText:
-    '<span class="countdown_row">' +
-    '<span class="countdown_section">' +
-    '<span class="countdown_amount mins"> 00 </span>' +
-    '<span class="countdown_label mins">min</span>' +
-    "</span>" +
-    '<span class="countdown_section">' +
-    '<span class="countdown_amount secs"> 00 </span>' +
-    '<span class="countdown_label secs">sec</span>' +
-    "</span></span>",
+    '<span class="countdown_row">' + '<span class="countdown_section">' + '<span class="countdown_amount mins"> 00 </span>' + '<span class="countdown_label mins">mins</span>' + "</span>" + '<span class="countdown_section">' + '<span class="countdown_amount secs"> 00 </span>' + '<span class="countdown_label secs">secs</span>' + "</span>" + "</span>",
 });

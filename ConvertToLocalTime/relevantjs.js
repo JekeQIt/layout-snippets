@@ -1,6 +1,9 @@
+console.log("timezone script v4");
+
 queueViewModel.pageReady(function (data) {
   var pageid = $("body").attr("data-pageid");
   var culture = $("body").attr("data-culture");
+  console.log("pageid is:", pageid);
 
   //Create new element for MessageOnQueueTicketTimeText. overwrite issues can cause the original elements to momentarsily display inaccurate times.
   if ($("#messageOnQueueTicketTimeText").length === 0) {
@@ -8,8 +11,11 @@ queueViewModel.pageReady(function (data) {
   }
   //test to see if a dynamic message has been created. There is no timestamp if a messsage has not been created.
   if (queueViewModel.message() != null) {
-    const messageUpdateTime = queueViewModel.message().timestamp;
-    convertMessageUpdateTimeToLocalTime(messageUpdateTime);
+    const messageUpdateTime = queueViewModel.message().timestamp.toISOString();
+    console.log("messageUpdateTime is", messageUpdateTime);
+    const messageUpdateTimeZ = new Date(messageUpdateTime);
+    console.log("messageUpdateTimeZ is", messageUpdateTimeZ);
+    convertMessageUpdateTimeToLocalTime(messageUpdateTimeZ.toISOString());
   }
   if (pageid == "before") {
   }
@@ -71,8 +77,9 @@ queueViewModel.modelUpdated(function (data) {
 
 //function to convert expectedServiceTime to local time
 function convertISOTimeToLocalTime(isoTimeString) {
+  console.log("isoTimeString", isoTimeString);
   // Create a Date object from the ISO 8601 string (interpreted as UTC)
-  const utcDate = new Date(isoTimeString + "Z"); // Append "Z" to treat it as UTC
+  const utcDate = new Date(isoTimeString);
 
   // Format the time to display hours and minutes in 12-hour format (standard time)
   const localTime = utcDate.toLocaleString("en-US", {
@@ -81,12 +88,13 @@ function convertISOTimeToLocalTime(isoTimeString) {
     hour12: true, // Use 12-hour format (standard time)
   });
 
-  //update new expectedServiceTime element and remove space between time and meridiem
+  //update new expectedServiceTime element
   $("#expectedServiceTime").text(localTime.replace(/\s/g, ""));
 }
 //function to convert Message last updated time to local time
 function convertMessageUpdateTimeToLocalTime(messageUpdateTime) {
   // Create a Date object from the ISO 8601 string (interpreted as UTC)
+
   const utcDate = new Date(messageUpdateTime);
 
   // Format the time to display hours and minutes in 12-hour format (standard time)
@@ -101,8 +109,9 @@ function convertMessageUpdateTimeToLocalTime(messageUpdateTime) {
 }
 ///function to convert Window Start time. Only Runs once, when confirmRedirct modal opens
 function convertWindowStartTimeToLocalTime() {
-  const now = new Date(); //
-  console.log(now);
+  const now = new Date();
+  console.log("convertWindowStartTimeToLocalTime()");
+  console.log("now", now);
 
   // Format the time to display hours and minutes in 12-hour format (standard time)
   const localTime = now.toLocaleString("en-US", {
@@ -112,7 +121,9 @@ function convertWindowStartTimeToLocalTime() {
   });
 
   //update new expectedServiceTime element
+  console.log("localTime is:", localTime);
   $("#windowStartTime").text(localTime.replace(/\s/g, ""));
+  console.log("localTime.replace() is:", localTime.replace(/\s/g, ""));
   windowStartTimeSet = true;
   console.log("windowStartTimeSet", windowStartTimeSet);
 }

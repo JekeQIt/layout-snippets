@@ -1,0 +1,34 @@
+#defaultCountdown {
+  margin: 32px 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+.countdown_row {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+}
+.countdown_section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 75px;
+}
+.countdown_amount {
+  font-size: 58.86px;
+  line-height: 1;
+  font-weight: 600;
+}
+.countdown_label {
+  font-size: 13.38px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.5);
+}
+.colon {
+  font-size: 49.16px;
+  line-height: 1.5;
+  font-weight: 600;
+  padding: 0 32px;
+  height: 58.86px;
+  line-height: 1;
+}
