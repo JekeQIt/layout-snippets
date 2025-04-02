@@ -12,11 +12,7 @@ if ($(".key-required").length > 0) {
       $("#btnSubmit_Email").text(" ");
       $("#btnSubmit_Code").text(" ");
       $("#invitee_email").attr("placeholder", "Email address");
-      if (culture === "fr-CA") {
-        $("#keyRequiredHeader").text("Veuillez vérifier votre compte.");
-        $("#keyRequiredEmailText").text("Saisissez le courriel associé à votre compte XPLR Pass™.");
-        $("#invitee_email").attr("placeholder", "Adresse e-mail");
-      }
+
       emailObserver.disconnect();
     }
   });
@@ -37,9 +33,6 @@ if ($(".key-required").length > 0) {
   const errorObserver = new MutationObserver(function (mutations) {
     if ($("#error_box").text() === "Your email cannot be verified. Please enter the email registered for this event.") {
       $("#error_box").text("The email you entered was incorrect. Please try again.");
-      if (culture === "fr-CA") {
-        $("#error_box").text("Le courriel que vous avez saisi est incorrect. Veuillez réessayer.");
-      }
       console.log("errorObserver stop");
     }
   });
