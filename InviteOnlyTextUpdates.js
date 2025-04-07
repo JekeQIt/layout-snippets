@@ -54,5 +54,3 @@ queueViewModel.pageReady(function (data) {
     errorBoxObserver.observe(target, config);
   }
 });
-
-queueViewModel.pageReady(function (data) {});
